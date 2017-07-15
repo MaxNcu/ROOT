@@ -1,0 +1,12 @@
+#tr-shortTitle{
+	display:none;
+}
+#tr-viewGroupIds{
+	display:none;
+}
+#tr-attachments, #tr-media, #edui1_toolbarbox{
+	display:none;
+}
+#tr-author{
+	width:100%;
+}

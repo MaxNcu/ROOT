@@ -1,0 +1,35 @@
+注册: ROOT/WEB-INFO/t/cms/www/default/member/register.html
+登入: ROOT/WEB-INFO/t/cms/www/default/member/login_input.html
+搜索结果页: ROOT/WEB-INFO/t/cms/www/default/special/search_result.html
+首页: ROOT/WEB-INFO/t/cms/www/default/index/index.html
+联系我们: ROOT/WEB-INFO/t/cms/www/default/special/guestbook_index.html
+明细页: ROOT/WEB-INFO/t/cms/www/default/content/news2.html
+个人中心:
+  新建信息:ROOT/WEB-INFO/t/cms/www/default/member/contribute_add.html
+  修改信息:ROOT/WEB-INFO/t/cms/www/default/member/contribute_edit.html
+
+
+内容: ROOT/WEB-INFO/jeecms_sys/content/list.html
+  发布内容:ROOT/WEB-INFO/jeecms_sys/content/add.html
+             ROOT/WEB-INF/ftl/jeecms/ui/td.ftl
+发布: ROOT/WEB-INFO/jeecms_sys/content/add.html
+分类: ROOT/WEB-INFO/jeecms_sys/channel/news.html
+      ROOT/WEB-INFO/jeecms_sys/channel/pic.html
+
+
+
+
+文件类型
+ftl: freemarker相应的内容文件
+
+
+Spring配置文件
+/ROOT/WEB-INF/web.xml
+  serverlet配置文件
+  freemarker配置文件: ROOT/WEB-INF/config/jeecms/jeecms-context.xml
+  /ROOT/WEB-INF/config/
+
+数据格式:
+    地址(description): <p class='hide-element'>国家,地区</p>~公司地址
+    ctags: 'tags+主营业务'       （中间以,分割）
+    内容: txt<br><p class='hide-element'>tags:${ctags}#${地址}

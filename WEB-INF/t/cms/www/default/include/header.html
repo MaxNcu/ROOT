@@ -1,0 +1,75 @@
+﻿<link rel="stylesheet" type="text/css" href="/${res}/css/login.css" />
+<link type="text/css" rel="stylesheet" href="/${res}/css/other/basic.css" />
+<script>
+function qkeypress(){
+	var q=$("input[name=q]");
+	if(q.val().trim()!=""){
+		$("input[name=q]").autocomplete("enable");
+	}else{
+		$("input[name=q]").autocomplete("disable");
+	}
+}
+</script>
+<header class="header rel">
+  <div class="container clearfix ">
+    <a class="logo_x" href="${base}/"></a>
+    <div class="search">
+      <form action="${base}/search.jspx" target="_blank" id="searchForm">
+        <input type="text" name="q" value="${oldq!}" maxlength="50" autocomplete="off" class="searchCon" ><input type="submit" value="" class="searchMenu">
+      </form>
+    </div>
+    <div class='icons'>
+      <div class='icon-block' id='language'>
+        <div class='icon-img'></div>
+        <div class='icon-text'><p>中文</p></div>
+      </div>
+      <div class='icon-block' id='contact'>
+        <div class='icon-img'></div>
+        <div class='icon-text'><a href='/guestbook.jspx'>联系我们</a></div>
+      </div>
+      <div class='icon-block' id='wechat'>
+        <div class='icon-img'></div>
+        <div class='icon-text'><a>微信服务号</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="header-r">
+	  <div class='header-wrapper'> 
+	    [#include "../include/nav.html"]
+	                
+	    <div id="loginCsiDiv" style="float:left;">
+	    </div>
+	    
+	    <script type="text/javascript">
+			$(function(){
+				[#if site.config.ssoEnable]
+				Cms.loginSSO('${base}');
+				[/#if]
+				Cms.loginCsi("${base}","loginCsiDiv",{"returnUrl":"${location}"});
+			});
+	    </script> 
+	  </div>
+  </div>
+  <div class='expander' id='business'>
+    <ul class='menu'>
+      <li><a href='http://127.0.0.1:8080/business/index.jhtml?tags=fuzhuang'>服装</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/business/index.jhtml?tags=xiewa'>鞋袜</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/business/index.jhtml?tags=xiangbao'>首饰箱包</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/business/index.jhtml?tags=jiafang'>家纺</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/business/index.jhtml?tags=dianzichanpin'>电子产品</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/business/index.jhtml?tags=qita'>其他</a>&nbsp;&nbsp;|</li>
+    </ul>
+  </div>
+  <div class='expander hide-element' id='logistics'>
+    <ul class='menu'>
+      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=guojiyunshu'>国际运输</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=guoneiyunshu'>国内运输</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=cangchu'>仓储</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=kuaidi'>快递</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=qingguan'>清关</a>&nbsp;&nbsp;|</li>
+      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=qita'>其他</a>&nbsp;&nbsp;|</li>
+    </ul>
+  </div>
+</header>
+<script src="/${res}/js/other/basic.js" type="text/javascript" charset="UTF-8"></script>
+<script src="http://malsup.github.io/jquery.form.js"></script>

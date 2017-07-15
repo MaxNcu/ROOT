@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="${channel.keywords!}"/>
+<meta http-equiv="description" content="${channel.description!}"/>
+<title>${channel.title!channel.name} - ${site.name} - Powered by JEECMS</title>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript" src="/${res}/js/jquery.SuperSlide.js"></script>
+<link type="text/css" rel="stylesheet" href="/${res}/css/index.css" />
+
+<!--[if lt IE 9]> 
+<script src="/${res}/js/html5shiv.min.js"></script>
+<script src="/${res}/js/respond.min.js"></script>
+
+<![endif]-->
+<script type="text/javascript">
+$(function() {
+	Cms.channelViewCount("${base}","${channel.id}");
+	Cms.siteFlow("${base}", location.href, document.referrer,"${site.config.flowSwitch?string}");
+});
+</script>
+<head>
+<body>
+
+[#include "../include/header.html"/]
+[#if request.queryString??]
+	        [#assign key=request.queryString]
+	        [#assign word=key?split('=')[1]]
+            [#if word=='xiangbao']
+              [#assign keywords='箱包'/]
+            [#elseif word='dianzichanpin']
+              [#assign keywords='电子产品']
+            [#elseif word='fuzhuang']
+              [#assign keywords='服装']
+            [#elseif word='xiewa']
+              [#assign keywords='鞋袜']
+            [#elseif word='jiafang']
+              [#assign keywords='家纺']
+            [/#if]
+          [#else]
+            [#assign keywords='none']
+            [#assign key='none']
+          [/#if]
+<div class="main container clearfix home-top">
+    <div class='category'>
+    <p>贸易</p>
+    [#if keywords!='none']
+    <p>&nbsp;>&nbsp;</p>   
+    <p>${keywords}</p>
+    [/#if]
+  </div>
+  <hr>
+  <div class='location hide-element'>
+    <ul class='locate-cate'>
+      <li>意大利</li>
+      <p>&nbsp;>&nbsp;</p>
+      <li>拉齐奥</li>
+      <p>&nbsp;>&nbsp;</p>
+      <li>罗马</li>
+    </ul>
+  </div>
+  <div class='left-bar'>
+    <div class='left-content' id='left-search'>
+      <div class='search-logo'>
+      
+      </div>
+      <div class='left-search-category'>
+      <form action="/search.jspx" target="_blank" id="searchForm">
+	      <div class='search-content' id='location'>
+	        <p>目标城市: </p>
+	        <input class='s-content'></input>
+	        <!--  
+	        <select id='country-s'>
+                <option value='Italy意大利'>意大利</option>
+                <option value='France法国'>法国</option>
+                <option value='Britan英国'>英国</option>
+                <option value='German德国'>德国</option>
+                </select>
+                <p>区域：</p>
+                <select id='distinct-s'>
+                <option value='Lazio'>拉齐奥</option>
+                <option value='Liguria' selected='selected'>利古里亚</option>
+                <option value='Lombardia'>伦巴第 </option>
+                <option value='Marche'>马尔凯 </option>
+                <option value='Molise'>莫利塞</option>
+                <option value='Piemonte'>皮埃蒙特 </option>
+                <option value='Puglia'>普利亚 </option>
+                <option value='Sardegna'>撒丁* </option>
+                <option value='Sicilia'>西西里* </option>
+                <option value='Toscana'>托斯卡纳 </option>
+                <option value='Trentino-Alto_Adige'>特伦蒂诺-上阿迪杰*</option>
+                <option value='Umbria'>翁布里亚 </option>
+                <option value='Valle_d_Aosta'>瓦莱达奥斯塔* </option>
+                <option value='Veneto'>威尼托 </option>
+                <option value='Friuli-Venezia_Giulia'>弗留利-威尼斯朱利亚*</option>
+                <option value='Emilia-Romagna'>艾米利亚-罗马涅 </option>
+                <option value='Campania'>坎帕尼亚 </option>
+                <option value='Calabria'>卡拉布里亚 </option>
+                <option value='Basilicata'>巴西利卡塔 </option>
+                <option value='Abruzzi'>阿布鲁佐 </option>
+                </select>
+                -->
+           </div>
+          <div class='search-content' id='zipcode'>
+	        <p>&emsp;&emsp;邮编: </p><input class='s-content'></input>
+	      </div>
+	      <div class='search-content' id='keyword'>
+	        <p>&emsp;关键字: </p><input class='s-content required'></input>
+	      </div>
+	      <div class='radio-content'>
+	        <input type='checkbox' value='批发'>批发
+	        <input type='checkbox' value='零售'>零售
+	        <input class='hide-element s-content radio-value'>
+	      </div>
+	      <input class='hide-element' type='text' name='q' value='+' id='left-hide-search'>
+	      <div class='search-submit'>
+	        <input type='submit' value='搜索' class='left-search-button'>
+	      </div>
+	      </form>
+	  </div>
+    </div>
+    <div class='left-content' style='background:rgb(212,212,212);'>
+    
+    </div>
+  </div>
+  <div class='right-result'>
+	  <section class="content_w850">
+	    [@cms_content_page  orderBy='4' channelId='75' channelOption='0' dateFormat='yyyy-MM-dd HH-mm']
+	    <div class="searchList">
+	      [#list tag_pagination.list as s]
+	        [#assign tags=s.tagStr]
+	        [#assign orign=0]
+            [#list tags?split('+')[1]?split(',') as tag]
+              [#if tag==keywords]
+                [#assign orign=orign+1]
+              [#else]
+                [#assign orign=orign+0]
+              [/#if]
+            [/#list]
+          <div [#if orign==1 || key=='none' ] class='item' [#else] class='item hide-element'[/#if]>
+            <div class='item-left'>
+	        <div class='top-line'>
+		        <div class="search-title"><a href="${s.url}" title="${s.title}" target="_blank">${s.title?replace('${q!}', "<span>${q!}</span>")}</a></div>
+		        <div class='detail'>
+		          <p><a href='${s.url}'>查看详情</a></p>
+		        </div>
+	        </div>
+	        <div class='search-category'>
+	          <a href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
+	          <p>></p>
+	          <p class='tags'>${s.tagStr?split('+')[1]?replace(',','/')}</p>
+	        </div>
+	        [#if s.txt??]
+	        <div class="search-txt">
+	          [#assign bb=s.txt?replace("<(S*?)[^>]*>.*?|<.*? />","","ri")?replace("&nbsp;","","ri")/]
+	          [@text_cut s=bb! len=50 append='...'/]
+	        </div>
+	        [/#if]
+	        <div class='company-all'>
+		        <div class='company-info' style='border-bottom:1px solid rgb(194,194,194);'>
+		          <div class='info-title'>
+		            <p>公司地址</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>${s.description}</p>
+		          </div>
+		        </div>
+		        <div class='company-info'>
+		          <div class='info-title'>
+		            <p>联系方式</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>${s.author}</p>
+		          </div>
+		        </div>
+	        </div>
+	        </div>
+	        <div class='item-right'>
+	          <img  class='item-img' src="${s.typeImg!}">
+	        </div>
+	      </div>
+	      [/#list]
+	    </div>
+	     [#include "../include/page.html"/] 
+	     [/@cms_content_page]	  
+	  </section>
+  </div>
+  <div class='right-adver'>
+    <div class='adver-content'>
+      <p>广告图片位</p>
+    </div>
+    <div class='adver-content'>
+      <p>广告图片位</p>
+    </div>
+    <div class='adver-content'>
+      <p>广告图片位</p>
+    </div>
+    <div class='adver-content'>
+      <p>广告图片位</p>
+    </div>
+  </div>
+
+</div>
+[#include "../include/footer.html"/]
+[#include "../include/right-fixed.html"/]
+</body>
+</html>

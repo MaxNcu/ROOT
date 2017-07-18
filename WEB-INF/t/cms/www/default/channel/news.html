@@ -154,7 +154,7 @@ $(function() {
 	        </div>
 	        [#if s.txt??]
 	        <div class="search-txt">
-	          [#assign bb=s.txt?replace("<(S*?)[^>]*>.*?|<.*? />","","ri")?replace("&nbsp;","","ri")/]
+	          [#assign bb=s.txt?replace("&nbsp;","","ri")/]
 	          [@text_cut s=bb! len=50 append='...'/]
 	        </div>
 	        [/#if]
@@ -164,7 +164,16 @@ $(function() {
 		            <p>公司地址</p>
 		          </div>
 		          <div class='info-txt'>
-		            <p>${s.description}</p>
+		            <p>
+		            [#assign temp=s.description?split("~")]
+		            [#if temp?size>1]
+		            [#assign des=temp[1]?replace("</p>","")]
+		            ${des}
+		            [#else]
+		            ${temp[0]}
+		            [/#if]
+		            </p>
+
 		          </div>
 		        </div>
 		        <div class='company-info'>

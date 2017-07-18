@@ -279,7 +279,7 @@ function changePattern(){
                 </select>
                 </div>
                 <textarea id='description' class='hide-element' name="description" rows="3" cols="70" maxlength="255">${content.description}</textarea>
-                <textarea id='description-show' name="description-show" rows="3" cols="70" maxlength="255"></textarea>
+                <textarea id='description-show' name="description-show" class="required" rows="3" cols="70" maxlength="255"></textarea>
                 </td>
               </tr>
               <tr class='hide-element'>
@@ -323,8 +323,9 @@ function changePattern(){
               <tr>
                 <td class="tggl-top">内容</td>
                 <td>
-                 <textarea id="txt" class='hide-element' name="txt">${content.txt!}</textarea> 
-                 <textarea id="txt-show" name="txt-show"></textarea>    
+                 
+                 <textarea id="txt-show" name="txt-show" class="required">${content.txt?split('<br')[0]?replace("<(S*?)[^>]*>.*?|<.*? />","","ri")}</textarea>    
+                 <textarea id="txt" class='hide-element' name="txt">${content.txt}</textarea> 
                  </select>
                 </td>
               </tr>

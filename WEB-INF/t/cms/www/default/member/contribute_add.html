@@ -222,9 +222,9 @@ function changePattern(){
               <tr class='tags-tr hide-element' id='serviceid'>
                 <td class="tggl-top">主营业务</td>
                 <td>
-                  <input id='ctags' type="text" name="tagStr" maxlength="255" class="member-change hide-element" style="width:300px;" />
+                  <input id='ctags' type="text" name="tagStr" maxlength="255" class="member-change hide-element required" style="width:300px;" />
                   <div class='tag-check' id='business-check'>
-                  <p><input type="checkbox" name="vehicle" value="服装" />服装</p>
+                  <p><input class='required' type="checkbox" name="vehicle" value="服装" />服装</p>
                   <p><input type="checkbox" name="vehicle" value="箱包" />箱包</p>
                   <p><input type="checkbox" name="vehicle" value="鞋袜" />鞋袜</p>
                   <p><input type="checkbox" name="vehicle" value="电子产品" />电子产品</p>
@@ -278,9 +278,11 @@ function changePattern(){
                 <option value='Basilicata'>巴西利卡塔 </option>
                 <option value='Abruzzi'>阿布鲁佐 </option>
                 </select>
+                <p>城市：</p>
+                
                 </div>
                 <textarea id='description' class='hide-element' name="description" rows="3" cols="30" maxlength="255"></textarea>
-                <textarea id='description-show' name="description-show" rows="3" cols="30" maxlength="255"></textarea>               
+                <textarea id='description-show' name="description-show" class="required" rows="3" cols="30" maxlength="255"></textarea>               
                 <script text='javascript/text'>
                  
                 </script>

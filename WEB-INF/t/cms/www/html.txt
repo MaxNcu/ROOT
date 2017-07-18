@@ -27,7 +27,8 @@ Spring配置文件
 /ROOT/WEB-INF/web.xml
   serverlet配置文件
   freemarker配置文件: ROOT/WEB-INF/config/jeecms/jeecms-context.xml
-  /ROOT/WEB-INF/config/
+  /ROOT/WEB-INF/config/ OOT/WEB-INF/config/jeecms-servlet-front.xml
+
 
 数据格式:
     地址(description): <p class='hide-element'>国家,地区</p>~公司地址

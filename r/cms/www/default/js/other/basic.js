@@ -20,7 +20,36 @@ $.getJSON(url, function(data){
     })
 })
 
-
+$(function(){
+	function show(){
+		$('.backgroundpic .hide-element, .textchange .hide-element').each(function(){
+			$(this).siblings().addClass('hide-element');
+			$(this).removeClass('hide-element');
+		})
+	    var pic1status=$('#text1').hasClass('hide-element')
+	    if(pic1status==true){
+	    	$('#picb1').addClass('hide-pic').removeClass('show-pic')
+	    	$('#picb2').removeClass('hide-pic').addClass('show-pic')
+	    }
+	    else{
+	    	$('#picb1').removeClass('hide-pic').addClass('show-pic')
+	    	$('#picb2').addClass('hide-pic').removeClass('show-pic')
+	    }
+	}
+	setInterval(show,10000);
+	
+	$('.backlabel').mouseover(function(){
+		var status=$(this).hasClass('hide-pic')
+		if(status==true){
+			$('.backgroundpic .hide-element, .textchange .hide-element').each(function(){
+				$(this).siblings().addClass('hide-element');
+				$(this).removeClass('hide-element');
+			})
+			$(this).siblings().addClass('hide-pic').removeClass('show-pic');
+			$(this).removeClass('hide-pic').addClass('show-pic');
+		}
+	})
+})
 
 
 
@@ -29,20 +58,22 @@ $(function(){
 	var s=[]
 	var t=[]
 	var location=[]
-	var rgion=[]
+	var region=[]
+    var tag
 	var list
 	var service
 	var tags=$('.tags-change').val();
 	var kind=$('#cate-change').find("option:selected").text()
 	if (tags!=null&&tags!=undefined&&tags!=''){
 		if(kind=='贸易'){
-			list=tags.split('+')[0];
+			tag=tags.split('+')[0];
 			tags=tags.split('+')[1];
 			service=tags.split(',');
+			tag=tag.split(',');
 		}else{
 			tags=tags.split('+')[1];
 			service=tags.split(',');
-			list='';
+			tag='';
 		}
 	}
 
@@ -59,28 +90,34 @@ $(function(){
 			$('#serviceid .tag-check input').filter($('[value='+data+']')).attr({"selected":true,"checked":'checked'});		
 		})
 	}
-	if (list!=null&&list!=undefined&&list!=''||kind=='贸易'){
+	if (tag!=null&&tag!=undefined&&tag!=''||kind=='贸易'){
 		$('#tagsid').removeClass('hide-element')
-		$.each(list,function(i,data){
+		$('#serviceid').removeClass('hide-element');
+		$.each(tag,function(i,data){
 			t.push(data)
 			$('#tagsid .tag-check input').filter($('[value='+data+']')).attr({"selected":true,"checked":'checked'});		
 		})
 	}
 	
 	var des=$('#description').val();
+	
 	if (des!=null&&des!=undefined&&des!=''){
 		var concrete=des.split('~')
-		location=concrete[0];
-		var country=location.split(',')[0]
+		region=concrete[0];
+		var country=region.split(',')[0]
 		country=country.split('>')[1];
-		var region=location.split(',')[1]
-		region=region.split('<')[0];
-		location=[]
-		location.push(country);
-		location.push(region);
+		var distinct=region.split(',')[1]
+		distinct=distinct.split('<')[0];
+		distinct=distinct.replace(' ','_')
+		region=[]
+		region.push(country);
+		region.push(region);
 		$('#country-s option').filter($("[value="+country+"]")).attr("selected","selected");
-		$('#distinct-s option').filter($('[value='+region+']')).attr("selected","selected");
-		
+		$('#distinct-s option').filter($('[value='+distinct+']')).attr("selected","selected");
+		region=[]
+		$('.region select').each(function(){
+			region.push($(this).val());
+		})
 		if (concrete.length>1){
 			des=concrete[1];
 		}else{
@@ -89,7 +126,7 @@ $(function(){
 	}else{
 		des='';
 	}
-	$('#description-show').val(des);
+	$('#description-show').val(des.replace("</p>",""));
 	
 	
 	var content=$('#txt').val();
@@ -103,7 +140,6 @@ $(function(){
 	}else{
 		content='';
 	}
-	$('#txt-show').val(content);
 	$('.75').mouseenter(function(){
 		$('#business').removeClass('hide-element');
 		$('#logistics').addClass('hide-element');
@@ -164,19 +200,18 @@ $(function(){
 		$('#txt').val($(this).val());
 	})
 	$('#description-show').change(function(){
-		location=[]
+		region=[]
 		$('.region select').each(function(){
-			location.push($(this).val());
+			region.push($(this).val());
 		})
-		$('#description').val($(this).val());
 	})
-	
+
 	$('.member-submit').click(function(){
 		 $('#ctags').val("");
 		 $('#ctags').val(t+'+'+s);
 		 $('#txt').val("");
 		 $('#description').val('');
-		 $('#description').val("<p class='hide-element'>"+region.join(',')+"</p>~"+$('#description-show').val());
+		 $('#description').val("<p class='hide-element'>"+region.join(',')+"~</p>"+$('#description-show').val());
 		 $('#txt').val($('#txt-show').val()+"<br><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
 	})
 })

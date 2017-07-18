@@ -27,6 +27,11 @@ $(function() {
 [#include "../include/header.html"/]
 <div class="main container home-main clearfix">
   <div class='bg-pic'>
+      	<div class='backgroundpic'>
+      	<img class="pic" id='pic1' src="/${res}/images/x/adver_02.jpg" />
+	    <img class="pic hide-element" id='pic2' src="/${res}/images/x/adver_03.jpg" />
+	    </div>
+	    
 	  <div class="top-ad">
 	    <div class='search-category'>
 	      <div class='target-location'>
@@ -46,9 +51,19 @@ $(function() {
 	      </div>
 	      </form>
 	    </div>
-	    <div class='self-text'>
+	    <div class='textchange'>
+	    <div class='self-text' id='text1'>
 	      <h4>新四通贸易信息网</h4>
 	      <p>——提供最全贸易相关信息，全方位助力您的生意经</p>
+	    </div>
+	    <div class='self-text hide-element' id='text2'>
+	      <h4>新四通贸易信息网</h4>
+	      <p>——您只需专注生意，我们帮您拓展市场</p>
+	    </div>
+	    </div>
+	    <div class='backgroundbutton'>
+	    <label for='pic1' class='backlabel show-pic' id='picb1'></label>
+	    <label for='pic2' class='backlabel hide-pic' id='picb2'></label>
 	    </div>
 	  </div>
   </div>
@@ -72,7 +87,6 @@ $(function() {
 		          <a [#if (a_index)%6=0]class="bold"[/#if] href="${a.url}" target="_blank">
 		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'>详情</p>
 		          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
-		          
 		          <p>[@text_cut s=a.txt! len=30 append='...'/]</p>
 		          </a>
 		          </div>

@@ -228,12 +228,50 @@ input{
 	font-weight:normal;
 }
 .main .bg-pic{
-	background:url('../../images/x/adver_02.jpg') no-repeat;
+
 	background-size:100%;
 	background-repeat:round;
 	width:100%;
 	height:341px;
 	margin-bottom:25px;
+
+}
+.backgroundpic{
+	position:absolute;
+	width:100%;
+	height:341px;
+	z-index:-1;
+	overflow:hidden;
+}
+.backgroundbutton{
+	float:right;
+	width:200px;
+	height:20px;
+	margin-top:50px;
+	margin-right:160px;
+}
+.hide-pic{
+	border:solid 3px rgba(250,220,220,0.5);
+	background:rgba(255,255,255,0.2);
+}
+.show-pic{
+	background:rgba(255,255,255,1);
+	border:solid 3px rgba(220,220,220,1);
+}
+.backlabel{
+	display:block;
+	width:5px;
+	height:5px;
+	border-radius:8px;
+	float:left;
+	margin-left:40px;
+}
+
+.pic{
+	width:100%;
+	height:100%;
+	z-index:99;
+	float:left;
 }
 .main .top-ad{
 	overflow:hidden;
@@ -658,6 +696,14 @@ hr{
     float:left;
 }
 .searchList .item .search-txt{
+	height:60px;
+	color:#666666;
+	font-size:12px;
+	line-height:16px;
+	margin-bottom:10px;
+}
+
+.searchList .item .search-txt p{
 	height:60px;
 	color:#666666;
 	font-size:12px;

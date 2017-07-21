@@ -35,7 +35,7 @@ input{
 	float:left;
 	width:156px;
 	height:64px;
-	background-image:url(../../images/x/logo.jpg);
+	background-image:url(../../images/x/logo_02.jpg);
 }
 .header .search{
     overflow:hidden;
@@ -217,8 +217,15 @@ input{
 	width:1180px;
 	margin:0 auto;
 }
+#business{
+	margin-left:-50px;
+}
+#logistics{
+	margin-left:-100px;
+}
 .header .expander li{
 	display:inline;
+	width:auto;
 }
 .header .expander li a{
 	color:black;
@@ -514,8 +521,8 @@ hr{
 	float:left;
 	font-size:12px;
 }
-.footer-right .count{
-	width:136px;
+.footer-right .counts{
+	width:135px;
 	height:62px;
 	margin:0;
 	float:left;
@@ -701,10 +708,10 @@ hr{
 	font-size:12px;
 	line-height:16px;
 	margin-bottom:10px;
+	overflow:hidden;
 }
 
 .searchList .item .search-txt p{
-	height:60px;
 	color:#666666;
 	font-size:12px;
 	line-height:16px;
@@ -753,7 +760,6 @@ hr{
 	width:221px;
 	height:900px;
 	margin-top:9px;
-	margin-left:11px;
 }
 .right-adver .adver-content{
 	width:221px;
@@ -856,13 +862,14 @@ hr{
 	background:white;
 	z-index:101;
 	border:1px solid rgb(181,204,233);
+	border-bottom:1px solid rgb(116,162,222);
 	float:left;
 	position:relative;
 }
-.nav-one p{
+.nav-one a{
 	line-height:36px;
 	color:rgb(37,119,227);
-	margin:0 auto;
+	margin-left:30px;
 	width:65px;
 }
 .company-info-bar .selected-nav{
@@ -995,7 +1002,7 @@ hr{
 }
 .complicated{
 	margin:20px 0 0 98px;
-	width:300px;
+	width:400px;
 	height:5px;
 }
 .complicated .deep{
@@ -1006,6 +1013,8 @@ hr{
 	background:rgb(215,215,215);
 }
 .complicated p{
+	margin-top:-2px;
+	float:left;
 	color:rgb(215,215,215);
 }
 .region{
@@ -1020,6 +1029,10 @@ hr{
 	width:65px;
 }
 #distinct-s{
+	width:80px;
+	float:left;
+}
+#city-s{
 	width:80px;
 	float:left;
 }
@@ -1068,4 +1081,86 @@ hr{
 }
 .keyword p:first-child{
 	width:50px;
+}
+.reveal-trade{
+	visibility:hidden;
+	top:100px;
+	left:50%;
+	margin-left:-300px;
+	width:520px;
+	background: #eee url(../../images/x/modal-gloss.png) no-repeat;
+	position:absolute;
+	z-index:110;
+	padding:30px 40px 34px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 4px;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+
+ .reveal-modal-bg {
+position: fixed;
+height: 100%;
+width: 100%;
+background: #000;
+background: rgba(0,0,0,.8);
+z-index: 100;
+display: none;
+top: 0;
+left: 0;
+}
+ 
+.reveal-modal {
+visibility: hidden;
+top: 100px;
+left: 50%;
+margin-left: -300px;
+width: 520px;
+height:650px;
+background: #eee url(../../images/x/modal-gloss.png) no-repeat -200px -80px;
+position: absolute;
+z-index: 101;
+padding: 30px 40px 34px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+-box-shadow: 0 0 10px rgba(0,0,0,.4);
+}
+ 
+.reveal-modal.small { width: 200px; margin-left: -140px;}
+.reveal-modal.medium { width: 400px; margin-left: -240px;}
+.reveal-modal.large { width: 600px; margin-left: -340px;}
+.reveal-modal.xlarge { width: 800px; margin-left: -440px;}
+ 
+.reveal-modal .close-reveal-modal {
+font-size: 22px;
+line-height: .5;
+position: absolute;
+top: 8px;
+right: 11px;
+color: #aaa;
+text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+font-weight: bold;
+cursor: pointer;
+}
+
+.contact-show input{
+	float:left;
+	height:25px;
+	margin-top:12px;
+	text-indent: 6px;
+	font-size:14px;
+	margin-left:10px;
+}
+.contact-show p{
+	float:left;
+	font-size:12px;
+}
+.contact-show .line{
+	height:46px;
+	width:500px;
 }

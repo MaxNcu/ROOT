@@ -62,6 +62,17 @@ $(function(){
     var tag
 	var list
 	var service
+	var contact=[]
+	var contacts=$('.contact-hide').val()
+	alert(contacts)
+	if(contacts!=null &&contacts!='' && contacts!=undefined){
+		alert('test')
+		contact=contacts.split(',')
+		$('.contact-show #tel').val(contact[0].split(':')[1])
+		$('.contact-show #qq').val(contact[1].split(':')[1])
+		$('.contact-show #email').val(contact[2].split(':')[1])
+		$('.contact-show #wechat').val(contact[3].split(':')[1])
+	}
 	var tags=$('.tags-change').val();
 	var kind=$('#cate-change').find("option:selected").text()
 	if (tags!=null&&tags!=undefined&&tags!=''){
@@ -107,13 +118,13 @@ $(function(){
 		var country=region.split(',')[0]
 		country=country.split('>')[1];
 		var distinct=region.split(',')[1]
-		distinct=distinct.split('<')[0];
+		var city=region.split(',')[2]
+		city=city.split('<')[0]
 		distinct=distinct.replace(' ','_')
-		region=[]
-		region.push(country);
-		region.push(region);
+		city=city.replace(' ','_')
 		$('#country-s option').filter($("[value="+country+"]")).attr("selected","selected");
 		$('#distinct-s option').filter($('[value='+distinct+']')).attr("selected","selected");
+		$('#city-s option').filter($('[value='+city+']')).attr("selected","selected");
 		region=[]
 		$('.region select').each(function(){
 			region.push($(this).val());
@@ -140,11 +151,14 @@ $(function(){
 	}else{
 		content='';
 	}
+	
+
 	$('.75').mouseenter(function(){
 		$('#business').removeClass('hide-element');
 		$('#logistics').addClass('hide-element');
 		$('#navbusiness .trangle').removeClass('hide-element');
 		$('#navlogistics .trangle').addClass('hide-element');
+		return false;
 	})
 	
 	$('.76').mouseenter(function(){
@@ -152,7 +166,16 @@ $(function(){
 		$('#business').addClass('hide-element');
 		$('#navlogistics .trangle').removeClass('hide-element');
 		$('#navbusiness .trangle').addClass('hide-element');
+		return false;
 	})
+	$('.menu').mouseleave(function(){
+		$('#logistics').addClass('hide-element');
+		$('#business').addClass('hide-element');
+		$('#navlogistics .trangle').addClass('hide-element');
+		$('#navbusiness .trangle').addClass('hide-element');
+		return false;
+	})
+
 	
 	$('#serviceid .tag-check input').click(function(){
 		s=[];
@@ -167,6 +190,7 @@ $(function(){
 			t.push($(this).val());
 		})
 	})
+	
 	
 	$('#cate-change').change(function(){
 		s=[];
@@ -205,8 +229,21 @@ $(function(){
 			region.push($(this).val());
 		})
 	})
-
+   $('.contact-show input').change(function(){
+    	$('.contact-hide').val("");
+    	contact=[]
+    	tel='tel:'+$('.contact-show #tel').val()
+    	qq='qq:'+$('.contact-show #qq').val()
+    	email='email:'+$('.contact-show #email').val()
+    	wechat='wechat:'+$('.contact-show #wechat').val()
+    	contact.push(tel)
+    	contact.push(qq)
+    	contact.push(email)
+    	contact.push(wechat)
+    	$('.contact-hide').val(contact.join(','));
+    })
 	$('.member-submit').click(function(){
+		alert($('.contact-hide').val())
 		 $('#ctags').val("");
 		 $('#ctags').val(t+'+'+s);
 		 $('#txt').val("");
@@ -214,9 +251,196 @@ $(function(){
 		 $('#description').val("<p class='hide-element'>"+region.join(',')+"~</p>"+$('#description-show').val());
 		 $('#txt').val($('#txt-show').val()+"<br><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
 	})
+	
 })
 
-
+//register
+$(function(){
+	$('#password').keyup(function(e){
+		var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+		var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+		var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+		var strs=$(this).val()
+        var enough=enoughRegex.test(strs)
+        var medium=mediumRegex.test(strs)
+        var strong=strongRegex.test(strs)
+		if(enough==false){
+			$('#passstrength').html('More Characters');
+			$('.deep').css("background","rgb(215,215,215)");
+		}else if(enough==true && medium==false){
+			$('#passstrength').html('Weak').css("color","red");
+			$('#deep-1').css("background","red");
+			$('#deep-2, #deep-3').css("background","rgb(215,215,215)");
+		}else if(medium==true && strong==false){
+			$('#passstrength').html('Medium').css("color","orange");
+			$('#deep-1, #deep-2').css("background","orange");
+			$('#deep-3').css("background","rgb(215,215,215)");
+		}else if(strong==true){
+			$('#passstrength').html('强').css("color","green");
+			$('.deep').css("background","green")
+		}
+	})
+	
+	$('.register-btn').click(function(){
+		var value=$('.register-checkbox').is(':checked')
+		if(value==false){
+			$('.register-txt').append("<label class='error'>请阅读协议并勾选</label>")
+			return false;
+		}
+	})
+	$('.register-checkbox').click(function(){
+		$('.register-txt label').remove();
+	})
+//==============================================================
+ /*---------------------------
+ Defaults for Reveal
+----------------------------*/
+       
+/*---------------------------
+ Listener for data-reveal-id attributes
+----------------------------*/
+  
+    $('a[data-reveal-id]').on('click', function(e) {
+        e.preventDefault();
+        var modalLocation = $(this).attr('data-reveal-id');
+        $('#'+modalLocation).reveal($(this).data());
+    });
+  
+/*---------------------------
+ Extend and Execute
+----------------------------*/
+  
+    $.fn.reveal = function(options) {
+          
+          
+        var defaults = { 
+            animation: 'fadeAndPop', //fade, fadeAndPop, none
+            animationspeed: 300, //how fast animtions are
+            closeonbackgroundclick: true, //if you click background will modal close?
+            dismissmodalclass: 'close-reveal-modal' //the class of a button or element that will close an open modal
+        };
+          
+        //Extend dem' options
+        var options = $.extend({}, defaults, options);
+      
+        return this.each(function() {
+          
+/*---------------------------
+ Global Variables
+----------------------------*/
+            var modal = $(this),
+                topMeasure  = parseInt(modal.css('top')),
+                topOffset = modal.height() + topMeasure,
+                locked = false,
+                modalBG = $('.reveal-modal-bg');
+  
+/*---------------------------
+ Create Modal BG
+----------------------------*/
+            if(modalBG.length == 0) {
+                modalBG = $('<div class="reveal-modal-bg">').insertAfter(modal);
+            }          
+       
+/*---------------------------
+ Open & Close Animations
+----------------------------*/
+            //Entrance Animations
+            modal.on('reveal:open', function () {
+              modalBG.off('click.modalEvent');
+                $('.' + options.dismissmodalclass).off('click.modalEvent');
+                if(!locked) {
+                    lockModal();
+                    if(options.animation == "fadeAndPop") {
+                        modal.css({'top': $(document).scrollTop()-topOffset, 'opacity' : 0, 'visibility' : 'visible'});
+                        modalBG.fadeIn(options.animationspeed/2);
+                        modal.delay(options.animationspeed/2).animate({
+                            "top": $(document).scrollTop()+topMeasure + 'px',
+                            "opacity" : 1
+                        }, options.animationspeed,unlockModal());                  
+                    }
+                    if(options.animation == "fade") {
+                        modal.css({'opacity' : 0, 'visibility' : 'visible', 'top': $(document).scrollTop()+topMeasure});
+                        modalBG.fadeIn(options.animationspeed/2);
+                        modal.delay(options.animationspeed/2).animate({
+                            "opacity" : 1
+                        }, options.animationspeed,unlockModal());                  
+                    }
+                    if(options.animation == "none") {
+                        modal.css({'visibility' : 'visible', 'top':$(document).scrollTop()+topMeasure});
+                        modalBG.css({"display":"block"});  
+                        unlockModal()              
+                    }
+                }
+                modal.off('reveal:open');
+            });    
+  
+            //Closing Animation
+            modal.on('reveal:close', function () {
+              if(!locked) {
+                    lockModal();
+                    if(options.animation == "fadeAndPop") {
+                        modalBG.delay(options.animationspeed).fadeOut(options.animationspeed);
+                        modal.animate({
+                            "top":  $(document).scrollTop()-topOffset + 'px',
+                            "opacity" : 0
+                        }, options.animationspeed/2, function() {
+                            modal.css({'top':topMeasure, 'opacity' : 1, 'visibility' : 'hidden'});
+                            unlockModal();
+                        });                
+                    }  
+                    if(options.animation == "fade") {
+                        modalBG.delay(options.animationspeed).fadeOut(options.animationspeed);
+                        modal.animate({
+                            "opacity" : 0
+                        }, options.animationspeed, function() {
+                            modal.css({'opacity' : 1, 'visibility' : 'hidden', 'top' : topMeasure});
+                            unlockModal();
+                        });                
+                    }  
+                    if(options.animation == "none") {
+                        modal.css({'visibility' : 'hidden', 'top' : topMeasure});
+                        modalBG.css({'display' : 'none'}); 
+                    }      
+                }
+                modal.off('reveal:close');
+            });    
+      
+/*---------------------------
+ Open and add Closing Listeners
+----------------------------*/
+            //Open Modal Immediately
+        modal.trigger('reveal:open')
+              
+            //Close Modal Listeners
+            var closeButton = $('.' + options.dismissmodalclass).on('click.modalEvent', function () {
+              modal.trigger('reveal:close')
+            });
+              
+            if(options.closeonbackgroundclick) {
+                modalBG.css({"cursor":"pointer"})
+                modalBG.on('click.modalEvent', function () {
+                  modal.trigger('reveal:close')
+                });
+            }
+            $('body').keyup(function(e) {
+                if(e.which===27){ modal.trigger('reveal:close'); } // 27 is the keycode for the Escape key
+            });
+              
+              
+/*---------------------------
+ Animations Locks
+----------------------------*/
+            function unlockModal() {
+                locked = false;
+            }
+            function lockModal() {
+                locked = true;
+            }  
+              
+        });//each call
+    }//orbit plugin call
+//==============================================================	
+})
 //index.html
 $(function(){
 	$('.search-submit input').click(function(){
@@ -225,7 +449,20 @@ $(function(){
 	})
 })
 
-
+//details
+$(function(){
+	$('.nav-one').click(function(){
+		$(this).addClass('selected-nav')
+		$(this).siblings().removeClass('selected-nav')
+		if($(this).attr('id')=='nav-location'){
+			$('#locationid').removeClass('hide-element')
+			$('#contactid').addClass('hide-element')
+		}else{
+			$('#contactid').removeClass('hide-element')
+			$('#locationid').addClass('hide-element')
+		}
+	})
+})
 //pic.html
 $(function(){
 	$('.radio-content input').change(function(){

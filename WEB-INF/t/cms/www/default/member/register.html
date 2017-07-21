@@ -35,22 +35,28 @@
   <form id="jvForm" action="${base}/register.jspx" method="post">
   <div class="register-list">
     <ul>
-      <li><span>&emsp;<span style='color:red; display:inline; width:auto;'>*</span>用户名:</span><input type="text" id="username"  vld="{required:true,rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" placeholder="3~14字符，中文字符/英文字母/数字" class="register-input" /></li>
+      <li><span>&emsp;<span style='color:red; display:inline; width:auto;'>*</span>用户名:</span><input type="text" id="username"  vld="{required:true,rangelength:[${site.usernameMinLen},20],username:true,remote:'username_unique.jspx',messages:{remote:'用户名已存在'}}" name="username" placeholder="5~14字符，中文字符/英文字母/数字" class="register-input" /></li>
       <li><span>&emsp;&nbsp;<span style='color:red; visibility:hidden; width:auto;'>*</span>Email:</span><input type="text" id="email" maxlength="30" vld="{remote:'email_unique.jspx',messages:{remote:'email已被使用！'}}" name="email" placeholder="用于找回密码" class="register-input" /></li>
-      <li><span>&emsp;&emsp;<span style='color:red; display:inline; width:auto;'>*</span>密码:</span><input id="password" type="password" name="loginPassword" vld="{required:true,rangelength:[${site.passwordMinLen},20]}" class="register-input" /></li>
+      <li><span>&emsp;&emsp;<span style='color:red; display:inline; width:auto;'>*</span>密码:</span><input id="password" type="password" name="loginPassword" vld="{required:true,rangelength:[6,20]}" class="register-input" /></li>
       <div class='complicated'>
         <div class='deep' id='deep-1'></div>
         <div class='deep' id='deep-2'></div>
         <div class='deep' id='deep-3'></div>
-        <p>未知</p>
+        <p id='passstrength'>未知</p>
       </div>
-      <li><span><span style='color:red; display:inline; width:auto;'>*</span>确认密码:</span><input type="password" equalto="#password" vld="{required:true,rangelength:[${site.passwordMinLen},20]}" class="register-input" /></li>
+      <li><span><span style='color:red; display:inline; width:auto;'>*</span>确认密码:</span><input type="password" equalto="#password" vld="{required:true,rangelength:[6,20]}" class="register-input" /></li>
       <li><span><span style='color:red; display:inline; width:auto;'>*</span>验证码</span><input type="text" maxlength="20" name="captcha" class="register-input register-code" /><i class="code-img"><img id="guestbookCaptcha" onclick="this.src='${base}/captcha.svl?d='+new Date()" alt="" src="${base}/captcha.svl"></i></li>
-      <li class="register-txt"><input type="checkbox" class="register-checkbox" />我已阅读并接受<a>《JEECMS注册协议》</a></li>
+      <li class="register-txt"><input type="checkbox" class="register-checkbox" required="required"/><span style='color:red; display:inline; width:auto;'>*</span>我已阅读并接受<a href="#" class="big-link" data-reveal-id="myModal" data-animation="fade">《JEECMS注册协议》</a></li>
       <li class="register-btn"><input type="submit" name="register" value="注册" /></li>
     </ul>
   </div>
   </form>
+  <div class='reveal-modal' id ='myModal'>
+      <h1>新四通注册协议</h1>
+      <p></p>
+      <a class="close-reveal-modal">×</a>
+  </div>
+
 </div>
 </div>
 [#include "../include/footer.html"/]

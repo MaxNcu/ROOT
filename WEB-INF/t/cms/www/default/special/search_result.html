@@ -150,9 +150,8 @@ $(function() {
 	        </div>
 	        [#if s.txt??]
 	        <div class="search-txt">
-	          ${s.txt}
-	          [#assign bb=s.txt?replace("&nbsp;","","ri")/]
-	          [@text_cut s=bb! len=50 append='...'/]
+	          [#assign bb=s.txt?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [@text_cut s=bb! len=250 append='...'/]
 	        </div>
 	        [/#if]
 	        <div class='company-all'>

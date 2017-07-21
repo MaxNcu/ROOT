@@ -92,7 +92,7 @@ $(function(){
     <p id='intro'>公司简介</p>
     <div class="content-txt">
    		[#if preview??]
-           [@text_cut s=txt len=100  append="..."/]<br/>
+           [@text_cut s=txt len=50  append="..."/]<br/>
                                您需要更高的权限浏览全部内容!<br/>以下会员组可浏览全部内容:
            [#list groups as g]
               ${g.name!}[#if g_has_next],[/#if]
@@ -108,19 +108,25 @@ $(function(){
   <div class='company-info-bar'>
     <div class='info-nav'>
       <div class='nav-one selected-nav' id='nav-location'>
-        <p>公司地址</p>
+        <a>公司地址</a>
       </div>
-      <div class='nav-one' id='nav-tel'>
-        <p>联系方式</p>
+      <div class='nav-one' id='nav-contact'>
+        <a>联系方式</a>
       </div>
     </div>
-    <div class='info-detail'>
+    <div class='info-detail' id='locationid'>
       <p>VIA地址:</p>
       <p>门牌号:</p>
       <p>邮编:</p>
       <p>城市:</p>
       <p>大区: ${distinct}</p>
       <p>国家: ${country}</p>
+    </div>
+    <div class='info-detail hide-element' id='contactid'>
+    <p>电话:</p>
+    <p>邮箱:</p>
+    <p>qq:</p>
+    <p>微信:</p>
     </div>
   </div>
 </div>

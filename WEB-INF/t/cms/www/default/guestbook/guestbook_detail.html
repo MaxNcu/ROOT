@@ -19,7 +19,6 @@
 </head>
 
 <body>
-[#include "../include/top.html"/]
 [#include "../include/header.html"/]
 <div class="member-con">
   <div class="m-pos"><a href="${base}/">首页</a> > <span>会员中心</span></div>
@@ -28,14 +27,11 @@
       <div class="member-nav">
         <ul>
         <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx">投稿管理</a></li>
-        
-        <li><a href="${base}/member/resume.jspx">应聘管理</a></li>
-        <li><a href="${base}/member/mycomments.jspx">我的评论</a></li>
+        <li><a href="${base}/member/contribute_list.jspx">公司信息</a></li>
         <li><a href="${base}/member/myguestbook.jspx" class="on">我的留言</a></li>
         <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
         <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li  class='hide-element'><a href="${base}/member/account.jspx">服务中心</a></li>
         </ul>
       </div>
       <div class="member-main">

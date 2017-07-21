@@ -180,7 +180,7 @@ function changePattern(){
         <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
         <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
         <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li class='hide-element'><a href="${base}/member/account.jspx">服务中心</a></li>
         </ul>
       </div>
       <div class="member-main">
@@ -241,7 +241,24 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">联系电话</td><td><input type="text" name="author" value="${content.author!?html}" maxlength="100" class="member-change" /></td>
+                <td class="tggl-top">联系方式</td>
+                <td>
+                  <input type="text" name="author" maxlength="100" class="member-change contact-hide hide-element" value="${content.author!?html}"/> 
+                  <div class='contact-show'>
+                  <div class='line'>
+                      <p>公司电话:</p>
+	                  <input type="text" maxlength="100" class="" id='tel'/>
+	                  <p>&emsp;&emsp;&emsp;qq:</p>
+	                  <input type="text" maxlength='50' class='' id='qq'/>
+	              </div>
+	              <div class='line'>
+	                  <p>公司邮箱:</p>
+	                  <input type="text" maxlength='50' class='' id='email'/>
+	                  <p>&emsp;&emsp;微信:</p>
+	                  <input type="text" maxlength='50' class='' id='wechat'/>
+	               </div>
+                  </div>
+                </td>
               </tr>
               <tr>
                 <td class="tggl-top">公司地址</td>
@@ -256,6 +273,29 @@ function changePattern(){
                 </select>
                 <p>区域：</p>
                 <select id='distinct-s'>
+                <option value='Lazio'>拉齐奥</option>
+                <option value='Liguria' selected='selected'>利古里亚</option>
+                <option value='Lombardia'>伦巴第 </option>
+                <option value='Marche'>马尔凯 </option>
+                <option value='Molise'>莫利塞</option>
+                <option value='Piemonte'>皮埃蒙特 </option>
+                <option value='Puglia'>普利亚 </option>
+                <option value='Sardegna'>撒丁* </option>
+                <option value='Sicilia'>西西里* </option>
+                <option value='Toscana'>托斯卡纳 </option>
+                <option value='Trentino-Alto_Adige'>特伦蒂诺-上阿迪杰*</option>
+                <option value='Umbria'>翁布里亚 </option>
+                <option value='Valle_d_Aosta'>瓦莱达奥斯塔* </option>
+                <option value='Veneto'>威尼托 </option>
+                <option value='Friuli-Venezia_Giulia'>弗留利-威尼斯朱利亚*</option>
+                <option value='Emilia-Romagna'>艾米利亚-罗马涅 </option>
+                <option value='Campania'>坎帕尼亚 </option>
+                <option value='Calabria'>卡拉布里亚 </option>
+                <option value='Basilicata'>巴西利卡塔 </option>
+                <option value='Abruzzi'>阿布鲁佐 </option>
+                </select>
+                <p>城市：</p>
+                <select id='city-s'>
                 <option value='Lazio'>拉齐奥</option>
                 <option value='Liguria' selected='selected'>利古里亚</option>
                 <option value='Lombardia'>伦巴第 </option>

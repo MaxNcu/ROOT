@@ -60,6 +60,21 @@ $(function(){
 <head>
 <body>
 [#include "../include/header.html"/]
+
+[#assign temp=txt]
+[#assign templist=temp?split("br")]
+[#if templist?size>1]
+[#assign txttemp=templist[0]]
+[#assign txtshow=txttemp?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#assign othertemp=templist[1]?split("#")]
+[#if othertemp?size>1]
+[#assign regiontemp=othertemp[1]]
+[#assign region=regiontemp?split("~")[0]]
+[#assign description=regiontemp?split("~")[1]]
+[#assign country=region?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")?split(",")[0]]
+[#assign distinct=region?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")?split(",")[1]]
+[/#if]
+[/#if]
 <div class="main container clearfix">
   <h1 id='content-title'>${content.title}</h1>
   <hr>
@@ -85,7 +100,7 @@ $(function(){
               ${g.name!}[#if g_has_next],[/#if]
            [/#list]              
           [#else]
-            ${txt!}
+            ${txtshow}
           [/#if]
     </div>
   </section>
@@ -95,19 +110,25 @@ $(function(){
   <div class='company-info-bar'>
     <div class='info-nav'>
       <div class='nav-one selected-nav' id='nav-location'>
-        <p>公司地址</p>
+        <a>公司地址</a>
       </div>
-      <div class='nav-one' id='nav-tel'>
-        <p>联系方式</p>
+      <div class='nav-one' id='nav-contact'>
+        <a>联系方式</a>
       </div>
     </div>
-    <div class='info-detail'>
+    <div class='info-detail' id='locationid'>
       <p>VIA地址:</p>
       <p>门牌号:</p>
       <p>邮编:</p>
-      <p>城市:</p>
-      <p>大区:</p>
-      <p>国家:</p>
+      <p>城市: ${city}</p>
+      <p>大区: ${distinct}</p>
+      <p>国家: ${country}</p>
+    </div>
+    <div class='info-detail hide-element' id='contactid'>
+	    <p>电话:</p>
+	    <p>邮箱:</p>
+	    <p>qq:</p>
+	    <p>微信:</p>
     </div>
   </div>
 </div>

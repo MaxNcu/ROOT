@@ -87,7 +87,10 @@ $(function() {
 		          <a [#if (a_index)%6=0]class="bold"[/#if] href="${a.url}" target="_blank">
 		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'>详情</p>
 		          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
-		          <p>[@text_cut s=a.txt! len=30 append='...'/]</p>
+		          [#assign txtshow=a.txt ]
+		          [#assign txtshow=txtshow?split('</p>')[0]]
+		          [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]     
+		          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
 		          </a>
 		          </div>
 		      [/#list]

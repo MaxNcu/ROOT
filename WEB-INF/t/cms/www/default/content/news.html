@@ -64,15 +64,27 @@ $(function(){
 [#if templist?size>1]
 [#assign txttemp=templist[0]]
 [#assign txtshow=txttemp?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
-[#assign othertemp=templist[1]?split("#")]
-[#if othertemp?size>1]
-[#assign regiontemp=othertemp[1]]
-[#assign region=regiontemp?split("~")[0]]
-[#assign description=regiontemp?split("~")[1]]
-[#assign country=region?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")?split(",")[0]]
-[#assign distinct=region?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")?split(",")[1]]
+[#assign description=content.description?split('~')]
+[#assign location=description[1]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#assign region=description[0]?split(',')]
+[#assign country=region[0]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#assign distinct=region[1]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#if region[2]??]
+[#assign city=region[2]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#else]
+[#assign city=""]
+[/#if]
+[#if region[3]??]
+[#assign zipcode=region[3]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#else]
+[#assign zipcode=""]
 [/#if]
 [/#if]
+[#assign contact=content.author?split(',')]
+[#assign tel=contact[0]?split(':')[1]]
+[#assign qq=contact[1]?split(':')[1]]
+[#assign email=contact[2]?split(':')[1]]
+[#assign wechat=contact[3]?split(':')[1]]
 <div class="main container clearfix">
   <h1 id='content-title'>${content.title}</h1>
   <hr>
@@ -115,18 +127,18 @@ $(function(){
       </div>
     </div>
     <div class='info-detail' id='locationid'>
-      <p>VIA地址:</p>
+      <p>VIA地址:  ${location}</p>
       <p>门牌号:</p>
-      <p>邮编:</p>
-      <p>城市:</p>
-      <p>大区: ${distinct}</p>
-      <p>国家: ${country}</p>
+      <p>邮编:  ${zipcode}</p>
+      <p>城市:  ${city}</p>
+      <p>大区:  ${distinct}</p>
+      <p>国家:  ${country}</p>
     </div>
     <div class='info-detail hide-element' id='contactid'>
-    <p>电话:</p>
-    <p>邮箱:</p>
-    <p>qq:</p>
-    <p>微信:</p>
+    	<p>电话:  ${tel}</p>
+	    <p>邮箱:  ${email}</p>
+	    <p>qq:    ${qq}</p>
+	    <p>微信:  ${wechat}</p>
     </div>
   </div>
 </div>

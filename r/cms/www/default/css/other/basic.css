@@ -10,6 +10,7 @@ input{
     transition: all 0.15s ease-in;
     -webkit-transition: all 0.15s ease-in 0;
     vertical-align: middle;
+    text-indent:5px;
 }
 
 .hide-element{
@@ -1018,11 +1019,25 @@ hr{
 	color:rgb(215,215,215);
 }
 .region{
-	float:left;
+	width:450px;
+	height:45px;
 }
 .region select{
 	margin-top:12px;
 	font-size:12px;
+}
+.r-zipcode{
+	width:400px;
+	height:50px;
+}
+.r-zipcode input{
+	height:25px;
+	margin-top:12px;
+	text-indent: 6px;
+	font-size:14px;
+}
+#description-show{
+	margin-left:15px;
 }
 #country-s{
 	float:left;
@@ -1035,6 +1050,9 @@ hr{
 #city-s{
 	width:80px;
 	float:left;
+}
+#sescription-show{
+	
 }
 .condition{
 	height:28px;

@@ -64,9 +64,7 @@ $(function(){
 	var service
 	var contact=[]
 	var contacts=$('.contact-hide').val()
-	alert(contacts)
 	if(contacts!=null &&contacts!='' && contacts!=undefined){
-		alert('test')
 		contact=contacts.split(',')
 		$('.contact-show #tel').val(contact[0].split(':')[1])
 		$('.contact-show #qq').val(contact[1].split(':')[1])
@@ -118,17 +116,22 @@ $(function(){
 		var country=region.split(',')[0]
 		country=country.split('>')[1];
 		var distinct=region.split(',')[1]
+		alert(distinct)
 		var city=region.split(',')[2]
-		city=city.split('<')[0]
+		var zipcode=region.split(',')[3]
+		zipcode=zipcode.split('<')[0]
 		distinct=distinct.replace(' ','_')
+		distinct=distinct.replace('\'','_')
 		city=city.replace(' ','_')
 		$('#country-s option').filter($("[value="+country+"]")).attr("selected","selected");
 		$('#distinct-s option').filter($('[value='+distinct+']')).attr("selected","selected");
 		$('#city-s option').filter($('[value='+city+']')).attr("selected","selected");
+		$('.r-zipcode input').val(zipcode)
 		region=[]
 		$('.region select').each(function(){
 			region.push($(this).val());
 		})
+		region.push(zipcode)
 		if (concrete.length>1){
 			des=concrete[1];
 		}else{
@@ -228,6 +231,14 @@ $(function(){
 		$('.region select').each(function(){
 			region.push($(this).val());
 		})
+		region.push($('.r-zipcode input').val())
+	})
+	$('.r-zipcode input').change(function(){
+		region=[]
+		$('.region select').each(function(){
+			region.push($(this).val());
+		})
+		region.push($(this).val());
 	})
    $('.contact-show input').change(function(){
     	$('.contact-hide').val("");
@@ -243,7 +254,6 @@ $(function(){
     	$('.contact-hide').val(contact.join(','));
     })
 	$('.member-submit').click(function(){
-		alert($('.contact-hide').val())
 		 $('#ctags').val("");
 		 $('#ctags').val(t+'+'+s);
 		 $('#txt').val("");

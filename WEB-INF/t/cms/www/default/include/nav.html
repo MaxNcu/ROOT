@@ -1,11 +1,11 @@
 <nav class="nav">
      [@cms_channel_list]
-      <div [#if !channel??] class='main-text selected' [#else] class='main-text'[/#if]>
+      <div [#if q??] class='main-text' [#elseif !channel??] class='main-text selected' [#else] class='main-text'[/#if]>
 	      <a href='/'>首页</a>
 	  </div>
       <ul class="menu">
      
-     [#if !channel??]     
+     [#if !channel??]   
       [#list tag_list as c]
       [#if c_index<3]
         <li class='${c.id}'[#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">${c.name}</a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
@@ -49,10 +49,33 @@
             [/#list]
           </ul>
         </li> 
-     [#else]  
+     [#else] 
       [#list tag_list as c]
       [#if c_index<3]
-        <li [#if channel??&&channel.id == c.id] class="${c.id} on selected" [#else] class="${c.id}" [/#if]  [#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a href="${c.url}">${c.name}</a><div [#if c.id == 75 ] class='trangle'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div></li>
+        <li class='${c.id}  [#if c.id==channel.id] selected [/#if]' [#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">${c.name}</a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
+        [#if c.id==75]
+        <div class='expander hide-element' id='business'>
+		    <ul class='menu'>
+		      <li><a href='/business/index.jhtml?tags=fuzhuang'>服装</a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiewa'>鞋袜</a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiangbao'>首饰箱包</a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=jiafang'>家纺</a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=dianzichanpin'>电子产品</a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=qita'>其他</a>&nbsp;&nbsp;|</li>
+		    </ul>
+		  </div>
+		 [#elseif c.id==76]
+		 <div class='expander hide-element' id='logistics'>
+		    <ul class='menu'>
+		      <li><a href='/logistics/index.jhtml?tags=guojiyunshu'>国际运输</a>&nbsp;&nbsp;|</li>
+		      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=guoneiyunshu'>国内运输</a>&nbsp;&nbsp;|</li>
+		      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=cangchu'>仓储</a>&nbsp;&nbsp;|</li>
+		      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=kuaidi'>快递</a>&nbsp;&nbsp;|</li>
+		      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=qingguan'>清关</a>&nbsp;&nbsp;|</li>
+		      <li><a href='http://127.0.0.1:8080/logistics/index.jhtml?tags=qita'>其他</a>&nbsp;&nbsp;|</li>
+		    </ul>
+		  </div>
+		  [/#if]
       [/#if]
       [/#list]
         <li class="more hide-element"> 

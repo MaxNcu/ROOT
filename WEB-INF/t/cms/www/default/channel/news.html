@@ -181,7 +181,11 @@ $(function() {
 		            <p>联系方式</p>
 		          </div>
 		          <div class='info-txt'>
-		            <p>${s.author}</p>
+		            <p>
+		            [#if s.author?split(',')[0]?split(':')[1]??]
+		            ${s.author?split(',')[0]?split(':')[1]}
+		            [/#if]
+		            </p>
 		          </div>
 		        </div>
 	        </div>

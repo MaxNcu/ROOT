@@ -1,14 +1,24 @@
 <nav class="nav">
      [@cms_channel_list]
       <div [#if q??] class='main-text' [#elseif !channel??] class='main-text selected' [#else] class='main-text'[/#if]>
-	      <a href='/'>首页</a>
+	      <a href='/'>
+	      <font class='zh hide-element'>首页</font>
+	      <font class='en'>Main</font>
+	      </a>
 	  </div>
       <ul class="menu">
      
      [#if !channel??]   
       [#list tag_list as c]
       [#if c_index<3]
-        <li class='${c.id}'[#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">${c.name}</a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
+        <li class='${c.id}'[#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">
+        <font class='zh hide-element'>${c.name}</font>
+        [#if c.id==75]
+        <font class='en'>Business</font>
+        [#elseif c.id=76]
+        <font class='en'>Logistics</font>
+        [/#if]
+        </a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
         [#if c.id==75]
         <div class='expander hide-element' id='business'>
 		    <ul class='menu'>
@@ -52,7 +62,14 @@
      [#else] 
       [#list tag_list as c]
       [#if c_index<3]
-        <li class='${c.id}  [#if c.id==channel.id] selected [/#if]' [#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">${c.name}</a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
+        <li class='${c.id}  [#if c.id==channel.id] selected [/#if]' [#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">
+		<font class='zh hide-element'>${c.name}</font>
+        [#if c.id==75]
+        <font class='en'>Business</font>
+        [#elseif c.id=76]
+        <font class='en'>Logistics</font>
+        [/#if]
+		</a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
         [#if c.id==75]
         <div class='expander hide-element' id='business'>
 		    <ul class='menu'>

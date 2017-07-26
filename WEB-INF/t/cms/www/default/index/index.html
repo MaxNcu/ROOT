@@ -35,19 +35,25 @@ $(function() {
 	  <div class="top-ad">
 	    <div class='search-category'>
 	      <div class='target-location'>
-	        <p>目标城市: </p>
+	        <p><font class='zh hide-element'>目标城市: </font></p>
+	        <p><font class='en'>Target City:</font></p>
 	        <li>上海</li>
 	      </div>
 	      <form action="${base}/search.jspx" target="_blank" id="searchForm">
 	      <div class='search-content' id='zipcode'>
-	        <p>&nbsp;邮编: </p><input></input>
+	        <p><font class='zh hide-element'>&nbsp;邮编: </font></p>
+	        <p><font class='en'>zipcode:</font></p>
+	        <input></input>      
 	      </div>
 	      <div class='search-content' id='keyword'>
-	        <p>关键字: </p><input type='text'></input>
+	        <p><font class='zh hide-element'>关键字: </font></p>
+	        <p><font class='en'>keyword:</font></p>
+	        <input type='text'></input>
 	      </div>
 	      <input type='text' name='q' class='scontent hide-element'></input>
 	      <div class='search-submit'>
-	        <input type='submit' value='搜索'>
+	        <input type='submit' class='zh hide-element'value='搜索'>
+	        <input type='submit' class='en' value='search'>
 	      </div>
 	      </form>
 	    </div>

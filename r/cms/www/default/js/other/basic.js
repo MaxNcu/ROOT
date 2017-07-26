@@ -1,4 +1,4 @@
-
+var regionurl="http://127.0.0.1:5000/getcountry"
 $(document).ready(function(){
 		$('.show-content p').css('text-indent','0em');
 })
@@ -6,6 +6,21 @@ $(document).ready(function(){
 	if($('.member-text tbody tr').length >2){
 		$('.new-content').hide();
 	};
+})
+var language='en'
+//language
+$(function(){
+	if(language=='en'){
+		$('.zh').addClass('hide-element')
+		$('.en').removeClass('hide-element')
+		$('.main-text').css('width','60px')
+		$('.menu li').css('width','75px')
+	}else if(language=='zh'){
+		$('.en').addClass('hide-element')
+		$('.zh').removeClass('hide-element')
+		$('.main-text').css('width','50px')
+		$('.menu li').css('width','46px')
+	}
 })
 
 var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();
@@ -116,16 +131,58 @@ $(function(){
 		var country=region.split(',')[0]
 		country=country.split('>')[1];
 		var distinct=region.split(',')[1]
-		alert(distinct)
 		var city=region.split(',')[2]
 		var zipcode=region.split(',')[3]
 		zipcode=zipcode.split('<')[0]
 		distinct=distinct.replace(' ','_')
 		distinct=distinct.replace('\'','_')
 		city=city.replace(' ','_')
+		var country_s=country
+		var distinct_s=distinct
 		$('#country-s option').filter($("[value="+country+"]")).attr("selected","selected");
-		$('#distinct-s option').filter($('[value='+distinct+']')).attr("selected","selected");
-		$('#city-s option').filter($('[value='+city+']')).attr("selected","selected");
+		if(country!='none' && country!='other'){
+			var querydata={"tag":"distinct","country":country_s,"distinct":""}
+			$.getJSON(regionurl,jQuery.param(querydata),function(data){
+				result=data.result
+				$('#distinct-s option').remove()
+				$('#distinct-s').append("<option value='none'>请选择区域</option>")
+				for(var i=0;i<result.length;i++){
+					test=result[i].split(':')
+					temp=test[0].replace("'",'_')
+					if(test.length>1){
+						$('#distinct-s').append("<option value='"+temp+'1'+test[1]+"'>"+test[1]+"</option>")
+					}else{
+						alert(test.length)
+					}
+					
+				}
+				$('#distinct-s').append("<option value=other>其他</option>")
+				$('#distinct-s option').filter($('[value='+distinct+']')).attr("selected","selected");
+			})
+		}else if(country=='other'){
+			$('#distinct-s').append("<option value=other>其他</option>")
+		}
+		
+		
+		if(distinct!='none' && distinct!='other'){
+			var querydata={"tag":"city","country":country_s,"distinct":distinct_s}
+			$.getJSON(regionurl,jQuery.param(querydata),function(data){
+				result=data.result
+				$('#city-s option').remove()
+				$('#city-s').append("<option value='none'>请选择城市</option>")
+				for(var i=0;i<result.length;i++){
+					test=result[i].split(':')
+					if(test.length>1){
+						$('#city-s').append("<option value='"+test[0]+test[1]+"'>"+test[0]+"</option>")
+					}
+				}
+				$('#city-s').append("<option value=other>其他</option>")
+				$('#city-s option').filter($('[value='+city+']')).attr("selected","selected");
+
+			})
+		}else if (distinct=='other'){
+			$('#city-s').append("<option value=other>其他</option>")
+		}
 		$('.r-zipcode input').val(zipcode)
 		region=[]
 		$('.region select').each(function(){
@@ -194,6 +251,67 @@ $(function(){
 		})
 	})
 	
+	$('#country-s').change(function(){
+		alert('testtest')
+		country_s=$(this).val()
+		if(country_s=='none'){
+			$('#distinct-s, #city-s').find("option:selected").attr('selected',false)
+			$('#distinct-s option').remove()
+			$('#distinct-s').append("<option value='none'>请选择国家</option>")
+			$('#city-s').find("option:selected").attr('selected',false)
+			$('#city-s option').remove()
+			$('#city-s').append("<option value='none'>请选择大区</option>")
+		}else if(country!='other'){
+			alert('test')
+			var querydata={"tag":"distinct","country":country_s,"distinct":""}
+			$.getJSON(regionurl,jQuery.param(querydata),function(data){
+				result=data.result
+				alert(result.length)
+				$('#distinct-s option').remove()
+				$('#distinct-s').append("<option value='none'>请选择区域</option>")
+				for(var i=0;i<result.length;i++){
+					test=result[i].split(':')
+					if(test.length>1){
+						temp=test[0].replace("'","_")
+						$('#distinct-s').append("<option value='"+test[0]+'1'+test[1]+"'>"+test[1]+"</option>")
+					}else{
+						alert(test.length)
+					}
+				}
+				$('#distinct-s').append("<option value=other>其他</option>")
+			})
+		}else{
+			$('#distinct-s').append("<option value=other>其他</option>")
+		}
+	})
+	
+	$('#distinct-s').change(function(){
+		distinct_s=$(this).val()
+		country_s=$('#country-s').val()
+		alert(country_s)
+		if(distinct_s=='none'){
+			$('#city-s').find("option:selected").attr('selected',false)
+			$('#city-s option').remove()
+			$('#city-s').append("<option value='none'>请选择大区</option>")
+		}else if(distinct_s!='other'){
+			var querydata={"tag":"city","country":country_s,"distinct":distinct_s}
+			$.getJSON(regionurl,jQuery.param(querydata),function(data){
+				result=data.result
+				$('#city-s option').remove()
+				$('#city-s').append("<option value='none'>请选择城市</option>")
+				for(var i=0;i<result.length;i++){
+					test=result[i].split(':')
+					if(test.length>1){
+						$('#city-s').append("<option value='"+test[0]+test[1]+"'>"+test[0]+"</option>")
+					}
+				}
+				$('#city-s').append("<option value=other>其他</option>")
+			})
+		}
+		else{
+			$('#city-s').append("<option value=other>其他</option>")
+		}
+	})
 	
 	$('#cate-change').change(function(){
 		s=[];
@@ -215,6 +333,7 @@ $(function(){
 			$('#business-check input, .tag-check input').attr('checked',false);
 		}
 	})
+	
 	
 	$('.region select').change(function(){
 		region=[]

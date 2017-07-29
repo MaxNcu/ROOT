@@ -50,13 +50,11 @@ $(function() {
   </a>
   <div class="user-child">
     <a href="${base}/member/index.jspx">
-    <font class='zh hide-element'>会员中心</font>
-    <font class='en'>Member Center</font>
+    <font class='center'>会员中心</font>
     </a>
     &emsp;|&emsp;
     <a id="logout">
-    <font class='zh hide-element'>退出账号</font>
-    <font class='en'>Quit</font>
+    <font class='quit'>退出账号</font>
     </a>
   </div>
 </div>
@@ -76,6 +74,10 @@ $(function() {
 $(function(){
 	if(language=='en'){
     	$('.user-child').css('margin-left','20px')
+    	$('.quit').text('Quit')
+    	$('.center').text('Member Center')
+    }else if(language=='zh'){
+    	$('.quit').text('会员中心')
     }
 })
 

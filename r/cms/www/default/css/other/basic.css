@@ -602,10 +602,11 @@ hr{
 	width:152px;
 	height:28px;
 	float:left;
-	margin-left:10px;
+	margin-left:10px!important;
 }
 .left-content .left-search-category .search-content p{
 	font-size:12px;
+	width:55px;
 }
 .select-content ul{
 	min-height:20px;

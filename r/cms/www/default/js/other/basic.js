@@ -214,6 +214,7 @@ $(function(){
 		$('.login-checkbox').parent().parent().next().css('margin-left','120px')
 		$('.login-btn').css('margin-left','120px')
 		$('.complicated').css('margin-left','110px')
+		$('.left-search-category .search-content p').css('width','68px')
 		$('.region-lan').each(function(){
 			tempval=$(this).text()
 			tempen=tempval.split('1')[0]

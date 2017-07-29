@@ -4,16 +4,23 @@
 <script src="${resSys}/front.js" type="text/javascript"></script>
 <script src="/${res}/js/common.js" type="text/javascript"></script>
 <script src="/${res}/js/message.js" type="text/javascript"></script>
+<script src="/${res}/js/other/language.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/${res}/js/other/basic.js" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript">
 $(function() {
 	$("#jvForm").validate();
+	$('#recyclelist td').eq(0).text(lang['xuanze'])
+	$('#recyclelist td').eq(1).text(lang['biaoti'])
+	$('#recyclelist td').eq(2).text(lang['fajianren'])
+	$('#recyclelist td').eq(3).text(lang['shoujianren'])
+	$('#recyclelist td').eq(4).text(lang['fasongshijian'])
 });
 </script>
 <form id="tableForm" action="message_list.jspx" method="post" class="tggl">
 [#if pagination.list?size gt 0]
 <table cellpadding="0" cellspacing="0" width="100%">
             <tbody>
-              <tr>
+              <tr id='recyclelist'>
                 <td class="tggl-top" width="40">选择</td><td class="tggl-top">标题</td><td class="tggl-top">发件人</td><td class="tggl-top">收件人</td><td class="tggl-top">发送时间</td>
               </tr>
               [#list pagination.list as c]
@@ -27,7 +34,7 @@ $(function() {
                 <td>[#if c.sendTime??]${c.sendTime?string('yyyy-MM-dd HH:mm:ss')}[/#if]</td>
               </tr>
               [/#list]
-              <tr>
+              <tr class='hide-element'>
                 <td colspan="8" style="padding:20px 0;">
                   <input type="hidden" name="pageNo"/>
 		          <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td align="center" class="pn-sp">

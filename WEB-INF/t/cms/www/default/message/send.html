@@ -23,32 +23,32 @@ $(function() {
     <div class="memberLeft clearfix"> 
       <div class="member-nav">
         <ul>
-        <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx">公司信息</a></li>
-        <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx" class="on">站内信息</a></li>
-        <li  class='hide-element'><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li><a href="${base}/member/index.jspx" id='selfinfo'><font class='zh hide-element'>个人资料</font><font class='en'>Self Info</font></a></li>
+        <li><a href="${base}/member/contribute_list.jspx" id='companyinfo'></a></li>
+        <li><a href="${base}/member/myguestbook.jspx"><font class='zh hide-element' id='mywords'>我的留言</font><font class='en'>My Words</font></a></li>
+        <li><a href="${base}/member/collection_list.jspx"><font class='zh hide-element' id='myfavorite'>我的收藏</font><font class='en'>My Favor</font></a></li>
+        <li><a href="${base}/member/message_mng.jspx" class='on'><font class='zh hide-element' id='messages'>站内信息</font><font class='en'>Messages</font></a></li>
+        <li class='hide-element'><a href="${base}/member/account.jspx"><font class='zh hide-element'>服务中心</font><font class='en'>Service Center</font></a></li>
         </ul>
       </div>
       <div class="member-main">
-        <div class="member-child"><a href="${base}/member/message_add.jspx" class="on">发送站内信</a><a href="${base}/member/message_mng.jspx" style="float:right; margin-right:0; color:#333333;">< 返回列表</a></div>
+        <div class="member-child sendmessage"><a href="${base}/member/message_add.jspx" class="on">发送站内信</a><a href="${base}/member/message_mng.jspx" style="float:right; margin-right:0; color:#333333;">返回列表</a></div>
         <div class="member-text tggl fbgj">
           <form id="jvForm" action="message_send.jspx" method="post">
           <table cellpadding="0" cellspacing="0">
-            <tbody>
+            <tbody id='sendmessage'>
               <tr>
-                <td class="tggl-top">收件人</td><td><input type="text" id="username" name="username" maxlength="150" onchange="find_user()" class="member-change" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
+                <td id='tg-inboxer' class="tggl-top">收件人</td><td><input type="text" id="username" name="username" maxlength="150" onchange="find_user()" class="member-change" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
               </tr>
               <tr>
-                <td class="tggl-top">主题</td><td><input type="text" name="msgTitle" maxlength="150" [#if message??]value="${message.msgTitle!}"[/#if] class="member-change" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
+                <td id='tg-topical' class="tggl-top">主题</td><td><input type="text" name="msgTitle" maxlength="150" [#if message??]value="${message.msgTitle!}"[/#if] class="member-change" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
               </tr>
               <tr>
-                <td class="tggl-top">内容</td>
+                <td id='tg-content' class="tggl-top">内容</td>
                 <td><textarea name="msgContent" style="width:550px;height:350px"></textarea></td>
               </tr>
               <tr>
-                <td class="tggl-top">验证码</td><td><input type="text" name="captcha" maxlength="20" class="member-change" style="float:left; margin-left:15px;" /><img id="messageCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/></td>
+                <td id='tg-verify' class="tggl-top">验证码</td><td><input type="text" name="captcha" maxlength="20" class="member-change" style="float:left; margin-left:15px;" /><img id="messageCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/></td>
               </tr>
               <tr>
                 <td colspan="2" style="text-align:center; padding:20px 0;">

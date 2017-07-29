@@ -38,16 +38,16 @@ function HoverLi(m,n,counter){
     <div class="memberLeft clearfix"> 
       <div class="member-nav">
         <ul>
-        <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx">公司信息</a></li>
-        <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx" class="on">站内信息</a></li>
-        <li  class='hide-element'><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li><a href="${base}/member/index.jspx" id='selfinfo'><font class='zh hide-element'>个人资料</font><font class='en'>Self Info</font></a></li>
+        <li><a href="${base}/member/contribute_list.jspx" id='companyinfo'></a></li>
+        <li><a href="${base}/member/myguestbook.jspx"><font class='zh hide-element' id='mywords'>我的留言</font><font class='en'>My Words</font></a></li>
+        <li><a href="${base}/member/collection_list.jspx"><font class='zh hide-element' id='myfavorite'>我的收藏</font><font class='en'>My Favor</font></a></li>
+        <li><a href="${base}/member/message_mng.jspx" class='on'><font class='zh hide-element' id='messages'>站内信息</font><font class='en'>Messages</font></a></li>
+        <li class='hide-element'><a href="${base}/member/account.jspx"><font class='zh hide-element'>服务中心</font><font class='en'>Service Center</font></a></li>
         </ul>
       </div>
       <div class="member-main">
-        <div class="member-child"><a id="tb_11" onclick="HoverLi(1,1,4)" class="curr">收件箱</a>|<a id="tb_12" onclick="HoverLi(1,2,4)" class="normaltab">发件箱</a>|<a id="tb_13" onclick="HoverLi(1,3,4)" class="normaltab">草稿箱</a>|<a id="tb_14" onclick="HoverLi(1,4,4)" class="normaltab">垃圾箱</a>|<a href="${base}/member/message_add.jspx">发送站内信</a></div>
+        <div class="member-child messageinfo"><a id="tb_11" onclick="HoverLi(1,1,4)" class="curr">收件箱</a>|<a id="tb_12" onclick="HoverLi(1,2,4)" class="normaltab">发件箱</a>|<a id="tb_13" onclick="HoverLi(1,3,4)" class="normaltab">草稿箱</a>|<a id="tb_14" onclick="HoverLi(1,4,4)" class="normaltab">垃圾箱</a>|<a href="${base}/member/message_add.jspx">发送站内信</a></div>
         <div class="member-text tggl">
           <div id="tbc_11" class="dis"><iframe id="framex" frameborder="0" src="${base}/member/message_list.jspx?box=0" width="100%" height="660"></iframe></div>
              <div id="tbc_12" class="undis"><iframe id="framex" frameborder="0" src="${base}/member/message_list.jspx?box=1" width="100%" height="660"></iframe></div>

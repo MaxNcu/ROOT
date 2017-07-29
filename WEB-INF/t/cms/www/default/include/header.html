@@ -1,5 +1,10 @@
-﻿<link rel="stylesheet" type="text/css" href="/${res}/css/login.css" />
+﻿<script src="/${res}/js/other/language.js" type="text/javascript" charset="UTF-8"></script>
+<script src="/${res}/js/other/basic.js" type="text/javascript" charset="UTF-8"></script>
+<script src="http://malsup.github.io/jquery.form.js"></script>
+<link rel="stylesheet" type="text/css" href="/${res}/css/login.css" />
 <link type="text/css" rel="stylesheet" href="/${res}/css/other/basic.css" />
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
 <script>
 function qkeypress(){
 	var q=$("input[name=q]");
@@ -22,8 +27,13 @@ function qkeypress(){
       <div class='icon-block' id='language'>
         <div class='icon-img'></div>
         <div class='icon-text'>
-        <p><font class='zh hide-element'>中文</font></p>
-        <p><font class='en'>English</font></p>
+        <font class='zh hide-element'>中文</font>
+        <font class='en'>English</font>
+        <li class="fa fa-angle-down"></li>
+        <div class='lan-list hide-element'>
+          <p>中文</p>
+          <p>English</p>
+        </div>
         </div>
       </div>
       <div class='icon-block' id='contact'>
@@ -55,11 +65,10 @@ function qkeypress(){
 				Cms.loginSSO('${base}');
 				[/#if]
 				Cms.loginCsi("${base}","loginCsiDiv",{"returnUrl":"${location}"});
+			    
 			});
 	    </script> 
 	  </div>
   </div>
   
 </header>
-<script src="/${res}/js/other/basic.js" type="text/javascript" charset="UTF-8"></script>
-<script src="http://malsup.github.io/jquery.form.js"></script>

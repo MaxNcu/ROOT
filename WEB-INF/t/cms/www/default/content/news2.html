@@ -87,7 +87,13 @@ $(function(){
 [#assign qq=contact[1]?split(':')[1]]
 [#assign email=contact[2]?split(':')[1]]
 [#assign wechat=contact[3]?split(':')[1]]
-
+[#if contact?size>4]
+[#assign website=contact[4]?split(':')[1]]
+[#assign mob=contact[5]?split(':')[1]]
+[#else]
+[#assign website='']
+[#assign mob='']
+[/#if]
 <div class="main container clearfix">
   <h1 id='content-title'>${content.title}</h1>
   <hr>
@@ -97,11 +103,28 @@ $(function(){
   <section class="content_w850 content-self">
     <div class='company-head'>
       <div class='company-info'>
-        <p>企业类型 : ${content.ctgName}商>${content.tagStr}</p>
-        <p>公司网址 : www.baidu.com</p>
+        <div class='info-block'>
+        <p id='company-cate'>企业类型 :</p><p>&emsp;</p>
+        <p id='cate-business'> ${content.ctgName}商</p>
+        <p>></p>
+        [#assign tags=content.tagStr?split('+')[1]]
+        [#list tags?split(',') as tag]
+        <p id='tag-cate'>
+        <script type='text/javascript'>
+	          $(function(){
+	        	  $('#tag-cate').append(lang['${tag}']).append('/')
+	          })
+	          </script>
+        [/#list]
+        </p>
+        </div>
+        <div class='info-block'>
+        <p id='company-website'>公司网址 :</p><p>&emsp;</p>
+        <p>${website}</p>
+        </div>
       </div>
       <div class='company-buy'>
-        <p>远程导购</p>
+        <p id='daogou'>远程导购</p>
       </div>
     </div>
     <p id='intro'>公司简介</p>
@@ -123,25 +146,24 @@ $(function(){
   <div class='company-info-bar'>
     <div class='info-nav'>
       <div class='nav-one selected-nav' id='nav-location'>
-        <a>公司地址</a>
+        <a class='location-lan'>公司地址</a>
       </div>
       <div class='nav-one' id='nav-contact'>
-        <a>联系方式</a>
+        <a class='contact-lan'>联系方式</a>
       </div>
     </div>
     <div class='info-detail' id='locationid'>
-      <p>VIA地址:  ${location}</p>
-      <p>门牌号:</p>
-      <p>邮编:  ${zipcode}</p>
-      <p>城市:  ${city}</p>
-      <p>大区:  ${distinct}</p>
-      <p>国家:  ${country}</p>
+      <p id='location-lang'><span>地址: </span><span> ${location}</span></p>
+      <p id='zipcode-lan'><span>邮编: </span><span> ${zipcode}</span></p>
+      <p id='city-lan'><span>城市: </span><span class='region-lan'> ${city}</span></p>
+      <p id='distinct-lan'><span>大区: </span><span class='region-lan'>${distinct}</span></p>
+      <p id='country-lan'><span>国家: </span><span class='region-lan'>${country}</span> </p>
     </div>
     <div class='info-detail hide-element' id='contactid'>
-	    <p>电话:  ${tel}</p>
-	    <p>邮箱:  ${email}</p>
-	    <p>qq:    ${qq}</p>
-	    <p>微信:  ${wechat}</p>
+    	<p id='tel-lan'><span>电话: </span><span> ${tel}</span></p>
+	    <p id='email-lan'><span>邮箱: </span><span> ${email}</span></p>
+	    <p id='wechat-lan'><span>微信:</span><span>  ${wechat}</span></p>
+	    <p id='mob-lan'><span>手机:</span><span>  ${mob}</span></p>
     </div>
   </div>
 </div>

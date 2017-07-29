@@ -170,17 +170,17 @@ function changePattern(){
 <body>
 [#include "../include/header.html"/]
 <div class="member-con">
-  <div class="m-pos"><a href="${base}/">首页</a> > <span>会员中心</span></div>
+  <div class="m-pos"><a href="${base}/"><font class='zh hide-element'>首页</font><font class='en'>Main</font></a> > <span><font class='zh hide-element'>会员中心</font><font class='en'>Member Center</font></span></div>
   <div class="member clearfix">
     <div class="memberLeft clearfix"> 
       <div class="member-nav">
         <ul>
-        <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx" class="on">公司信息</a></li>
-        <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li class='hide-element'><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li><a href="${base}/member/index.jspx" id='selfinfo'><font class='zh hide-element'>个人资料</font><font class='en'>Self Info</font></a></li>
+        <li><a href="${base}/member/contribute_list.jspx" class="on" id='companyinfo'><font class='zh hide-element'>公司信息</font><font class='en'>Comp Info</font></a></li>
+        <li><a href="${base}/member/myguestbook.jspx"><font class='zh hide-element' id='mywords'>我的留言</font><font class='en'>My Words</font></a></li>
+        <li><a href="${base}/member/collection_list.jspx"><font class='zh hide-element' id='myfavorite'>我的收藏</font><font class='en'>My Favor</font></a></li>
+        <li><a href="${base}/member/message_mng.jspx"><font class='zh hide-element' id='messages'>站内信息</font><font class='en'>Messages</font></a></li>
+        <li class='hide-element'><a href="${base}/member/account.jspx"><font class='zh hide-element'>服务中心</font><font class='en'>Service Center</font></a></li>
         </ul>
       </div>
       <div class="member-main">
@@ -214,48 +214,54 @@ function changePattern(){
                 <td class="tggl-top">TAGS</td>
                 <td>
                 <div class='tag-check'>
-                <p><input type="checkbox" name="vehicle" value="批发" />批发</p>
-                <p><input type="checkbox" name="vehicle" value="零售" />零售</p>
+                <p><input type="checkbox" id='pifa' value="批发" /></p>
+                <p><input type="checkbox" id='lingshou' value="零售" /></p>
                 </td>
                </tr>
               <tr class='tags-tr hide-element' id='serviceid'>
-                <td class="tggl-top">主营业务</td>
+                <td id='mainservice' class="tggl-top"></td>
                 <td>
                 <input id='ctags' type="text" name="tagStr" value="${content.tagStr!?html}" maxlength="255" class="member-change hide-element tags-change" style="width:300px;" />
                 <div class='tag-check' id='business-check'>
-                  <p><input type="checkbox" name="vehicle" value="服装" />服装</p>
-                  <p><input type="checkbox" name="vehicle" value="箱包" />箱包</p>
-                  <p><input type="checkbox" name="vehicle" value="鞋袜" />鞋袜</p>
-                  <p><input type="checkbox" name="vehicle" value="电子产品" />电子产品</p>
-                  <p><input type="checkbox" name="vehicle" value="家纺" />家纺</p>
-                  <p><input type="checkbox" name="vehicle" value="其他" />其他</p>
+                  <p><input type="checkbox" id="fuzhuang" value="服装" /></p>
+                  <p><input type="checkbox" id="xiangbao" value="箱包" /></p>
+                  <p><input type="checkbox" id="xiewa" value="鞋袜" /></p>
+                  <p><input type="checkbox" id="dianzichanpin" value="电子产品" /></p>
+                  <p><input type="checkbox" id="jiafang" value="家纺" /></p>
+                  <p><input type="checkbox" id="other" value="其他" /></p>
                 </div>
                 <div class='tag-check hide-element' id='logistics-check'>
-                  <p><input type="checkbox" name="vehicle" value="国内运输" />国内运输</p>
-                  <p><input type="checkbox" name="vehicle" value="国际运输" />国际运输</p>
-                  <p><input type="checkbox" name="vehicle" value="仓储" />仓储</p>
-                  <p><input type="checkbox" name="vehicle" value="快递" />快递</p>
-                  <p><input type="checkbox" name="vehicle" value="清关" />清关</p>
-                  <p><input type="checkbox" name="vehicle" value="其他" />其他</p>
+                  <p><input type="checkbox" id='guoneiyunshu' value="国内运输" /></p>
+                  <p><input type="checkbox" id='guojiyunshu' value="国际运输" /></p>
+                  <p><input type="checkbox" id='cangchu' value="仓储" /></p>
+                  <p><input type="checkbox" id='kuaidi' value="快递" /></p>
+                  <p><input type="checkbox" id='qingguan' value="清关" /></p>
+                  <p><input type="checkbox" id='other' value="其他" /></p>
                 </div>
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">联系方式</td>
-                <td>
-                  <input type="text" name="author" maxlength="100" class="member-change contact-hide hide-element" value="${content.author!?html}"/> 
+                <td id='tg-contact' class="tggl-top">联系方式</td>
+               <td>
+                  <input type="text" name="author" maxlength="100" class="member-change contact-hide hide-element" value='${content.author}'/>
                   <div class='contact-show'>
                   <div class='line'>
-                      <p>公司电话:</p>
-	                  <input type="text" maxlength="100" class="" id='tel'/>
+                      <p id='company-tel'>公司电话:</p>
+	                  <input type="text" maxlength="100" class="required" id='tel' required/>
 	                  <p>&emsp;&emsp;&emsp;qq:</p>
 	                  <input type="text" maxlength='50' class='' id='qq'/>
 	              </div>
 	              <div class='line'>
-	                  <p>公司邮箱:</p>
+	                  <p id='company-email'>公司邮箱:</p>
 	                  <input type="text" maxlength='50' class='' id='email'/>
-	                  <p>&emsp;&emsp;微信:</p>
+	                  <p id='company-wechat'>&emsp;&emsp;微信:</p>
 	                  <input type="text" maxlength='50' class='' id='wechat'/>
+	               </div>
+	               <div class='line'>
+	                  <p id='company-web'>公司网址:</p>
+	                  <input type="text" maxlength='50' class='' id='website'/>
+	                  <p id='company-mob'>&emsp;&emsp;手机:</p>
+	                  <input type="text" maxlength='50' class='' id='mob'/>
 	               </div>
                   </div>
                 </td>
@@ -264,18 +270,18 @@ function changePattern(){
                 <td class="tggl-top">公司地址</td>
                 <td>
                  <div class='region'>
-                <p>国家：</p>
+                <p id='tg-country'>国家：</p>
                 <select id='country-s'>
-                <option value='Italy意大利'>意大利</option>
-                <option value='France法国'>法国</option>
-                <option value='Britan英国'>英国</option>
-                <option value='German德国'>德国</option>
+                <option value='Italy1意大利'>意大利</option>
+                <option value='France1法国'>法国</option>
+                <option value='Britan1英国'>英国</option>
+                <option value='German1德国'>德国</option>
                 </select>
-                <p>区域：</p>
+                <p id='tg-distinct'>区域：</p>
                 <select id='distinct-s'>
                 <option value='none'>请选择国家</option>
                 </select>
-                <p>城市：</p>
+                <p id='tg-city'>城市：</p>
                 <select id='city-s'>
                 <option value='none'>请选择大区</option>
                 </select>
@@ -327,7 +333,7 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">内容</td>
+                <td id='tg-content'class="tggl-top">内容</td>
                 <td>
                  
                  <textarea id="txt-show" name="txt-show" class="required">${content.txt?split('<br')[0]?replace("<(S*?)[^>]*>.*?|<.*? />","","ri")}</textarea>    
@@ -390,7 +396,7 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">公司商标</td>
+                <td id='tg-brand' class="tggl-top">公司商标</td>
                 <td style="padding:10px 5px;">
                   <div>
 						<span id="spanButtonPlaceHolder"></span>

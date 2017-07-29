@@ -41,12 +41,13 @@ $(function() {
               [#assign keywords='清关']
             [/#if]
           [#else]
+            [#assign word='none']
             [#assign keywords='none']
             [#assign key='none']
           [/#if]  
 <div class="main container clearfix home-top">
     <div class='category'>
-    <p>物流</p>
+    <p id='cate-logistics'>物流</p>
     [#if keywords!='none']
     <p>&nbsp;>&nbsp;</p>   
     <p>${keywords}</p>
@@ -65,12 +66,12 @@ $(function() {
   <div class='left-bar'>
     <div class='left-content' id='left-search'>
       <div class='search-logo'>
-      
+      <p id='wuliusousuo'>物流搜索框</p>
       </div>
       <div class='left-search-category'>
       <form action="/search.jspx" target="_blank" id="searchForm">
 	      <div class='search-content' id='location'>
-	        <p>目标城市: </p>
+	        <p id='target-city-lan'>目标城市: </p>
 	        <input class='s-content'></input>
 	        <!--  
 	        <select id='country-s'>
@@ -105,10 +106,10 @@ $(function() {
                 -->
            </div>
           <div class='search-content' id='zipcode'>
-	        <p>&emsp;&emsp;邮编: </p><input class='s-content'></input>
+	        <p id='zipcode-lan'>&emsp;&emsp;邮编: </p><input class='s-content'></input>
 	      </div>
 	      <div class='search-content' id='keyword'>
-	        <p>&emsp;关键字: </p><input class='s-content required'></input>
+	        <p id='keyword-lan'>&emsp;关键字: </p><input class='s-content required'></input>
 	      </div>
 	      <input class='hide-element' type='text' name='q' value='+' id='left-hide-search'>
 	      <div class='search-submit'>
@@ -129,7 +130,7 @@ $(function() {
 	        [#assign tags=s.tagStr]
 	        [#assign orign=0]
             [#list tags?split('+')[1]?split(',') as tag]
-              [#if tag==keywords]
+              [#if tag==keywords || tag==word ]
                 [#assign orign=orign+1]
               [#else]
                 [#assign orign=orign+0]
@@ -143,10 +144,19 @@ $(function() {
 		          <p><a href='${s.url}'>查看详情</a></p>
 		        </div>
 	        </div>
-	        <div class='search-category'>
+	        <div id='${s.id}' class='search-category'>
 	          <a href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
 	          <p>></p>
-	          <p class='tags'>${s.tagStr?split('+')[1]?replace(',','/')}</p>
+	          <p class='tags'>
+			  [#assign t=s.tagStr?split('+')[1]]
+	          [#list t?split(',') as ta]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  $('#${s.id} .tags').append(lang['${ta}']).append('/')
+	          })
+	          </script>
+	          [/#list]
+			  </p>
 	        </div>
 	        [#if s.txt??]
 	        <div class="search-txt">
@@ -157,7 +167,7 @@ $(function() {
 	        <div class='company-all'>
 		        <div class='company-info' style='border-bottom:1px solid rgb(194,194,194);'>
 		          <div class='info-title'>
-		            <p>公司地址</p>
+		            <p class='location-lan'>公司地址</p>
 		          </div>
 		          <div class='info-txt' id='slocation'>
 		            <p>
@@ -173,7 +183,7 @@ $(function() {
 		        </div>
 		        <div class='company-info'>
 		          <div class='info-title'>
-		            <p>联系方式</p>
+		            <p class='contact-lan'>联系方式</p>
 		          </div>
 		          <div class='info-txt'>
 		            <p>

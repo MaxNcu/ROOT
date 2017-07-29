@@ -171,21 +171,21 @@ function changePattern(){
 <body>
 [#include "../include/header.html"/]
 <div class="member-con">
-  <div class="m-pos"><a href="${base}/">首页</a> > <span>会员中心</span></div>
+  <div class="m-pos"><a href="${base}/"><font class='zh hide-element'>首页</font><font class='en'>Main</font></a> > <span><font class='zh hide-element'>会员中心</font><font class='en'>Member Center</font></span></div>
   <div class="member clearfix">
     <div class="memberLeft clearfix"> 
       <div class="member-nav">
         <ul>
-        <li><a href="${base}/member/index.jspx">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx" class="on">公司信息</a></li>
-        <li><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li class='hide-element'><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li><a href="${base}/member/index.jspx" id='selfinfo'><font class='zh hide-element'>个人资料</font><font class='en'>Self Info</font></a></li>
+        <li><a href="${base}/member/contribute_list.jspx" class="on" id='companyinfo'><font class='zh hide-element'>公司信息</font><font class='en'>Comp Info</font></a></li>
+        <li><a href="${base}/member/myguestbook.jspx"><font class='zh hide-element' id='mywords'>我的留言</font><font class='en'>My Words</font></a></li>
+        <li><a href="${base}/member/collection_list.jspx"><font class='zh hide-element' id='myfavorite'>我的收藏</font><font class='en'>My Favor</font></a></li>
+        <li><a href="${base}/member/message_mng.jspx"><font class='zh hide-element' id='messages'>站内信息</font><font class='en'>Messages</font></a></li>
+        <li class='hide-element'><a href="${base}/member/account.jspx"><font class='zh hide-element'>服务中心</font><font class='en'>Service Center</font></a></li>
         </ul>
       </div>
       <div class="member-main">
-        <div class="member-child"><a href="${base}/member/contribute_list.jspx">公司列表</a>|<a href="${base}/member/contribute_add.jspx" class="on">新建信息</a></div>
+        <div class="member-child"><a href="${base}/member/contribute_list.jspx"><font class='zh hide-element'>公司列表</font><font class='en'>Company List</font></a>|<a href="${base}/member/contribute_add.jspx" class="on"><font class='zh hide-element'>新建信息</font><font class='en'>New Company Info</font></a></div>
         <div class="member-text tggl fbgj">
           [#if channelList?size gt 0]
           [#include "media_upload.html"/]
@@ -195,13 +195,13 @@ function changePattern(){
           <table cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
-                <td class="tggl-top">公司名称</td><td><input type="text" name="title" maxlength="150" class="member-change required" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
+                <td class="tggl-top"><font class='zh hide-element'>公司名称</font><font class='en'>Comp Name</font></td><td><input type="text" name="title" maxlength="150" class="member-change required" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
               </tr>
               <tr>
-                <td class="tggl-top">公司类型</td>
+                <td class="tggl-top"><font class='zh hide-element'>公司类型</font><font class='en'>Comp Cate</font></td>
                 <td>
                 <select name="channelId" class="member-change" id="cate-change">
-                <option value="" class="sel-disabled" id='default-value'>--请选择--</option>
+                <option value="" class="sel-disabled" id='default-value'></option>
                 [#if channelList?size gt 0]
                 [#assign origDeep=channelList[0].deep+1/]
                 [#list channelList as c]
@@ -215,76 +215,82 @@ function changePattern(){
                 <td class="tggl-top">TAGS</td>
                 <td>
                 <div class='tag-check'>
-                <p><input type="checkbox" name="vehicle" value="批发" />批发</p>
-                <p><input type="checkbox" name="vehicle" value="零售" />零售</p>
+                <p><input type="checkbox" id='pifa' value="批发" /></p>
+                <p><input type="checkbox" id='lingshou' value="零售" /></p>
                 </td>
                </tr>
               <tr class='tags-tr hide-element' id='serviceid'>
-                <td class="tggl-top">主营业务</td>
+                <td id='mainservice' class="tggl-top"></td>
                 <td>
                   <input id='ctags' type="text" name="tagStr" maxlength="255" class="member-change hide-element required" style="width:300px;" />
                   <div class='tag-check' id='business-check'>
-                  <p><input class='required' type="checkbox" name="vehicle" value="服装" />服装</p>
-                  <p><input type="checkbox" name="vehicle" value="箱包" />箱包</p>
-                  <p><input type="checkbox" name="vehicle" value="鞋袜" />鞋袜</p>
-                  <p><input type="checkbox" name="vehicle" value="电子产品" />电子产品</p>
-                  <p><input type="checkbox" name="vehicle" value="家纺" />家纺</p>
-                  <p><input type="checkbox" name="vehicle" value="其他" />其他</p>
+                  <p><input type="checkbox" id="fuzhuang" value="fuzhuang" /></p>
+                  <p><input type="checkbox" id="xiangbao" value="xiangbao" /></p>
+                  <p><input type="checkbox" id="xiewa" value="xiewa" /></p>
+                  <p><input type="checkbox" id="dianzichanpin" value="dianzichanpin" /></p>
+                  <p><input type="checkbox" id="jiafang" value="jiafang" /></p>
+                  <p><input type="checkbox" id="other" value="qita" /></p>
                   </div>
                   <div class='tag-check hide-element' id='logistics-check'>
-                  <p><input type="checkbox" name="vehicle" value="国内运输" />国内运输</p>
-                  <p><input type="checkbox" name="vehicle" value="国际运输" />国际运输</p>
-                  <p><input type="checkbox" name="vehicle" value="仓储" />仓储</p>
-                  <p><input type="checkbox" name="vehicle" value="快递" />快递</p>
-                  <p><input type="checkbox" name="vehicle" value="清关" />清关</p>
-                  <p><input type="checkbox" name="vehicle" value="其他" />其他</p>
+                  <p><input type="checkbox" id='guoneiyunshu' value="guoneiyunshu" /></p>
+                  <p><input type="checkbox" id='guojiyunshu' value="guojiyunshu" /></p>
+                  <p><input type="checkbox" id='cangchu' value="cangchu" /></p>
+                  <p><input type="checkbox" id='kuaidi' value="kuaidi" /></p>
+                  <p><input type="checkbox" id='qingguan' value="qingguan" /></p>
+                  <p><input type="checkbox" id='other' value="qita" /></p>
                   </div>
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">联系方式</td>
+                <td id='tg-contact' class="tggl-top">联系方式</td>
                 <td>
                   <input type="text" name="author" maxlength="100" class="member-change contact-hide hide-element" />
                   <div class='contact-show'>
                   <div class='line'>
-                      <p>公司电话:</p>
+                      <p id='company-tel'>公司电话:</p>
 	                  <input type="text" maxlength="100" class="required" id='tel' required/>
 	                  <p>&emsp;&emsp;&emsp;qq:</p>
 	                  <input type="text" maxlength='50' class='' id='qq'/>
 	              </div>
 	              <div class='line'>
-	                  <p>公司邮箱:</p>
+	                  <p id='company-email'>公司邮箱:</p>
 	                  <input type="text" maxlength='50' class='' id='email'/>
-	                  <p>&emsp;&emsp;微信:</p>
+	                  <p id='company-wechat'>&emsp;&emsp;微信:</p>
 	                  <input type="text" maxlength='50' class='' id='wechat'/>
+	               </div>
+	               <div class='line'>
+	                  <p id='company-web'>公司网址:</p>
+	                  <input type="text" maxlength='50' class='' id='website'/>
+	                  <p id='company-mob'>&emsp;&emsp;手机:</p>
+	                  <input type="text" maxlength='50' class='' id='mob'/>
 	               </div>
                   </div>
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">公司地址</td>
+                <td id='tg-locate' class="tggl-top">公司地址</td>
                 <td>
                 <div class='region'>
-                <p>国家：</p>
+                <p id='tg-country'>国家：</p>
                 <select id='country-s'>
                 <option value='none'>请选择国家</option>
-                <option value='Italy意大利'>意大利</option>
-                <option value='France法国'>法国</option>
-                <option value='Britan英国'>英国</option>
-                <option value='German德国'>德国</option>
+                <option value='Italy1意大利'>意大利</option>
+                <option value='France1法国'>法国</option>
+                <option value='Britan1英国'>英国</option>
+                <option value='German1德国'>德国</option>
                 </select>
-                <p>区域：</p>
+                <p id='tg-distinct'>区域：</p>
                 <select id='distinct-s'>
                 <option value='none'>请选择国家</option>
                 </select>
-                <p>城市：</p>
+                <p id='tg-city'>城市：</p>
                 <select id='city-s'>
                 <option value='none'>请选择大区</option>
                 </select>
                 </div>
                 
                 <div class='r-zipcode'>
-                <p>zipcode:</p>
+                <p id='tg-zipcode'>zipcode:</p>
                 <input></input>
                 </div>
                 <textarea id='description' class='hide-element' name="description" rows="3" cols="30" maxlength="255"></textarea>
@@ -338,7 +344,7 @@ function changePattern(){
                 <td class="tggl-top">播放器</td><td>[@p.radio name="mediaType" list=["WM","REAL","FLV","FLASH","CK"] value="CK"/]</td>
               </tr>
               <tr>
-                <td class="tggl-top">内容</td>
+                <td id='tg-content' class="tggl-top">内容</td>
                 <td>
                  <textarea id="txt" class='hide-element' name="txt"></textarea>
                  <textarea id="txt-show" name="txt-show"></textarea> 
@@ -387,13 +393,14 @@ function changePattern(){
                 </td>
               </tr>
               <tr>
-                <td class="tggl-top">公司商标</td>
+                <td id='tg-brand' class="tggl-top">公司商标</td>
                 <td style="padding:10px 5px;">
-                  <div>
+                  <div class='branddiv'>
 						<span id="spanButtonPlaceHolder"></span>
 						<span style="display: none;"><input class="cancel" id="btnCancel" type="button" value="取消" onclick="swfu.cancelQueue();" disabled="disabled" /></span>
 						<div id="fsUploadProgress" style="display: none;"></div>
 						</div>
+						<font class='brandfont'>推荐比例 长宽4:3</font>
 						<div id="picBefore" style="clear:both"></div>
 						<div id="picTable" style="display:none;">
 						<table id="picTable{0}" border="0" cellpadding="0" cellspacing="0" class="fbgj-tab">
@@ -420,6 +427,7 @@ function changePattern(){
 							$('#picBefore').before(picTpl(picIndex++));
 						}
 						</script>
+				
                 </td>
               </tr>
               [#if contentChargeModel??&&contentChargeModel==2]
@@ -433,7 +441,7 @@ function changePattern(){
                
                [/#if]
               <tr>
-                <td class="tggl-top">验证码</td><td><input type="text" name="captcha" maxlength="20" class="member-change" style="float:left; margin-left:15px;" /><img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/></td>
+                <td id='tg-verify' class="tggl-top">验证码</td><td><input type="text" name="captcha" maxlength="20" class="member-change" style="float:left; margin-left:15px;" /><img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"/></td>
               </tr>
               <tr>
                 <td colspan="2" style="text-align:center; padding:20px 0;"><input type="hidden" name="nextUrl" value="contribute_list.jspx" /><input type="submit" class="member-submit" value="提交" /><input type="reset" class="member-reset" value="重置" /></td>

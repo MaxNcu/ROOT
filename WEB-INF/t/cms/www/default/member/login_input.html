@@ -76,25 +76,25 @@ $(function() {
     
       [/#if]
   </div>
-  <div class='content-block'>
-      <p >登入名:&emsp;&emsp;</p>
+  <div class='content-block member-block-lan'>
+      <p id='dengruming'>登入名:&emsp;&emsp;</p>
       <div class="username-con"><i></i><input id="username" name="username" class="required login-input" type="text" placeholder="请输入您的用户名"></div>
   </div>
-  <div class='content-block'>
-      <p>密码:&emsp;&emsp;&emsp;</p>
+  <div class='content-block member-block-lan'>
+      <p id='mima'>密码:&emsp;&emsp;&emsp;</p>
       <div class="password-con"><i></i><input id="password" name="password" class="required password-input" type="password" placeholder="请输入您的密码"></div>
   </div>
       [#if (errorTimes??&&errorTimes<=0)||(errorRemaining?? && errorRemaining<=0)]
-      <div class='content-block'><div class="captcha-con clearfix"><i></i><input type="text" id="captcha" name="captcha" class=""required captcha-input" placeholder="验证码"/><img src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()*1" /></div></div>
+      <div class='content-block'><div class="captcha-con clearfix"><i></i><input type="text" id="captcha" name="captcha" class="required captcha-input" placeholder="验证码"/><img src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()*1" /></div></div>
       [/#if]
     <div class="login-rem clearfix">
-      <div class="next-day"><input type="checkbox" class="login-checkbox"  value="true" name="rememberMe">下次自动登录</div>
+      <div class="next-day"><input type="checkbox" class="login-checkbox"  value="true" name="rememberMe"></div>
       <a href="${base}/member/forgot_password.jspx">忘记密码</a>
     </div>
-    <input type="submit" class="login-btn" value="登 录">
+    <input type="submit" class="login-btn" value="登录">
   <div class="quick">
     <div class="quick-list clearfix">
-      <a href="${base}/member/forgot_password.jspx">忘记密码</a>
+      <a id='forgetpass-lan' href="${base}/member/forgot_password.jspx">忘记密码</a>
       |&emsp;
       <a class="quick-qq" id="qqLoginBtn" title="用QQ账号登录">QQ登入</a>
       <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="${site.config.qqID!}" data-redirecturi="http://${site.domain}/public_auth.jspx" charset="utf-8"></script>

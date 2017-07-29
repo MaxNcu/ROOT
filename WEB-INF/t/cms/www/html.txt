@@ -2,8 +2,10 @@
 登入: ROOT/WEB-INFO/t/cms/www/default/member/login_input.html
 搜索结果页: ROOT/WEB-INFO/t/cms/www/default/special/search_result.html
 首页: ROOT/WEB-INFO/t/cms/www/default/index/index.html
+      ROOT/WEB-INF/t/cms/www/default/csi/login_csi.html
 联系我们: ROOT/WEB-INFO/t/cms/www/default/special/guestbook_index.html
 明细页: ROOT/WEB-INFO/t/cms/www/default/content/news2.html
+
 个人中心:
   新建信息:ROOT/WEB-INFO/t/cms/www/default/member/contribute_add.html
   修改信息:ROOT/WEB-INFO/t/cms/www/default/member/contribute_edit.html

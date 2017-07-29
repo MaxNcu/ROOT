@@ -49,11 +49,34 @@ $(function() {
     ${user.username}
   </a>
   <div class="user-child">
-    <a href="${base}/member/index.jspx">会员中心</a>
+    <a href="${base}/member/index.jspx">
+    <font class='zh hide-element'>会员中心</font>
+    <font class='en'>Member Center</font>
+    </a>
     &emsp;|&emsp;
-    <a id="logout" >退出账号</a>
+    <a id="logout">
+    <font class='zh hide-element'>退出账号</font>
+    <font class='en'>Quit</font>
+    </a>
   </div>
 </div>
 [#else]
-      <div class="login"><a class="tc" href="${base}/login.jspx">登录</a>&nbsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&nbsp;<a href="${base}/register.jspx">注册</a></div>
+      <div class="login"><a class="tc" href="${base}/login.jspx">
+      <font class='zh hide-element'>登录</font>
+      <font class='en'>Login</font>
+      </a>
+      <font class='zh hide-element'>&nbsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&nbsp;</font>
+      <font class='en'>&nbsp;&emsp;&emsp;|&emsp;&emsp;&nbsp;</font>
+      <a href="${base}/register.jspx">
+      <font class='zh hide-element'>注册</font>
+      <font class='en'>Sign</font>
+      </a></div>
 [/#if]
+<script type='text/javascript'>
+$(function(){
+	if(language=='en'){
+    	$('.user-child').css('margin-left','20px')
+    }
+})
+
+</script>

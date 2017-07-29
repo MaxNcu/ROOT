@@ -18,11 +18,11 @@
           </td>
        </tr>
        <tr>
-         <td class="tggl-top">主题：</td>
+         <td id='tg-topical' class="tggl-top">主题：</td>
          <td>${message.titleHtml!}</td>
        </tr> 
        <tr>
-         <td class="tggl-top">内容：</td>
+         <td id='tg-content' class="tggl-top">内容：</td>
          <td>
 			${message.contentHtml!}
 		 </td>
@@ -32,7 +32,7 @@
          <input name="box" type="hidden" value="${box!}"/>
          <input name="nextUrl" type="hidden" value="message_mng.jspx?box=1"/>
          <input name="id" type="hidden" value="${message.id!}"/>
-         <input name="msg" type="hidden" value="${message.titleHtml!}已被成功移除！"/>
+         <input name="msg" type="hidden" value="已被成功移除！"/>
 	    [#if box??]
 	     	[#if box==2]
 	     		<input type="button" onclick="toSend('${message.id!}')" value="发送" class="member-submit"/>	

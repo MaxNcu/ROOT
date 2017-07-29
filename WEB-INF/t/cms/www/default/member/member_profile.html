@@ -30,12 +30,12 @@ $(function() {
     <div class="memberLeft clearfix"> 
       <div class="member-nav">
         <ul>
-        <li><a href="${base}/member/index.jspx" class="on">个人资料</a></li>
-        <li><a href="${base}/member/contribute_list.jspx">公司信息</a></li>
-        <li class='hide-element'><a href="${base}/member/myguestbook.jspx">我的留言</a></li>
-        <li><a href="${base}/member/collection_list.jspx">我的收藏</a></li>
-        <li><a href="${base}/member/message_mng.jspx">站内信息</a></li>
-        <li><a href="${base}/member/account.jspx">服务中心</a></li>
+        <li><a href="${base}/member/index.jspx" id='selfinfo' class='on'>个人资料</a></li>
+        <li><a href="${base}/member/contribute_list.jspx" id='companyinfo'><font class='zh hide-element'>公司信息</font><font class='en'>Comp Info</font></a></li>
+        <li><a href="${base}/member/myguestbook.jspx"><font class='zh hide-element' id='mywords'>我的留言</font><font class='en'>My Words</font></a></li>
+        <li><a href="${base}/member/collection_list.jspx"><font class='zh hide-element' id='myfavorite'>我的收藏</font><font class='en'>My Favor</font></a></li>
+        <li><a href="${base}/member/message_mng.jspx"><font class='zh hide-element' id='messages'>站内信息</font><font class='en'>Messages</font></a></li>
+        <li class='hide-element'><a href="${base}/member/account.jspx"><font class='zh hide-element'>服务中心</font><font class='en'>Service Center</font></a></li>
         </ul>
       </div>
       <div class="member-main">
@@ -45,22 +45,22 @@ $(function() {
           <table cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
-                <td class="s-p">性别：</td><td>[@p.radio name="gender" value=user.gender list={"true":"男","false":"女","":"保密"}/]</td><td class="s-p">出生日期：</td><td><input type="text" name="birthday" value="${(user.birthday?string('yyyy-MM-dd'))!}" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})" class="member-change date" /></td>
+                <td id='gender' class="s-p">性别：</td><td id='genderinput'>[@p.radio name="gender" value=user.gender list={"true":"","false":"","":""}/]</td><td id='birthday' class="s-p">出生日期：</td><td><input type="text" name="birthday" value="${(user.birthday?string('yyyy-MM-dd'))!}" onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})" class="member-change date" /></td>
               </tr>
               <tr>
-                <td class="s-p">真实姓名：</td><td><input type="text" name="realname" value="${user.realname!?html}" maxlength="100" class="member-change" /></td>
+                <td id='realname' class="s-p">真实姓名：</td><td><input type="text" name="realname" value="${user.realname!?html}" maxlength="100" class="member-change" /></td>
               </tr>
               <tr>
-                <td class="s-p">手机：</td><td><input type="text" name="mobile" value="${user.mobile!?html}" maxlength="50" class="member-change" /></td><td class="s-p">固定电话：</td><td><input type="text" name="phone" value="${user.phone!?html}" maxlength="50" class="member-change" /></td>
+                <td id='tel' class="s-p">手机：</td><td><input type="text" name="mobile" value="${user.mobile!?html}" maxlength="50" class="member-change" /></td><td id='telephone' class="s-p">固定电话：</td><td><input type="text" name="phone" value="${user.phone!?html}" maxlength="50" class="member-change" /></td>
               </tr>
               <tr>
                 <td class="s-p">QQ：</td><td><input type="text" name="qq" value="${user.qq!?html}" maxlength="100" class="member-change" /></td><td class="s-p">MSN：</td><td><input type="text" name="msn" value="${user.msn!?html}" maxlength="100" class="member-change" /></td>
               </tr>
               <tr>
-                <td class="s-p">来自：</td><td><input type="text" name="comefrom" value="${user.comefrom!?html}" maxlength="150" class="member-change" /></td>
+                <td id='from' class="s-p">来自：</td><td><input type="text" name="comefrom" value="${user.comefrom!?html}" maxlength="150" class="member-change" /></td>
               </tr>
               <tr>
-                <td class="s-p">自我介绍：</td><td colspan="3"><textarea name="intro" vld="{maxlength:255}"  maxlength="255">${user.intro!?html}</textarea></td>
+                <td id='selfintro' class="s-p">自我介绍：</td><td colspan="3"><textarea name="intro" vld="{maxlength:255}"  maxlength="255">${user.intro!?html}</textarea></td>
               </tr>
               <tr>
                 <td colspan="4" style="padding:25px 0 0 70px;"><input type="hidden" name="nextUrl" value="index.jspx"/><input type="submit" class="member-submit" value="提交" /><input type="reset" class="member-reset" value="重置" /></td></td>

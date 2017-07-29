@@ -75,7 +75,10 @@ $(function() {
   </div>
   <section class="home-top clearfix">
     <div class='category-index'>
-      <p>全部</p>
+      <p>
+      <font class='zh hide-element'>全部</font>
+      <font class='en'>All</font>
+      </p>
     </div>
     <hr>
     <ul class='locate-cate'>
@@ -89,8 +92,8 @@ $(function() {
 	      [@cms_content_list count='20' orderBy='4' channelId='75' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
 		      [#list tag_list as a] 
 		          <div class='show-content'>
-		          <img src="${a.typeImg!}">
 		          <a [#if (a_index)%6=0]class="bold"[/#if] href="${a.url}" target="_blank">
+		          <img src="${a.typeImg!}">
 		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'>详情</p>
 		          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
 		          [#assign txtshow=a.txt ]

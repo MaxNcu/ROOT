@@ -107,7 +107,7 @@
 
 /*nav*/
 .nav .menu{float:left; margin-top:-1px;}
-.nav .menu li{float:left; line-height:40px;}
+.nav .menu li{float:left; line-height:40px;height:40px;}
 .nav .menu li a{cursor:pointer;transition-duration:300ms; -moz-transition-duration:300ms; -webkit-transition-duration:300ms; -o-transition-duration:300ms;}
 .nav .menu li a:hover{transition-duration:300ms; -moz-transition-duration:300ms; -webkit-transition-duration:300ms; -o-transition-duration:300ms;}
 .nav .menu li.on a{}
@@ -585,7 +585,7 @@
 .wenku_bottom .wenku_download{color:#fff; background-color:#ef3838;}
 .wenku_bottom .wenku_download:hover{background-color:#f45454;}
 /*文库样式结束*/
-
+.hide-element{display:none;}
 /*新闻内容页样式开始*/
 .content_w850{width:895px; float:left;}
 .content_w850 h1{color:#1f1f1f; font-size:24px; font-weight:normal;}

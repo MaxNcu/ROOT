@@ -60,7 +60,7 @@ $(function() {
 		
 		button_image_url : "${base}/thirdparty/swfupload/button_notext.png",
 		button_placeholder_id : "spanButtonPlaceHolder",
-		button_text: "<span class='btnText'>上传</span>",
+		button_text: "<span class='btnText'>&nbsp;"+lang['shangchuan']+"</span>",
 		button_width: 84,
 		button_height: 24,
 		button_text_top_padding: 2,
@@ -91,7 +91,7 @@ $(function() {
 		
 		button_image_url : "${base}/thirdparty/swfupload/button_notext.png",
 		button_placeholder_id : "aspanButtonPlaceHolder",
-		button_text: "<span class='btnText'>上传</span>",
+		button_text: "<span class='btnText'>&nbsp;"+lang['shangchuan']+"</span>",
 		button_width: 84,
 		button_height: 24,
 		button_text_top_padding: 2,
@@ -412,7 +412,7 @@ function changePattern(){
 								<input type='text' id='uploadFileText{0}' size="10" class="member-change" style="width:115px;height:22px;"/>  
 								<input onchange="$('#uploadFileText{0}').val(this.value)" size="10" type="file" id="uploadFile{0}" style="width:72px;height:22px;"/>
 								</span>
-								<input type="button" value="上传" onclick="upload({0});" style="width:50px;height:22px;cursor:pointer;background:#3694d7;color:#fff;font-size:12px;"/>
+								<input type="button" value="submit" onclick="upload({0});" style="width:50px;height:22px;cursor:pointer;background:#3694d7;color:#fff;font-size:12px;"/>
 								</div>
 								<div><textarea style="width:300px;height:60px;margin-bottom:0;" name="picDescs" maxlength="255"></textarea></div>
 							</td>

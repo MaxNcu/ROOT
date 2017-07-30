@@ -52,7 +52,7 @@ $(function() {
     <a href="${base}/member/index.jspx">
     <font class='center'>会员中心</font>
     </a>
-    &emsp;|&emsp;
+    <font class='membershuxian'>&emsp;|&emsp;</font>
     <a id="logout">
     <font class='quit'>退出账号</font>
     </a>
@@ -60,14 +60,11 @@ $(function() {
 </div>
 [#else]
       <div class="login"><a class="tc" href="${base}/login.jspx">
-      <font class='zh hide-element'>登录</font>
-      <font class='en'>Login</font>
+      <font class='login-lan'>登录</font>
       </a>
-      <font class='zh hide-element'>&nbsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&nbsp;</font>
-      <font class='en'>&nbsp;&emsp;&emsp;|&emsp;&emsp;&nbsp;</font>
+      <font class='shuxian'>&nbsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&nbsp;</font>
       <a href="${base}/register.jspx">
-      <font class='zh hide-element'>注册</font>
-      <font class='en'>Sign</font>
+      <font class='register-lan'>注册</font>
       </a></div>
 [/#if]
 <script type='text/javascript'>
@@ -76,6 +73,9 @@ $(function(){
     	$('.user-child').css('margin-left','20px')
     	$('.quit').text('Quit')
     	$('.center').text('Member Center')
+    	$('.register-lan').text('Register')
+    	$('.login-lan').text('Login')
+    	$('.shuxian').html('&emsp;|&emsp;')
     }else if(language=='zh'){
     	$('.quit').text('会员中心')
     }

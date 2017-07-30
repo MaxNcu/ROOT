@@ -328,6 +328,7 @@ input{
 	float:left;
 	line-height:28px;
 	font-size:13px;
+	font-family:微软雅黑,"Microsoft YaHei",Tahoma,Verdana,STHeiTi,simsun,sans-serif!important;
 }
 .search-category .search-submit{
 	float:left;

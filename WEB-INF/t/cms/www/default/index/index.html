@@ -40,15 +40,13 @@ $(function() {
 	        <li>&nbsp;</li>
 	      </div>
 	      <form action="${base}/search.jspx" target="_blank" id="searchForm">
-	      <div class='search-content' id='zipcode'>
-	        <p><font class='zh hide-element'>&nbsp;邮编: </font></p>
-	        <p><font class='en'>zipcode:</font></p>
-	        <input></input>      
-	      </div>
 	      <div class='search-content' id='keyword'>
-	        <p><font class='zh hide-element'>关键字: </font></p>
-	        <p><font class='en'>keyword:</font></p>
+	        <p><font class='keyword-lan'>关键字: </font></p>
 	        <input type='text'></input>
+	      </div>
+	      <div class='search-content' id='zipcode'>
+	        <p><font class='zipcode-lan'>&nbsp;邮编: </font></p>
+	        <input></input>      
 	      </div>
 	      <input type='text' name='q' class='scontent hide-element'></input>
 	      <div class='search-submit'>
@@ -89,12 +87,12 @@ $(function() {
       <li id='city'></li>
     </ul>
     <div class='list-content'>
-	      [@cms_content_list count='20' orderBy='4' channelId='75' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
+	      [@cms_content_list count='20' orderBy='4' typeId='4' channelId='76' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
 		      [#list tag_list as a] 
 		          <div class='show-content'>
 		          <a [#if (a_index)%6=0]class="bold"[/#if] href="${a.url}" target="_blank">
 		          <img src="${a.typeImg!}">
-		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'>详情</p>
+		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'><font class='details'>详情</font></p>
 		          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
 		          [#assign txtshow=a.txt ]
 		          [#assign txtshow=txtshow?split('</p>')[0]]

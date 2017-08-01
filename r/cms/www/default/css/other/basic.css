@@ -330,6 +330,9 @@ input{
 	font-size:13px;
 	font-family:微软雅黑,"Microsoft YaHei",Tahoma,Verdana,STHeiTi,simsun,sans-serif!important;
 }
+#searchForm #keyword p, #searchForm #zipcode p{
+	width:48px;
+}
 .search-category .search-submit{
 	float:left;
 	margin-top:30px;

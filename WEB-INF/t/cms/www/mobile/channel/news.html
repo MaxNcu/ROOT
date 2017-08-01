@@ -24,29 +24,7 @@ $(function() {
 <body>
 <div class="viewport">
   [#include "../include/header.html" /]
-  <div class="addWrap">
-	<div class="swipe" id="mySwipe">
-		<div class="swipe-wrap">
-               [@cms_content_list typeId='2' recommend='1' orderBy='4' channelId='75,76' titLen='20' channelOption='1' dateFormat='yyyy-MM-dd'] 
-            [#list tag_list as a]
-		  <div>
-                    <a href="${a.url}"><img class="img-responsive" src="${a.typeImg!}"/>
-                    <div class="slBanrTxt"><p>[@text_cut s=a.title len=titLen append='...'/]</p></div>
-                    </a>
-                  </div>
-            [/#list]
-          [/@cms_content_list]
-                </div>					
-	</div>	
- [@cms_content_list typeId='2' recommend='1' orderBy='4' channelId='75,76' titLen='25' channelOption='1' dateFormat='yyyy-MM-dd'] 
-	<ul id="position">
-     [#list tag_list as a]
-      <li [#if a_index<1]class="cur"[/#if]>${a_index+1}</li>
-	[/#list]
-      <span>/${tag_list?size}</span>
-	</ul>
-        [/@cms_content_list]
-  </div>
+  
   <script type="text/javascript">
 	var bullets = document.getElementById('position').getElementsByTagName('li');
 	
@@ -63,40 +41,91 @@ $(function() {
 		}
 	})
   </script>
-  <div class="toutiao">
-   [@cms_content_list typeId='4' count='1' titLen='26' channelId='75' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
-    [#list tag_list as a]
-    <span>头条</span><a href="${a.url}">${a.title}</a></div>
-   [/#list]
-   [/@cms_content_list]
+
   <div class="newList">
-    [@cms_content_list recommend='2' typeId='2' orderBy='4' channelId='75' channelOption='1' dateFormat='MM-dd']
-    [#list tag_list as a]
-    <div class="item one-pic">
-      <a href="${a.url}">
-      <div class="pic"><img src="${a.typeImg!}"></div>      
-      <div class="item-txt">
-        <div class="item-title">${a.title}</div>
-        <div class="item-des">${a.description!}</div>
-      </div>
-      <div class="item-bottom">${a.date?string(dateFormat)}<span>评论 ${a.contentCount.comments!}</span></div>
-      </a>
-    </div>
-    [/#list]
-    [/@cms_content_list]
-    [@cms_content_list recommend='2' typeId='1' orderBy='4' channelId='75' channelOption='1' dateFormat='MM-dd']
-    [#list tag_list as a]
-    <div class="item text"> 
-      <a href="${a.url}">   
-      <div class="item-txt">
-        <div class="item-title">${a.title}</div>
-        <div class="item-des">${a.description!}</div>
-      </div>
-      <div class="item-bottom">${a.date?string(dateFormat)}<span>评论 ${a.contentCount.comments!}</span></div>
-      </a>
-    </div>
-    [/#list]
-    [/@cms_content_list]
+    [@cms_content_page  orderBy='4' channelId='75' channelOption='0' dateFormat='yyyy-MM-dd HH-mm']
+	    <div class="searchList">
+	      [#list tag_pagination.list as s]
+	        [#assign tags=s.tagStr]
+	        [#assign orign=0]
+            [#list tags?split('+')[1]?split(',') as tag]
+              [#if tag==keywords ||tag==word ]
+                [#assign orign=orign+1]
+              [#else]
+                [#assign orign=orign+0]
+              [/#if]
+            [/#list]
+          <div [#if orign==1 || key=='none' ] class='item' [#else] class='item hide-element'[/#if]>
+            <div class='item-left'>
+	        <div class='top-line'>
+		        <div class="search-title"><a href="${s.url}" title="${s.title}" target="_blank">${s.title?replace('${q!}', "<span>${q!}</span>")}</a></div>
+		        <div class='detail'>
+		          <p><a href='${s.url}'>查看详情</a></p>
+		        </div>
+	        </div>
+	        <div id='${s.id}' class='search-category'>
+	          <a id='main-tag' href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
+	          <p>></p>
+	          <p class='tags'>
+	          [#assign t=s.tagStr?split('+')[1]]
+	          [#list t?split(',') as ta]
+	          
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  $('#${s.id} .tags').append(lang['${ta}']).append('/')
+	          })
+	          </script>
+	          [/#list]
+	          </p>
+	        </div>
+	        <script type="text/javascript">
+	        </script>
+	        [#if s.txt??]
+	        <div class="search-txt">
+	          [#assign bb=s.txt?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [@text_cut s=bb! len=150 append='...'/]
+	        </div>
+	        [/#if]
+	        <div class='company-all'>
+		        <div class='company-info' style='border-bottom:1px solid rgb(194,194,194);'>
+		          <div class='info-title'>
+		            <p class='location-lan'>公司地址</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>
+		            [#assign temp=s.description?split("~")]
+		            [#if temp?size>1]
+		            [#assign des=temp[1]?replace("</p>","")]
+		            ${des}
+		            [#else]
+		            ${temp[0]}
+		            [/#if]
+		            </p>
+
+		          </div>
+		        </div>
+		        <div class='company-info'>
+		          <div class='info-title'>
+		            <p class='contact-lan'>联系方式</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>
+		            [#if s.author?split(',')[0]?split(':')[1]??]
+		            ${s.author?split(',')[0]?split(':')[1]}
+		            [/#if]
+		            </p>
+		          </div>
+		        </div>
+	        </div>
+	        </div>
+	        <div class='item-right'>
+	          <img  class='item-img' src="${s.typeImg!}">
+	        </div>
+	      </div>
+	      [/#list]
+	    </div>
+	     [#include "../include/page.html"/] 
+	     [/@cms_content_page]	
   </div>
 </div>
 [#include "../include/gotop.html" /]

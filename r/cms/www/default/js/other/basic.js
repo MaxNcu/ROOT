@@ -125,6 +125,7 @@ $(function(){
 	$('.left-search-category .radio-content').children().eq(0).after(lang['pifa'])
 	$('.left-search-category .radio-content').children().eq(1).after(lang['lingshou'])
 	$('.detail a').text(lang['chakanxiangqing'])
+	$('.details').text(lang['xiangqing'])
 	$('.location-lan').text(lang['gongsidizhi'])
 	$('.contact-lan').text(lang['lianxifangshi'])
 	$('#maoyisousuo').text(lang['maoyisousuokuang'])
@@ -171,6 +172,8 @@ $(function(){
 	$('.brandfont').text(lang['tuijianchangkuan'])
 	var imgurl='url('+lang['iconpic']+')'
 	$('#language .icon-img').css('background',imgurl)
+	$('.zipcode-lan').text(lang['youbian'])
+	$('.keyword-lan').text(lang['guanjianzi'])
 	qitaxuanxiang="<option value=other>"+lang['qita']+"</option>"
 	guojiaxuanxiang="<option value='none'>"+lang['qingxuanzeguojia']+"</option>"
 	chengshixuanxiang="<option value='none'>"+lang['qingxuanzechengshi']+"</option>"
@@ -202,8 +205,9 @@ $(function(){
 		$('.menu li').css('width','75px')
 		$('.trangle').css('margin-left','35px')
 		$('.s-p').css({'width':'120px','height':'45px','display':'block'})
-		$('#zipcode input').css('margin-left','27px')
-		$('#keyword input').css('margin-left','23px')
+		$('#zipcode p').css('width','60px')
+		$('#keyword p').css('width','60px')
+		$('#searchForm .search-submit').css('margin-left','110px')
 		$('.radio-content').css({'width':'200px','margin-left':'28px'})
 		$('.location-lan').css('width','106px')
 		$('#locationid span').css({'display':'inline-block','width':'100px','height':'20px;'})

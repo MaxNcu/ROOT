@@ -331,7 +331,7 @@ input{
 	font-family:微软雅黑,"Microsoft YaHei",Tahoma,Verdana,STHeiTi,simsun,sans-serif!important;
 }
 #searchForm #keyword p, #searchForm #zipcode p{
-	width:48px;
+	width:55px;
 }
 .search-category .search-submit{
 	float:left;
@@ -641,15 +641,17 @@ hr{
     margin-right:5px;
     margin-left:20px;
 }
-.left-content .search-submit{
+.left-content .left-search-submit{
 	margin-top:5px;
 	width:100%;
 	height:40px;
 }
-.left-content .search-submit input{
+.left-content .left-search-submit input{
+	color:white;
 	width:80px;
 	height:32px;
 	margin-left:100px;
+	background-color:rgb(27,117,187);
 }
 .right-result{
 	width:885px;

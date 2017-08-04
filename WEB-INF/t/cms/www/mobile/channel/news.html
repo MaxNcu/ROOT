@@ -22,9 +22,19 @@ $(function() {
 </head>
 
 <body>
+[#include "../include/header.html"/]
 <div class="viewport">
-  [#include "../include/header.html" /]
-  
+<div class='cate'><p>贸易</p></div>
+<div class='expander'>
+		<ul class='menu'>
+		      <li><a href='/business/index.jhtml?tags=fuzhuang'><font class='zh'>服装</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiewa'><font class='zh'>鞋袜</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiangbao'><font class='zh'>首饰箱包</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=jiafang'><font class='zh'>家纺</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=dianzichanpin'><font class='zh'>电子产品</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=qita'><font class='zh'>其他</font></a>&nbsp;&nbsp;|</li>
+		    </ul>
+		   </div>
   <script type="text/javascript">
 	var bullets = document.getElementById('position').getElementsByTagName('li');
 	
@@ -46,16 +56,8 @@ $(function() {
     [@cms_content_page  orderBy='4' channelId='75' channelOption='0' dateFormat='yyyy-MM-dd HH-mm']
 	    <div class="searchList">
 	      [#list tag_pagination.list as s]
-	        [#assign tags=s.tagStr]
-	        [#assign orign=0]
-            [#list tags?split('+')[1]?split(',') as tag]
-              [#if tag==keywords ||tag==word ]
-                [#assign orign=orign+1]
-              [#else]
-                [#assign orign=orign+0]
-              [/#if]
-            [/#list]
-          <div [#if orign==1 || key=='none' ] class='item' [#else] class='item hide-element'[/#if]>
+	        
+          <div class='item'>
             <div class='item-left'>
 	        <div class='top-line'>
 		        <div class="search-title"><a href="${s.url}" title="${s.title}" target="_blank">${s.title?replace('${q!}', "<span>${q!}</span>")}</a></div>
@@ -78,8 +80,7 @@ $(function() {
 	          [/#list]
 	          </p>
 	        </div>
-	        <script type="text/javascript">
-	        </script>
+
 	        [#if s.txt??]
 	        <div class="search-txt">
 	          [#assign bb=s.txt?replace("&nbsp;","","ri")?split("~")[0]/]

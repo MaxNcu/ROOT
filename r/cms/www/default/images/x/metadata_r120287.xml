@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<platform_software_list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package_release_date="2017-08-03" schemaVersion="1.0">
+    <supported_product_list product_name="SUN SERVER X4-2L" product_uuid="urn:uuid:Q10535"/>
+    <platform_software_element installation_priority="1" manufacturer="Oracle America, Inc" md5checksum="bd902ad4ec04e40ca98d03e20df37b2f" prerequisite_binary_name="" relative_path="." size_in_bytes="21760015" software_binary_name="ILOM-3_2_10_22_a_r120287-Sun_Server_X4-2L.pkg" target_hardware_type="SP" update_mechanism="SP">
+        <software_identity software_description="SUN SERVER X4-2L SW1.9 ILOM/BIOS bundle" software_type="SP-FIRMWARE" software_version="3.2.10.22.a"/>
+        <component_selection_criteria>
+          <instructions/>
+          <exclude>
+            <elem data_source="storagelib" match_on_value="v3.2.10.22.a r120287" returned_data_type="string" search_property_name="oracle-ilom-version"/>
+          </exclude>
+        </component_selection_criteria>
+        <prerequisite_power_control_options instructions="" power_condition="NO_ACTION_REQUIRED" wait_time_after_power_action="0"/>
+        <post_installation_power_control_options instructions="System will power off for 300 seconds" power_condition="SYSTEM_POWER_CYCLE" wait_time_after_power_action="300" wait_time_before_power_action="180"/>
+    </platform_software_element>
+</platform_software_list>

@@ -1,9 +1,21 @@
 <link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/other/basic.css"> 
+<script src="/${mobileRes!}/js/other/language.js" ></script>
+
+<script type='text/javascript'>
+    lang=zh
+</script>
 <header class="header">
   
   <div class="header-icon-left">
     
-    <a href="/${base}" class="header-home"></a>
+    <a href="/${base}" class="headerhome"></a>
+  </div>
+  <div class='header-icon-middle'>
+   <div class="search">
+      <input class='search-input'></input>
+      <input class='search-button'>
+      </input>
+  </div>
   </div>
   <div class="header-icon-right">
   <a class="header-nav"></a>
@@ -12,17 +24,18 @@
   [#else]
   <a class="header-user" href="${base}/login.jspx"></a>
   [/#if]
-  <a class="header-search"></a>
+
   </div>
   <link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/style.css">
   <script src="/${mobileRes!}/js/main.js" ></script>
-  <div class="cd-bouncy-nav-modal">
+ <!--  <div class="cd-bouncy-nav-modal">
 		<nav>
 			<ul class="cd-bouncy-nav">
-				<li><a href="${base}/news/index.jhtml">璐告槗</a></li>
-				<li><a href="${base}/pic/index.jhtml">鐗╂祦</a></li>
+				<li><a href="${base}/business/index.jhtml">贸易</a></li>
+				<li><a href="${base}/logistics/index.jhtml">物流</a></li>
 			</ul>
 		</nav>
 		<a href="#0" class="cd-close">Close modal</a>
   </div>
+   -->
   </header>

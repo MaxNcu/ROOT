@@ -157,8 +157,8 @@ $(function() {
 	          <p>></p>
 	          <p class='tags'>
 	          [#assign t=s.tagStr?split('+')[1]]
+	          [#assign test=s.tagStr?split('+')[0]]
 	          [#list t?split(',') as ta]
-	          
 	          <script type='text/javascript'>
 	          $(function(){
 	        	  $('#${s.id} .tags').append(lang['${ta}']).append('/')

@@ -45,13 +45,13 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 .content{width:100%; overflow:hidden;}
 
 /*header*/
-.header{font-weight:600;height:44px; width:100%; text-align:center; font-size:2rem; color:#444444; line-height:44px; border-bottom:1px solid #e7e7e7; box-sizing:border-box; background-color:#fff;}
+.header{font-weight:600;height:54px; width:100%; text-align:center; font-size:2rem; color:#444444; line-height:44px; box-sizing:border-box; background-color:#fff;}
 .header .header-icon-left{position:absolute; top:0; left:0; height:44px; overflow:hidden;width:90px;}
-.header .header-icon-right{position:absolute; top:0; right:0; height:44px; overflow:hidden;}
+.header .header-icon-right{position:absolute; top:0; right:0; height:44px; overflow:hidden; width:90px;}
 .header-nav, .header-home, .header-user, .header-search{width:20px; height:20px; margin-top:11px; display:inline-block; background-image:url(../images/header-icon.png); background-repeat:no-repeat; background-size:20px auto;}
 .header .header-nav{float:left; margin-left:10px; background-position:0 0;}
 .header .header-home{float:left; margin-left:30px; background-position:0 -25px;}
-.header .header-user{margin-right:30px; background-position:0 -50px;}
+.header .header-user{margin-right:10px; background-position:0 -50px;}
 .header .header-search{margin-right:10px; background-position:0 -75px; float:right;}
 .header .login-out{background-position:0 -100px;}
 
@@ -66,7 +66,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 
 /*newList*/
 .newList{margin:0 auto;}
-.newList .item{border-bottom: 1px solid #858585;}
+.newList .item{padding:0 2%;}
 .newList .one-pic .pic{width:96px; height:68px; margin-right:10px; overflow:hidden; float:left; position:relative;}
 .newList .one-pic .pic img{width:100%; height:100%; vertical-align:middle;}
 .newList .item .item-txt{overflow:hidden; margin-bottom:8px; max-height:40px;}
@@ -227,7 +227,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 /*******新闻内容页*******/
 .new-content{padding:16px 10px 10px 10px; background:none;}
 .content-title{font-size:16px; line-height:20px;}
-.content-inf{font-size:12px; line-height:18px; margin-top:4px;}
+.content-inf{widht:100%; height:18px;font-size:12px; line-height:18px; margin-top:4px;}
 .content-txt{font-size:14px; line-height:24px; padding:14px 0;}
 .content-txt img{max-width:100%;}
 .content-btn{margin-top:10px; height:32px;}
@@ -355,7 +355,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 .login-btn{margin-top:24px;}
 .login-box .captcha{width:50%; float:left;}
 .login-input img{height:44px; margin-left:20px;}
-.login-submit{width:100%; padding:12px 0; line-height:18px; border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; color:#fff; background:#ef3838; font-size:16px;}
+.login-submit{width:100%; padding:12px 0; line-height:18px; border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; color:#fff; background:rgb(27,99,205); font-size:16px;}
 .login-txt{margin-top:20px; text-align:center; font-size:15px;}
 .login-share{padding:0 16px;}
 .login-nav{color:#999;}

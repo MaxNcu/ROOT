@@ -1,20 +1,60 @@
+/*index*/
+.main-nav{
+	width:85%;
+	height:140px;
+	margin:0 auto;
+	margin-top:40px;
+	border-radius:10px;
+}
+.main-nav div{
+	float:left;
+}
+#business{
+	background-image:url(../../images/x/adver_03.jpg);
+	background-size:100% 140px;
+}
+#logistics{
+	background:url(../../images/x/adver_02.jpg);
+	background-size:100% 140px;
+}
+.main-left{
+	width:30%;
+	height:100%;
+	/*border-right:8px solid white;*/
+	line-height:140px;
+}
+.main-left p{
+	margin-left:30%;
+
+}
+.main-left a{
+	color:white;
+	font-weight:bold;
+	font-size:22px;
+}
+.main-right{
+	width:60%;
+	height:50%;
+}
+.cate a{
+	color:white;
+}
 .hide-element{
 	display:none;
 }
 .header{
-	background:rgb(37,119,227);
+	background:rgb(38,117,234);
 }
 .header{
 	color:white;
 }
 .headerhome{
-	background-image:url(../../images/x/logo_02.jpg);
-	background-size:80px 30px;
-	height:30px;
-	width:80px;
+	background-image:url(../../images/x/logo_01.jpg);
+	background-repeat:no-repeat;
+    background-size:cover;
+	height:54px;
+	width:100px;
 	display:inline-block;
-	margin-top:6px;
-	margin-left:5px;
 }
 .header-icon-middle{
 	width:140px;
@@ -37,35 +77,42 @@
 	margin-left:0px;
 	width:78%;
 	height:30px;
-	-webkit-border-radius:3px 0px 0px 3px;
+	-webkit-border-radius:5px 0px 0px 5px;
+	background:rgb(27,99,205);
+	text-indent:5px;
+	font-weight:normal;
+	font-size:12px;
 }
 .search input{
 	line-height:25px;
 	float:left;
-	margin-top:6px;
+	margin-top:12px;
 	
 }
-.search .search-button{
+.search .search-buttonss{
 	width:30px;
 	height:30px;
-	background:orange;
-	-webkit-border-radius:0px 3px 3px 0px;
+	background:rgb(27,99,205);
+	-webkit-border-radius:0px 5px 5px 0px;
 	background-image:url(../../images/header-searchBtn.png);
 	background-repeat: no-repeat;
 	background-size:20px;
 	background-position:5px 5px;
 }
-.header-icon-right¡¡a{
-	margin-left:50px;
+.header-icon-right a{
+	margin-left:5px;
+	margin-top:18px;
 }
+
 .viewport{
 	width:100%;
 	height:100%;
 }
 .cate{
-	height:50px;
+	padding:5px 10px;
+	height:40px;
 	width:100%;
-	border-bottom:1px solid rgb(37,119,227);	
+	background:rgb(27,99,205);
 }
 .up{
 	width:100%;
@@ -73,12 +120,13 @@
 }
 .item-left{
 	float:left;
-	width:70%;
+	width:65%;
+	height:75px;
 }
 .item-right{
-	margin-top:15px;
+	margin-top:0px;
 	margin-right:10px;
-	float:left;
+	float:right;
 	width:100px;
 	height:75px;
 }
@@ -87,14 +135,19 @@
 	height:100%;
 }
  
-.cate p{
+.cate .main-cate{
+	color:white;
 	line-height:15px;
 	font-color:rgb(37,119,227);
 	font-weight:bold;
 	font-size:16px;
-	width:90%;
-	margin:0 auto;
+	width:14%;
+	float:left;
 	margin-top:8px;
+}
+.searchList{
+	widht:100%;
+	height:100%;
 }
 .item{
 	height:180px;
@@ -105,15 +158,21 @@
 }
 .expander{
 	height:20px;
-	width:90%;
+	width:80%;
 	line-height:30px;
-	margin:0 auto;
+	float:left;
+    margin-left:10px;
 }
 .expander ul{
 	display:inline;
 }
 .expander li{
 	display:inline-block;
+	color:white;
+}
+
+.expander li a{
+	color:white;
 }
 .newList{
 	margin-top:10px;
@@ -124,14 +183,14 @@
 	height:30px;
 }
 .item .company-all{
-	border:1px solid rgb(27,117,187);
+	border:3px solid rgb(29,115,184);
 	width:98%;
 }
 .company-info .info-title{
 	width:80px;
 	height:30px;
 	float:left;
-	background:rgb(27,117,187);
+	background:rgb(29,115,184);
 }
 .info-title p{
 	color:white;
@@ -167,9 +226,72 @@
 }
 .search-txt{
 	width:100%;
-	height:70px;
+	height:63px;
 	margin-top:5px;
+	color:rgb(186,186,186);
+	font-size:11px;
+	overflow:hidden;
+}
+.search-txt span{
+	display:block;
+	margin-bottom:5px;
+	color:black;
+	font-size:14px;
 }
 .item-right{
 	float:right;
+}
+
+/*content*/
+.new-content{
+	height:450px;
+}
+.content-inf p{
+    float:left;
+    color:gray;
+}.company-info-bar{
+	width:100%;
+	float:left;
+}
+.info-nav{
+	height:38px;
+}
+.info-nav{
+	z-index:101;
+	position:relative;
+	float:left;
+}
+.info-detail{
+	position:relative;
+	top:-3px;
+	height:128px;
+	width:100%;
+	float:left;
+	z-index:100;
+	border-top:1px solid rgb(116,162,222);
+}
+.company-info-bar .nav-one{
+	width:134px;
+	height:36px;
+	margin:0;
+	background:white;
+	z-index:101;
+	border:1px solid rgb(181,204,233);
+	border-bottom:1px solid rgb(116,162,222);
+	float:left;
+	position:relative;
+}
+.nav-one a{
+	line-height:36px;
+	color:rgb(37,119,227);
+	margin-left:30px;
+	width:65px;
+}
+.company-info-bar .selected-nav{
+	border:2px solid rgb(116,162,222);
+	border-bottom:1px solid white;
+}
+.info-detail p{
+	margin-left:26px;
+	margin-top:10px;
 }

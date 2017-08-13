@@ -60,7 +60,9 @@ $(function(){
 [#include "../include/header.html"/]
 
 [#assign temp=txt]
+
 [#assign templist=temp?split("br")]
+
 [#if templist?size>1]
 [#assign txttemp=templist[0]]
 [#assign txtshow=txttemp?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]

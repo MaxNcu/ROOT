@@ -732,8 +732,8 @@ hr{
 .searchList .item .search-txt p{
 	color:#666666;
 	font-size:12px;
-	line-height:16px;
-	margin-bottom:10px;
+	line-height:15px;
+	margin-bottom:1px;
 	width:620px;
 }
 .searchList .item .search-txt span{

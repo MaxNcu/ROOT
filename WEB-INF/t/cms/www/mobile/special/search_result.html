@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>全文检索 - ${site.name} - Powered by JEECMS</title>
+<title>${site.name}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/index.css"> 
+<link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/news.css"> 
 <link href="/${mobileRes!}/css/pic/public.css" rel="stylesheet" type="text/css"/>
 <link href="/${mobileRes!}/css/pic/share.css" rel="stylesheet" type="text/css"/>
 <script src="/${mobileRes!}/js/focus/jquery-1.9.1.min.js"></script>
@@ -16,67 +17,111 @@
 </head>
 
 <body>
-<div id="wrap" class="clearfix overflow mg-auto">
-	<!--导航栏开始-->
-	<div class="apply-nav overflow mg-auto area" style="background:#fff;">
-        <div class="overflow clearfix apply-top border-bom">
-            <a href="${base!}/" class="apply-return">返回</a>
-            <h2>全文检索</h2>
-            <a href="${base}/login.jspx?returnUrl=${location}" class="apply-login2">登录</a>
-            <a href="#" class="apply-pup">导航</a>
-        </div>
-        <div class="i-icon mg-auto overflow area clearfix" id="apply-pup-icon">
-            <nav id="menu2" class="nd-nav">
-                <ul class="first">
-                    <li class="menu1"><a href="${base}/">首页</a></li>
-                    <li class="menu2">[@cms_channel id='1']<a href="${tag_bean.url}">新闻</a>[/@cms_channel]</li>
-                    <li class="menu3">[@cms_channel id='42']<a href="${tag_bean.url}">图库</a>[/@cms_channel]</li>
-                    <li class="menu4">[@cms_channel id='46']<a href="${tag_bean.url}">视频</a>[/@cms_channel]</li>
-                    <li class="menu5">[@cms_channel id='9']<a href="${tag_bean.url}">下载</a>[/@cms_channel]</li>
-                </ul>
-                
-                <ul>
-                    <li class="menu1">[@cms_channel id='64']<a href="${tag_bean.url}">文库</a>[/@cms_channel]</li>
-                    <li class="menu2">[@cms_channel id='60']<a href="${tag_bean.url}">调查</a>[/@cms_channel]</li>
-                    <li class="menu3">[@cms_channel id='61']<a href="${tag_bean.url}">招聘</a>[/@cms_channel]</li>
-                    <li class="menu4"><a href="${base}/guestbook.jspx" target="blank">留言板</a></li>
-                    <li class="menu5"><a href="http://bbs.jeecms.com/" target="_blank">论坛</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <script type="text/javascript" src="/${mobileRes!}/js/navi/com.js"></script>
-    <!--导航栏结束-->
-    
-    <div class="about-con-main">
-        <div class="res" style="margin-top:25px;">
-            <form action="${base}/search.jspx" target="_blank" id="searchForm">
-            <input name="q" value="${oldq!'关键字'}" type="text" onfocus="if(this.value=='关键字')this.value=''"  onkeypress="qkeypress()" onblur="if(this.value=='')this.value='关键字'"  maxlength="50" autocomplete="off" class="pxui-select" / style="width:50%;">
-            <input type="submit" value="  搜  索   " class="pxui-light-button" style="color:#fff;">
-            </form>
-            
-            [#if q??]
-            [@cms_lucene_page q=q channelId=channelId descLen='100' append='...' count='5']
-            <p class="at-last">找到${tag_pagination.totalCount!}个结果</p>
-        </div>
-        <div class="ssjieguo">
-            <ul>
-                [#list tag_list as s]
-                <li>
-                <a href="${s.url}"><h3>${s.title?replace('${q!}', "${q!}")}</h3>
-                <p>[@text_cut s=s.description len=descLen append=append/]</p>
-                <i>${s.releaseDate}</i>
-                </a>
-                </li>
-                [/#list]
-            </ul>
-        </div> 
-        <div class="pagesite">[@cms_pagination sysPage='1'/]</div>
-        [/@cms_lucene_page]	  
-        [/#if]
-	</div>
-    
-	[#include "../include/footer.html"/]
+[#include "../include/header.html"/]
+<div class="viewport">
+
+
+  <script type="text/javascript">
+	var bullets = document.getElementById('position').getElementsByTagName('li');
+	
+	var banner = Swipe(document.getElementById('mySwipe'), {
+		auto: 3000,
+		continuous: true,
+		disableScroll:false,
+		callback: function(pos) {
+			var i = bullets.length;
+			while (i--) {
+				bullets[i].className = ' ';
+			}
+			bullets[pos].className = 'cur';
+		}
+	})
+  </script>
+
+  <div class="newList">
+    [@cms_lucene_page q=q channelId=75 startDate=startDate endDate=endDate descLen='170' append='...' count='' ]
+	    <div class="searchList">
+	      [#list tag_list as s]
+	        
+          <div class='item'>
+          <div class='up'>
+            <div class='item-left'>
+	        <div class='top-line'>
+		        <div class="search-title"><a href="${s.url}" title="${s.title}" target="_blank">${s.title?replace('${q!}', "<span>${q!}</span>")}</a></div>
+	        </div>
+	        <div id='${s.id}' class='search-category'>
+	          <a id='main-tag' href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
+	          <p>></p>
+	          <p class='tags'>
+	          [#assign t=s.tagStr?split('+')[1]]
+	          [#assign test=s.tagStr?split('+')[0]]
+	          [#list t?split(',') as ta]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  $('#${s.id} .tags').append("<p>"+lang['${ta}']+"/</p>")
+	          })
+	          </script>
+	          [/#list]
+	          [#list test?split(',') as te]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  $('#${s.id} .tags').append("<p>"+lang['${te}']+"/</p>")
+	          })
+	          </script>
+	          [/#list]
+	          </p>
+	        </div>
+	        [#if s.txt??]
+	        <div class="search-txt">
+	        <span>简介：</span>
+	          [#assign temp=s.txt?split("<p class")[0] ]
+	          [#assign bb=temp?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [@text_cut s=bb! len=150 append='...'/]
+	        </div>
+	        [/#if]
+	        </div>
+	        <div class='item-right'>
+	          <img  class='item-img' src="${s.typeImg!}">
+	        </div>
+	        </div>
+	        <div class='company-all'>
+		        <div class='company-info' style='border-bottom:3px solid rgb(29,115,184);'>
+		          <div class='info-title' style='border-bottom:1px solid rgb(187,187,187);'>
+		            <p class='location-lan'>公司地址</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>
+		            [#assign temp=s.description?split("~")]
+		            [#if temp?size>1]
+		            [#assign des=temp[1]?replace("</p>","")]
+		            ${des}
+		            [#else]
+		            ${temp[0]}
+		            [/#if]
+		            </p>
+
+		          </div>
+		        </div>
+		        <div class='company-info'>
+		          <div class='info-title'>
+		            <p class='contact-lan'>联系方式</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>
+		            [#if s.author?split(',')[0]?split(':')[1]??]
+		            ${s.author?split(',')[0]?split(':')[1]}
+		            [/#if]
+		            </p>
+		          </div>
+		        </div>
+	        </div>
+
+	      </div>
+	      [/#list]
+	    </div>
+	     [/@cms_lucene_page]	
+  </div>
 </div>
+[#include "../include/gotop.html" /]
 </body>
 </html>

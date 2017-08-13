@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/other/basic.css"> 
 <script src="/${mobileRes!}/js/other/language.js" ></script>
+<script src="/${mobileRes!}/js/other/basic.js" ></script>
 
 <script type='text/javascript'>
     lang=zh
@@ -12,8 +13,10 @@
   </div>
   <div class='header-icon-middle'>
    <div class="search">
-      <input class='search-input'></input>
-      <input class='search-button'>
+   <form action="${base}/search.jspx" target="_blank" id="searcForm">
+      <input type="text" name="q" class='search-input'></input>
+      <input class='search-buttonss' type='submit' value=''>
+      </form>
       </input>
   </div>
   </div>
@@ -31,8 +34,8 @@
  <!--  <div class="cd-bouncy-nav-modal">
 		<nav>
 			<ul class="cd-bouncy-nav">
-				<li><a href="${base}/business/index.jhtml">贸易</a></li>
-				<li><a href="${base}/logistics/index.jhtml">物流</a></li>
+				<li><a href="${base}/business/index.jhtml">贸锟斤拷</a></li>
+				<li><a href="${base}/logistics/index.jhtml">锟斤拷锟斤拷</a></li>
 			</ul>
 		</nav>
 		<a href="#0" class="cd-close">Close modal</a>

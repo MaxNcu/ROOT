@@ -6,12 +6,12 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
 <meta http-equiv="keywords" content="${channel.keywords!}"/>
 <meta http-equiv="description" content="${channel.description!}"/>
-<title>${site.name} - Powered by JEECMS</title>
+<title>${site.name}</title>
 <link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/index.css"> 
 <link rel="stylesheet" type="text/css" href="/${mobileRes!}/css/news.css"> 
 <script src="${resSys}/jquery.js" type="text/javascript"></script>
 <script src="${resSys}/front.js" type="text/javascript"></script>
-
+<script src="/${mobileRes!}/js/hhSwipe.js" ></script>
 <script type="text/javascript">
 $(function() {
 	Cms.channelViewCount("${base}","${channel.id}");
@@ -19,28 +19,124 @@ $(function() {
 });
 </script>
 
-<!--[if lt IE 9]> 
-<script src="/${res}/js/html5shiv.min.js"></script>
-<script src="/${res}/js/respond.min.js"></script>
-<![endif]-->
-
 </head>
 
 <body>
+[#include "../include/header.html"/]
 <div class="viewport">
-  [#include "../include/header.html" /]
-  <div class="picList">
-    [@cms_content_list typeId='2' titLen='14' count='10' channelId='76' orderBy='4' channelOption='1']
-    [#list tag_list as a]
-    <div class="item">
-      <a href="${a.url}">
-      <div class="picList-titleImg"><img src="${a.typeImg!}"></div>
-      <div class="picList-title">${a.title}</div>
-      <div class="picList-bottom"><span class="picList-view">${a.contentCount.views!}</span><span class="picList-comment">${a.contentCount.comments!}</span></div>
-      </a>
-    </div>
-    [/#list]
-    [/@cms_content_list]
+<div class='cate'>
+<a class='main-cate' href='/logistics/index.jhtml'>物流&nbsp;></a>
+<div class='expander'>
+		<ul class='menu'>
+		      <li><a id='guojiyunshu' href='/logistics/index.jhtml?tags=guojiyunshu'><font class='zh'>国际运输</font></a>&nbsp;&nbsp;|</li>
+		      <li><a id='guoneiyunshu' href='/logistics/index.jhtml?tags=guoneiyunshu'><font class='zh'>国内运输</font></a>&nbsp;&nbsp;|</li>
+		      <li><a id='cangchu' href='/logistics/index.jhtml?tags=cangchu'><font class='zh'>仓储</font></a>&nbsp;&nbsp;|</li>
+		      <li><a id='kuaidi' href='/logistics/index.jhtml?tags=kuaidi'><font class='zh'>快递</font></a>&nbsp;&nbsp;|</li>
+		      <li><a id='qingguan' href='/logistics/index.jhtml?tags=qingguan'><font class='zh'>清关</font></a>&nbsp;&nbsp;|</li>
+		      <li><a id='other' href='/logistics/index.jhtml?tags=qita'><font class='zh'>其他</font></a>&nbsp;&nbsp;|</li>
+		    </ul>
+</div>
+</div>
+
+  <script type="text/javascript">
+	var bullets = document.getElementById('position').getElementsByTagName('li');
+	
+	var banner = Swipe(document.getElementById('mySwipe'), {
+		auto: 3000,
+		continuous: true,
+		disableScroll:false,
+		callback: function(pos) {
+			var i = bullets.length;
+			while (i--) {
+				bullets[i].className = ' ';
+			}
+			bullets[pos].className = 'cur';
+		}
+	})
+  </script>
+
+  <div class="newList">
+    [@cms_content_page  orderBy='4' channelId='76' channelOption='0' dateFormat='yyyy-MM-dd HH-mm']
+	    <div class="searchList">
+	      [#list tag_pagination.list as s]
+	        
+          <div class='item'>
+          <div class='up'>
+            <div class='item-left'>
+	        <div class='top-line'>
+		        <div class="search-title"><a href="${s.url}" title="${s.title}" target="_blank">${s.title?replace('${q!}', "<span>${q!}</span>")}</a></div>
+	        </div>
+	        <div id='${s.id}' class='search-category'>
+	          <a id='main-tag' href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
+	          <p>></p>
+	          <p class='tags'>
+	          [#assign t=s.tagStr?split('+')[1]]
+	          [#assign test=s.tagStr?split('+')[0]]
+	          [#list t?split(',') as ta]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  $('#${s.id} .tags').append("<p>"+lang['${ta}']+"/</p>")
+	          })
+	          </script>
+	          [/#list]
+	          [#list test?split(',') as te]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  $('#${s.id} .tags').append("<p>"+lang['${te}']+"/</p>")
+	          })
+	          </script>
+	          [/#list]
+	          </p>
+	        </div>
+	        [#if s.txt??]
+	        <div class="search-txt">
+	        <span>简介：</span>
+	          [#assign temp=s.txt?split("<p class")[0] ]
+	          [#assign bb=temp?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [@text_cut s=bb! len=150 append='...'/]
+	        </div>
+	        [/#if]
+	        </div>
+	        <div class='item-right'>
+	          <img  class='item-img' src="${s.typeImg!}">
+	        </div>
+	        </div>
+	        <div class='company-all'>
+		        <div class='company-info' style='border-bottom:3px solid rgb(29,115,184);'>
+		          <div class='info-title' style='border-bottom:1px solid rgb(187,187,187);'>
+		            <p class='location-lan'>公司地址</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>
+		            [#assign temp=s.description?split("~")]
+		            [#if temp?size>1]
+		            [#assign des=temp[1]?replace("</p>","")]
+		            ${des}
+		            [#else]
+		            ${temp[0]}
+		            [/#if]
+		            </p>
+
+		          </div>
+		        </div>
+		        <div class='company-info'>
+		          <div class='info-title'>
+		            <p class='contact-lan'>联系方式</p>
+		          </div>
+		          <div class='info-txt'>
+		            <p>
+		            [#if s.author?split(',')[0]?split(':')[1]??]
+		            ${s.author?split(',')[0]?split(':')[1]}
+		            [/#if]
+		            </p>
+		          </div>
+		        </div>
+	        </div>
+
+	      </div>
+	      [/#list]
+	    </div>
+	     [/@cms_content_page]	
   </div>
 </div>
 [#include "../include/gotop.html" /]

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="keywords" content="${channel.keywords!}"/>
 <meta http-equiv="description" content="${channel.description!}"/>
-<title>${channel.title!channel.name} - ${site.name} - Powered by JEECMS</title>
+<title>${channel.title!channel.name} - ${site.name}</title>
 <script src="${resSys}/jquery.js" type="text/javascript"></script>
 <script src="${resSys}/front.js" type="text/javascript"></script>
 
@@ -14,7 +14,6 @@ $(function() {
 	Cms.siteFlow("${base}", location.href, document.referrer,"${site.config.flowSwitch?string}");
 });
 </script>
-<script type="text/javascript" src="/${res}/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/${res}/js/jquery.DB_tabMotionBanner.min.js"></script>
 <link type="text/css" rel="stylesheet" href="/${res}/css/index.css" />
 
@@ -160,8 +159,9 @@ $(function() {
 	        </div>
 	        [#if s.txt??]
 	        <div class="search-txt">
-	          [#assign bb=s.txt?replace("&nbsp;","","ri")?split("~")[0]]
-	          [@text_cut s=bb len=250 append='...'/]
+	          [#assign temp=s.txt?split("<p class")[0] ]
+	          [#assign bb=temp?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [@text_cut s=bb! len=150 append='...'/]
 	        </div>
 	        [/#if]
 	        <div class='company-all'>

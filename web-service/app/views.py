@@ -21,6 +21,7 @@ def getcountry():
     print "country:"+country
     print "distinct:"+distinct
     result=[]
+    country=country.split('1')[0]
     country=re.sub(u'[\u4e00-\u9fa5]','',country)
     if tag=='distinct':     
         filename=country+'-distinct.xml'

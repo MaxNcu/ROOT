@@ -1,4 +1,4 @@
-var default_pic=null;
+var default_pic="/u/cms/www/201708/14035753ja3a.jpg";
 
 //admin_edit.html
 $(function(){

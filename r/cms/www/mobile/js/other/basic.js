@@ -249,3 +249,14 @@ $(function(){
 		}
 	})
 })
+
+//wechat
+$(function(){
+	$('a').click(function(){
+		href=$(this).attr('href');
+		if(href!='' || href!=null||href!=undefined){
+			window.location.replace(href);
+			return false;
+		}
+	})
+})

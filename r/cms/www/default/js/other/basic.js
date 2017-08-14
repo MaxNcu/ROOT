@@ -579,7 +579,6 @@ $(function(){
 	})
 	
 	$('#country-s').change(function(){
-		alert('testtest')
 		country_s=$(this).val()
 		if(country_s=='none'){
 			$('#distinct-s, #city-s').find("option:selected").attr('selected',false)
@@ -589,7 +588,6 @@ $(function(){
 			$('#city-s option').remove()
 			$('#city-s').append(daquxuanxiang)
 		}else if(country!='other'){
-			alert('test')
 			var querydata={"tag":"distinct","country":country_s,"distinct":""}
 			$.getJSON(regionurl,jQuery.param(querydata),function(data){
 				result=data.result
@@ -718,7 +716,6 @@ $(function(){
     	$('.contact-hide').val(contact.join(','));
     })
 	$('.member-submit').click(function(){
-		alert($('.contact-hide').val())
 		 $('#ctags').val("");
 		 $('#ctags').val(t+'+'+s);
 		 $('#txt').val("");

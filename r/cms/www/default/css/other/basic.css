@@ -488,6 +488,13 @@ hr{
 	font-size:14px;
 	line-height:32px;
 }
+.right-contact p a{
+	color:white;
+}
+.right-contact p a:hover{
+	color:white;
+}
+
 .rdjj {
 	display:none;
 }
@@ -510,7 +517,7 @@ hr{
 	float:left;
 }
 .footer-link .footer-right{
-	margin-left:350px;
+	margin-left:300px;
 	width:218px;
 	height:62px;
 	float:left;

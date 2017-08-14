@@ -16,9 +16,10 @@
 <script src="/${res}/js/html5shiv.min.js"></script>
 <script src="/${res}/js/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 alert(navigator.userAgent)
 </script>
+ -->
 <script type="text/javascript">
 $(function() {
 	Cms.siteFlow("${base}", location.href, document.referrer, "${site.config.flowSwitch?string}");
@@ -90,7 +91,7 @@ $(function() {
       <li id='city'></li>
     </ul>
     <div class='list-content'>
-	      [@cms_content_list count='20' orderBy='4' typeId='4' channelId='76' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
+	      [@cms_content_list count='20' orderBy='10' Recommand='2' typeId='2' channelId='75' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
 		      [#list tag_list as a] 
 		          <div class='show-content'>
 		          <a [#if (a_index)%6=0]class="bold"[/#if] href="${a.url}" target="_blank">
@@ -107,16 +108,23 @@ $(function() {
 	     [/@cms_content_list]
     </div>
     <div class="right-bar">
+    [@cms_content_list count='4' orderBy='4' Recommand='2' typeId='2' channelId='75' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
+      [#list tag_list as a] 
       <div class='right-content' id='logistic'>
-        <div class='right-logo' alt='XinS'></div>
+        <img src='${a.typeImg!}' class='right-logo'>
         <div class='right-text'>
-          <p>全棉采用科学管理方法，并根据客户的不同需求，提供多种不同类型的仓储及配套服务</p>
+       		[#assign txtshow=a.txt ]
+	        [#assign txtshow=txtshow?split('</p>')[0]]
+	        [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]     
+	        <p>[@text_cut s=txtshow len=30 append='...'/]</p>
         </div>
         <div class='right-contact'>
-          <p>详细联系方式</p>
+          <p><a href='${a.url}'>详细联系方式</a></p>
         </div>
       </div>
-      <div class='right-content' id='recycling'>
+      [/#list]
+	 [/@cms_content_list]
+      <!-- <div class='right-content' id='recycling'>
         <div class='right-logo' alt='XinS'></div>
         <div class='right-text'>
           <p>全棉采用科学管理方法，并根据客户的不同需求，提供多种不同类型的仓储及配套服务</p>
@@ -143,6 +151,8 @@ $(function() {
           <p>详细联系方式</p>
         </div>
       </div>
+      
+      -->
     </div>
   </section>
   <section class="rdjj tssj">

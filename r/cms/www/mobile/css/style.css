@@ -53,7 +53,7 @@ header h1 {
 
 .cd-bouncy-nav-trigger {
   /* button style */
-  background: #DC965A;
+  background: rgb(38,117,234);
   color: #ffffff;
   padding: 1.2em 2em;
   border-radius: 10em;
@@ -215,7 +215,7 @@ header h1 {
   width:70px;
   height:70px;
   line-height:70px;
-  background-color:#f05238;
+  background-color:rgb(38,117,234);
   border-radius:100%;
   -moz-border-radius:100%;
   -webkit-border-radius:100%;

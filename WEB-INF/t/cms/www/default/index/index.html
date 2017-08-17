@@ -29,6 +29,7 @@ $(function() {
 <head>
 <body>
 [#include "../include/header.html"/]
+
 <div class="main container home-main clearfix">
   <div class='bg-pic'>
       	<div class='backgroundpic'>
@@ -54,8 +55,7 @@ $(function() {
 	      </div>
 	      <input type='text' name='q' class='scontent hide-element'></input>
 	      <div class='search-submit'>
-	        <input type='submit' class='zh hide-element'value='搜索'>
-	        <input type='submit' class='en' value='search'>
+	        <input type='submit' value='搜索'>
 	      </div>
 	      </form>
 	    </div>
@@ -78,8 +78,7 @@ $(function() {
   <section class="home-top clearfix">
     <div class='category-index'>
       <p>
-      <font class='zh hide-element'>全部</font>
-      <font class='en'>All</font>
+      <font id='all'>全部</font>
       </p>
     </div>
     <hr>
@@ -106,6 +105,7 @@ $(function() {
 		          </div>
 		      [/#list]
 	     [/@cms_content_list]
+	   
     </div>
     <div class="right-bar">
     [@cms_content_list count='4' orderBy='4' Recommand='2' typeId='2' channelId='75' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
@@ -124,6 +124,7 @@ $(function() {
       </div>
       [/#list]
 	 [/@cms_content_list]
+
       <!-- <div class='right-content' id='recycling'>
         <div class='right-logo' alt='XinS'></div>
         <div class='right-text'>

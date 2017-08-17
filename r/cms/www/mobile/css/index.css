@@ -45,7 +45,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 .content{width:100%; overflow:hidden;}
 
 /*header*/
-.header{font-weight:600;height:54px; width:100%; text-align:center; font-size:2rem; color:#444444; line-height:44px; box-sizing:border-box; background-color:#fff;}
+.header{font-weight:600;height:44px; width:100%; text-align:center; font-size:2rem; color:white; line-height:44px; box-sizing:border-box; background-color:rgb(38,117,234);}
 .header .header-icon-left{position:absolute; top:0; left:0; height:44px; overflow:hidden;width:90px;}
 .header .header-icon-right{position:absolute; top:0; right:0; height:44px; overflow:hidden; width:90px;}
 .header-nav, .header-home, .header-user, .header-search{width:20px; height:20px; margin-top:11px; display:inline-block; background-image:url(../images/header-icon.png); background-repeat:no-repeat; background-size:20px auto;}
@@ -164,7 +164,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 
 .fixed36{width:100%; height:36px; display:none;}
 
-.message-top{width:100%; height:100px; background:url(../images/message-nav.png) center center no-repeat; background-size:100% 100%; position:relative;}
+.message-top{width:100%; height:100px; background:url(../images/x/adver_03.jpg) center center no-repeat; background-size:100% 100%; position:relative;}
 .message-top-user{height:100%; float:left; margin-left:60px;}
 .message-top-userImg{width:50px; height:50px; margin-top:25px; position:relative;}
 .message-top-userImg img{width:50px; height:50px; border-radius:100%; -moz-border-radius:100%; -o-border-radius:100%; -webkit-border-radius:100%; border:2px solid #fff; box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; -webkit-box-sizing:border-box; z-index:9; position:relative;}
@@ -193,7 +193,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
 .message-content-code i{height:30px; display:inline-block; position:absolute; right:0; bottom:0;}
 .message-content-code i img{height:30px;}
 .message-content-btn{margin-top:16px;}
-.message-content-btn input{width:100%; height:36px; line-height:30px; border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; background-color:#f05238; color:#fff; font-size:15px;}
+.message-content-btn input{width:100%; height:36px; line-height:30px; border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; -webkit-border-radius:5px; background-color:rgb(38,117,234); color:#fff; font-size:15px;}
 
 /*******网络调查*******/
 

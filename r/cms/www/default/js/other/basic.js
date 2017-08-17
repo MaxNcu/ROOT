@@ -1,5 +1,5 @@
 
-var regionurl="http://127.0.0.1:5000/getcountry"
+var regionurl="http://35.159.1.181:5000/getcountry"
 $(document).ready(function(){
 		$('.show-content p').css('text-indent','0em');
 })
@@ -17,6 +17,8 @@ if(language=='zh'){
 	lang=zh;
 }else if(language=='en'){
 	lang=en;
+}else if(language=='It'){
+	lang=It;
 }
 //language
 $(function(){
@@ -27,6 +29,20 @@ $(function(){
 	$('#mainservice').text(lang['mainservice'])
 	$('.tag-check #fuzhuang').parent().append(lang['fuzhuang'])
 	$('.tag-check #xiangbao').parent().append(lang['xiangbao'])
+	$('.fuzhuang-lang').text(lang['fuzhuang'])
+	$('.xiewa-lang').text(lang['xiewa'])
+	$('.dianzi-lang').text(lang['dianzichanpin'])
+	$('.xiangbao-lang').text(lang['xiangbao'])
+	$('.jiafang-lang').text(lang['jiafang'])
+	$('.qita-lang').text(lang['qita'])
+	$('.business-lang').text(lang['maoyi'])
+	$('.logistics-lang').text(lang['wuliu'])
+	$('.guonei-lang').text(lang['guoneiyunshu'])
+	$('.guoji-lang').text(lang['guojiyunshu'])
+	$('.cangchu-lang').text(lang['cangchu'])
+	$('.qingguan-lang').text(lang['qingguan'])
+	$('.kuaidi-lang').text(lang['kuaidi'])
+	
 	$('.tag-check #xiewa').parent().append(lang['xiewa'])
 	$('.tag-check #dianzichanpin').parent().append(lang['dianzichanpin'])
 	$('.tag-check #jiafang').parent().append(lang['jiafang'])
@@ -37,6 +53,7 @@ $(function(){
 	$('.tag-check #kuaidi').parent().append(lang['kuaidi'])
 	$('.tag-check #qingguan').parent().append(lang['qingguan'])
 	$('#tg-contact').text(lang['lianxifangshi'])
+	$('.contact-lang').text(lang['lianxiwomen'])
 	$('#tg-locate').text(lang['gongsidizhi'])
 	$('#company-tel').text(lang['gongsidianhua'])
 	$('#company-email').text(lang['gongsiyouxiang'])
@@ -86,6 +103,7 @@ $(function(){
 	$('#companytitle td').eq(5).text(lang['fabushijian'])
 	$('#companytitle td').eq(6).text(lang['caozuo'])
 	$('.m-pos a').text(lang['shouye'])
+	$('#main-lang').text(lang['shouye'])
 	$('.m-pos span').text(lang['huiyuanzhongxin'])
 	$('.messageinfo a').eq(0).text(lang['shoujianxiang'])
 	$('.messageinfo a').eq(1).text(lang['fajianxiang'])
@@ -142,6 +160,7 @@ $(function(){
 	$('#tel-lan span').eq(0).text(lang['dianhua'])
 	$('#email-lan span').eq(0).text(lang['youxiang'])
 	$('#wechat-lan span').eq(0).text(lang['weixin'])
+	$('#weixin-lang').text(lang['weixinfuwuhao'])
 	$('#mob-lan span').eq(0).text(lang['shouji'])
 	$('.hello').text(lang['ninhao'])
 	$('#dengruming').text(lang['dengruming'])
@@ -174,6 +193,7 @@ $(function(){
 	$('#language .icon-img').css('background',imgurl)
 	$('.zipcode-lan').text(lang['youbian'])
 	$('.keyword-lan').text(lang['guanjianzi'])
+	$('#all').text(lang['quanbu'])
 	qitaxuanxiang="<option value=other>"+lang['qita']+"</option>"
 	guojiaxuanxiang="<option value='none'>"+lang['qingxuanzeguojia']+"</option>"
 	chengshixuanxiang="<option value='none'>"+lang['qingxuanzechengshi']+"</option>"
@@ -195,12 +215,42 @@ $(function(){
 			$(this).text(lang['wuliu'])
 		}
 	})
+	privacypath=lang['privacy']
+	$(function(){
+	    $.ajax({
+	        url: privacypath,
+	        dataType: 'text',
+	        success: function(data) {
+	        	reg=new RegExp("\n","g")
+	        	regf=new RegExp("\^","g")
+	        	temp=data.replace(reg,'</p><p>')
+	        	temp=temp.replace(regf,'<p>')
+	        	$('#privacyModal p').html(temp)
+	        }
+	    });
+	});
+	termspath=lang['terms']
+	$(function(){
+	    $.ajax({
+	        url: termspath,
+	        dataType: 'text',
+	        success: function(data) {
+	        	reg=new RegExp("\n","g")
+	        	regf=new RegExp("\^","g")
+	        	temp1=data.replace(reg,'</p><p>')
+	        	temp1=temp1.replace(regf,'<p>')
+	        	$('#termsModal p').html(temp1)
+	        }
+	    });
+	});
+	
 
     
 	
 	if(language=='en'){
 		$('.zh').addClass('hide-element')
 		$('.en').removeClass('hide-element')
+		$('.It').addClass('hide-element')
 		$('.main-text').css('width','60px')
 		$('.menu li').css('width','75px')
 		$('.trangle').css('margin-left','35px')
@@ -291,6 +341,7 @@ $(function(){
 	}else if(language=='zh'){
 		$('.en').addClass('hide-element')
 		$('.zh').removeClass('hide-element')
+		$('.It').addClass('hide-element')
 		$('.main-text').css('width','50px')
 		$('.menu li').css('width','46px')
 		$('.trangle').css('margin-left','17px')
@@ -312,6 +363,99 @@ $(function(){
 		$("option[value='75']").text('贸易')
 		$("option[value='76']").text('物流')
 		$('.user-child').css('margin-left','30px')
+	}else if(language=='It'){
+		$('.en').addClass('hide-element')
+		$('.It').removeClass('hide-element')
+		$('.zh').addClass('hide-element')
+		$('.main-text').css('width','60px')
+		$('.menu li').css('width','75px')
+		$('.left-search-category .search-content p').css('text-align','right')
+		$('.trangle').css('margin-left','35px')
+		$('.top-line .detail').css('width','140px')
+		$('.s-p').css({'width':'120px','height':'45px','display':'block'})
+		$('#zipcode p').css('width','60px')
+		$('#keyword p').css('width','60px')
+		$('#searchForm .search-submit').css('margin-left','110px')
+		$('.radio-content').css({'width':'280px','margin-left':'20px'})
+		$('.location-lan').css('width','106px')
+		$('#locationid span').css({'display':'inline-block','width':'100px','height':'20px;'})
+		$('.company-info-bar .location-lan').css('margin-left','15px')
+		$('#contactid span').css({'display':'inline-block','width':'100px','height':'20px;'})
+		$('.member-block-lan p').css('width','80px')
+		$('.login-checkbox').parent().css('margin-left','81px')
+		$('.login-checkbox').parent().parent().next().css('margin-left','120px')
+		$('.login-btn').css('margin-left','120px')
+		$('.complicated').css('margin-left','110px')
+		$('.left-search-category .search-content p').css('width','68px')
+		$('.region-lan').each(function(){
+			tempval=$(this).text()
+			tempen=tempval.split('1')[0]
+			$(this).text(tempen)
+		})
+		$('.region option').each(function(){
+			if($(this).val().split('1').length>1){
+				$(this).text($(this).val().split('1')[0])
+			}
+		})
+		gender=$('#sexgender').text();
+		if(gender=='男'){
+			$('#sexgender').text(lang['nan']);
+		}else if(gender=='女'){
+			$('#sexgender').text(lang['nv']);
+			
+		}
+		$('.companytable tr').each(function(){
+			cate=$(this).children().eq(2).text()
+			if(cate=='贸易'){
+				$(this).children().eq(2).text(lang['maoyi'])
+			}else if(cate=='物流'){
+				$(this).children().eq(2).text(lang['wuliu'])
+			}
+			status=$(this).children().eq(3).text()
+			if(status=='未审核'){
+				$(this).children().eq(3).text(lang['weishenhe'])
+			}else if(status='审核通过'){
+				$(this).children().eq(3).text(lang['shenhetongguo'])
+			}
+		})
+		$('#wordlist').each(function(){
+			if($(this).children().eq(3).has('span').length){
+				wordreply=$(this).children().eq(3).chileren().eq(0).text()
+			}else{
+				wordreply=$(this).children().eq(3).text()
+			}
+			if(wordreply=='否'){
+				$(this).children().eq(3).text(lang['fou'])
+			}else if(wordreply=='是'){
+				$(this).children().eq(3).children().eq(0).text(lang['shi'])
+			}
+			if($(this).children().eq(4).has('span').length){
+				wordauit=$(this).children().eq(4).chileren().eq(0).text()
+			}else{
+				wordrauit=$(this).children().eq(4).text()
+			}
+			if(wordaudit=='未审核'){
+				$(this).children().eq(4).text(lang['weishenhe'])
+			}else if(wordaudit=='审核'){
+				$(this).children().eq(4).children().eq(0).text(lang['shenhetongguo'])
+			}
+			if($(this).children().eq(5).has('span').length){
+				wordrecommand=$(this).children().eq(5).chileren().eq(0).text()
+			}else{
+				wordrecommand=$(this).children().eq(5).text()
+			}
+			if(wordrecommand=='未推荐'){
+				$(this).children().eq(5).text(lang['weituijian'])
+			}else if(wordrecommand=='推荐'){
+				$(this).children().eq(5).children().eq(0).text(lang['tuijian'])
+			}
+			wordreply=$(this).children().eq(6).children().eq(0).text(lang['xiangxi'])
+			wordreply=$(this).children().eq(6).children().eq(1).text(lang['chakanhuifu'])
+		})
+		
+		$("option[value='75']").text('Business')
+		$("option[value='76']").text('Logistics')
+		$('.user-child').css('margin-left','20px')
 	}
 })
 
@@ -383,6 +527,8 @@ $(function(){
 			language='zh'
 		}else if(lang=='English'){
 			language='en'
+		}else if(lang='Italy'){
+			language='It'
 		}
 		$.cookie('language', language,{expires:7});
 		location.reload();

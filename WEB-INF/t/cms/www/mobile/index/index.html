@@ -17,25 +17,31 @@
 <body class="loading">
 [#include "../include/header.html"/]
 		<div id="wrappers">
-
+		[@cms_channel_list]
+            [#list tag_list as c]
+            [#if c.id==75]
 			<div id="business" class='main-nav'>
 				<div class='main-left'>
-					<p><a href="${base}/business/index.jhtml">贸易</a></p>
+					<p><a href="${c.url}">贸易</a></p>
 				</div>
 				<div class='main-right'>
 				
 				</div>
   
 			</div>
+			[#elseif c.id==76]
 			<div id="logistics" class='main-nav'>
 				<div class='main-left'>
-				    <p><a href="${base}/logistics/index.jhtml">物流</a></p>
+				    <p><a href="${c.url}">物流</a></p>
 				</div>
 				<div class='main-right'>
 				
 				</div>
   
 			</div>
+			[/#if]
+			[/#list]
+			[/@cms_channel_list]
 		</div>
 		<!--[if lte IE 8]><script src="/${mobileRes!}/js/respond.min.js"></script><![endif]-->
 </body>

@@ -2,8 +2,7 @@
      [@cms_channel_list]
       <div [#if q??] class='main-text' [#elseif !channel??] class='main-text selected' [#else] class='main-text'[/#if]>
 	      <a href='/'>
-	      <font class='zh hide-element'>首页</font>
-	      <font class='en'>Main</font>
+	      <font id='main-lang'>首页</font>
 	      </a>
 	  </div>
       <ul class="menu">
@@ -12,33 +11,32 @@
       [#list tag_list as c]
       [#if c_index<3]
         <li class='${c.id}'[#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">
-        <font class='zh hide-element'>${c.name}</font>
         [#if c.id==75]
-        <font class='en'>Business</font>
+        <font class='business-lang'>Business</font>
         [#elseif c.id=76]
-        <font class='en'>Logistics</font>
+        <font class='logistics-lang'>Logistics</font>
         [/#if]
         </a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
         [#if c.id==75]
         <div class='expander' id='business'>
 		    <ul class='menu'>
-		      <li><a href='/business/index.jhtml?tags=fuzhuang'><font class='zh hide-element'>服装</font><font class='en'>Cloth</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=xiewa'><font class='zh hide-element'>鞋袜</font><font class='en'>Shoes&Socks</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=xiangbao'><font class='zh hide-element'>首饰箱包</font><font class='en'>Bags&Accessories</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=jiafang'><font class='zh hide-element'>家纺</font><font class='en'>Textiles</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=dianzichanpin'><font class='zh hide-element'>电子产品</font><font class='en'>Electronic</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=qita'><font class='zh hide-element'>其他</font><font class='en'>Other</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=fuzhuang'><font class='fuzhuang-lang'>服装</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiewa'><font class='xiewa-lang'>鞋袜</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiangbao'><font class='xiangbao-lang'>首饰箱包</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=jiafang'><font class='jiafang-lang'>家纺</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=dianzichanpin'><font class='dianzi-lang'>电子产品</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=qita'><font class='qita-lang'>其他</font></a>&nbsp;&nbsp;|</li>
 		    </ul>
 		  </div>
 		 [#elseif c.id==76]
 		 <div class='expander hide-element' id='logistics'>
 		    <ul class='menu'>
-		      <li><a href='/logistics/index.jhtml?tags=guojiyunshu'><font class='zh hide-element'>国际运输</font><font class='en'>International Transport</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=guoneiyunshu'><font class='zh hide-element'>国内运输</font><font class='en'>Domestic Transport</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=cangchu'><font class='zh hide-element'>仓储</font><font class='en'>Repository</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=kuaidi'><font class='zh hide-element'>快递</font><font class='en'>Express</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=qingguan'><font class='zh hide-element'>清关</font><font class='en'>Customs Clearance</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=qita'><font class='zh hide-element'>其他</font><font class='en'>Other</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=guojiyunshu'><font class='guoji-lang'>国际运输</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=guoneiyunshu'><font class='guonei-lang'>国内运输</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=cangchu'><font class='cangchu-lang'>仓储</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=kuaidi'><font class='kuaidi-lang'>快递</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=qingguan'><font class='qingguan-lang'>清关</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=qita'><font class='qita-lang'>其他</font></a>&nbsp;&nbsp;|</li>
 		    </ul>
 		  </div>
 		  [/#if]
@@ -63,33 +61,32 @@
       [#list tag_list as c]
       [#if c_index<3]
         <li class='${c.id}  [#if c.id==channel.id] selected [/#if]' [#if c.id == 75 ] id='navbusiness'[#elseif c.id == 76 ] id='navlogistics'[/#if]><a  href="${c.url}">
-		<font class='zh hide-element'>${c.name}</font>
         [#if c.id==75]
-        <font class='en'>Business</font>
+        <font class='business-lang'>Business</font>
         [#elseif c.id=76]
-        <font class='en'>Logistics</font>
+        <font class='logistics-lang'>Logistics</font>
         [/#if]
 		</a><div [#if c.id == 75 ] class='trangle hide-element'[#elseif c.id == 76 ] class='trangle hide-element'[/#if]></div>
         [#if c.id==75]
         <div class='expander hide-element' id='business'>
 		    <ul class='menu'>
-		      <li><a href='/business/index.jhtml?tags=fuzhuang'><font class='zh hide-element'>服装</font><font class='en'>Cloth</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=xiewa'><font class='zh hide-element'>鞋袜</font><font class='en'>shoes</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=xiangbao'><font class='zh hide-element'>首饰箱包</font><font class='en'>Box</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=jiafang'><font class='zh hide-element'>家纺</font><font class='en'>Textiles</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=dianzichanpin'><font class='zh hide-element'>电子产品</font><font class='en'>Electronic</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/business/index.jhtml?tags=qita'><font class='zh hide-element'>其他</font><font class='en'>Other</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=fuzhuang'><font class='fuzhuang-lang'>服装</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiewa'><font class='xiewa-lang'>鞋袜</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=xiangbao'><font class='xiangbao-lang'>首饰箱包</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=jiafang'><font class='jiafang-lang'>家纺</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=dianzichanpin'><font class='dianzi-lang'>电子产品</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/business/index.jhtml?tags=qita'><font class='qita-lang'>其他</font></a>&nbsp;&nbsp;|</li>
 		    </ul>
 		  </div>
 		 [#elseif c.id==76]
 		 <div class='expander hide-element' id='logistics'>
-		    <ul class='menu'>
-		      <li><a href='/logistics/index.jhtml?tags=guojiyunshu'><font class='zh hide-element'>国际运输</font><font class='en'>International Transport</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=guoneiyunshu'><font class='zh hide-element'>国内运输</font><font class='en'>Domestic Transport</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=cangchu'><font class='zh hide-element'>仓储</font><font class='en'>Repository</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=kuaidi'><font class='zh hide-element'>快递</font><font class='en'>Express</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=qingguan'><font class='zh hide-element'>清关</font><font class='en'>Customs Clearance</font></a>&nbsp;&nbsp;|</li>
-		      <li><a href='/logistics/index.jhtml?tags=qita'><font class='zh hide-element'>其他</font><font class='en'>Other</font></a>&nbsp;&nbsp;|</li>
+		   <ul class='menu'>
+		      <li><a href='/logistics/index.jhtml?tags=guojiyunshu'><font class='guoji-lang'>国际运输</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=guoneiyunshu'><font class='guonei-lang'>国内运输</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=cangchu'><font class='cangchu-lang'>仓储</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=kuaidi'><font class='kuaidi-lang'>快递</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=qingguan'><font class='qingguan-lang'>清关</font></a>&nbsp;&nbsp;|</li>
+		      <li><a href='/logistics/index.jhtml?tags=qita'><font class='qita-lang'>其他</font></a>&nbsp;&nbsp;|</li>
 		    </ul>
 		  </div>
 		  [/#if]

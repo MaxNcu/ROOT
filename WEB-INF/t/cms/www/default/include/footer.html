@@ -3,8 +3,16 @@
   <div class="footer-link container">
     <p>EWAY INTERNATIONAL LIMITED</p>
     <a href="http://www.jeecms.com/lxwm.htm">Contact Us</a>
-    <a onclick="AddFavorite(window.location,document.title)" href="javascript:void(0)">Privacy</a>
-    <a href='http://www.jeecms.com/lxwm.htm'>Terms</a>
+    <a id='privacy' href="#" class="big-link" data-reveal-id="privacyModal" data-animation="fade">Privacy</a>
+    <div class='reveal-modal' id ='privacyModal'>
+      <p></p>
+      <a class="close-reveal-modal">×</a>
+    </div>
+    <a hid='privacy' href="#" class="big-link" data-reveal-id="termsModal" data-animation="fade">Terms</a>
+    <div class='reveal-modal' id ='termsModal'>
+      <p></p>
+      <a class="close-reveal-modal">×</a>
+    </div>
     <div class='footer-right'>
       <div class='icon-block hide-element' id='language'>
         <div class='icon-img'></div>

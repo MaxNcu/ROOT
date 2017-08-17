@@ -147,6 +147,7 @@ $(function(){
 	$('#cate-logistics').text(lang['wuliushang'])
 	$('#target-city-lan').text(lang['mubiaochengshi'])
 	$('#zipcode-lan').text(lang['youbian'])
+	$('#zipcode-lang span:first').text(lang['youbian'])
 	$('#keyword-lan').text(lang['guanjianzi'])
 	$('.left-search-category .radio-content').children().eq(0).after(lang['pifa'])
 	$('.left-search-category .radio-content').children().eq(1).after(lang['lingshou'])
@@ -254,9 +255,14 @@ $(function(){
 $(function(){
 	$('a').click(function(){
 		href=$(this).attr('href');
+		tags=href.split('?');
 		if(href!='' || href!=null||href!=undefined){
-			window.location.replace(href);
-			return false;
+			if(tags.length>1){
+				return false;
+			}else{
+				window.location.replace(href);
+				return false;
+			}
 		}
 	})
 })

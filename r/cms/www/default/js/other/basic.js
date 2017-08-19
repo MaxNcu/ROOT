@@ -30,6 +30,11 @@ $(function(){
 	$('.tag-check #fuzhuang').parent().append(lang['fuzhuang'])
 	$('.tag-check #xiangbao').parent().append(lang['xiangbao'])
 	$('.fuzhuang-lang').text(lang['fuzhuang'])
+	$('.content-lang').text(lang['neirong'])
+	$('.email-lang').text(lang['youxiangn'])
+	$('.cate-lang').text(lang['leibie'])
+	$('.topic-lang').text(lang['biaoti'])
+	$('.tel-lang').text(lang['dianhuan'])
 	$('.xiewa-lang').text(lang['xiewa'])
 	$('.dianzi-lang').text(lang['dianzichanpin'])
 	$('.xiangbao-lang').text(lang['xiangbao'])
@@ -42,7 +47,9 @@ $(function(){
 	$('.cangchu-lang').text(lang['cangchu'])
 	$('.qingguan-lang').text(lang['qingguan'])
 	$('.kuaidi-lang').text(lang['kuaidi'])
-	
+	$('.sloganname').text(lang['sloganname'])
+	$('.slogan1').text(lang['slogan1'])
+	$('.slogan2').text(lang['slogan2'])
 	$('.tag-check #xiewa').parent().append(lang['xiewa'])
 	$('.tag-check #dianzichanpin').parent().append(lang['dianzichanpin'])
 	$('.tag-check #jiafang').parent().append(lang['jiafang'])
@@ -73,7 +80,7 @@ $(function(){
 	$('#companyinfo').text(lang['gongsixinxi'])
 	$('#mywords').text(lang['wodeliuyan'])
 	$('#myfavorite').text(lang['wodeshoucang'])
-	$('#messages').text(lang['hzanneixinxi'])
+	$('#messages').text(lang['zhanneixinxi'])
 	$('#nickname').text(lang['yonghunicheng'])
 	$('#membergroup').text(lang['huiyuanzubie'])
 	$('#gender').text(lang['xingbie'])
@@ -82,6 +89,8 @@ $(function(){
 	$('#emailpass').text(lang['youxiang'])
 	$('#mobile').text(lang['shouji'])
 	$('#telephone').text(lang['gudingdianhua'])
+	$('.cname-lang').text(lang['gongsimingcheng'])
+	$('.ccate-lang').text(lang['gongsizhonglei'])
 	$('#from').text(lang['laizi'])
 	$('#selfintro').text(lang['ziwojieshao'])
 	$('.selfinfromation a').eq(0).text(lang['yonghuxinxi'])
@@ -123,6 +132,7 @@ $(function(){
 	$('input[value=回复]').val(lang['huifu'])
 	$('input[value=搜索]').val(lang['sousuo'])
 	$('input[value=登入]').val(lang['dengru'])
+	$('.dengru-lang').text(lang['dengru'])
 	$('input[value=登录]').val(lang['dengru'])
 	$('.sendmessage a').eq(0).text(lang['fasongzhanneixin'])
 	$('.sendmessage a').eq(1).text(lang['fanhuiliebiao'])
@@ -269,6 +279,9 @@ $(function(){
 		$('.login-btn').css('margin-left','120px')
 		$('.complicated').css('margin-left','110px')
 		$('.left-search-category .search-content p').css('width','68px')
+		$('.memberLeft .member-nav').css('margin-right','66px')
+		$('.self-text').css({'height':'113px','margin-top':'151px'})
+		$('.slogan1, .slogan2').css('text-indent','2em')
 		$('.region-lan').each(function(){
 			tempval=$(this).text()
 			tempen=tempval.split('1')[0]
@@ -311,10 +324,10 @@ $(function(){
 			}else if(wordreply=='是'){
 				$(this).children().eq(3).children().eq(0).text(lang['shi'])
 			}
-			if($(this).children().eq(4).has('span').length){
-				wordauit=$(this).children().eq(4).chileren().eq(0).text()
+			if($(this).children().eq(4).length>0){
+				wordaudit=$(this).children().eq(4).text()
 			}else{
-				wordrauit=$(this).children().eq(4).text()
+				wordaudit=$(this).children().eq(4).text()
 			}
 			if(wordaudit=='未审核'){
 				$(this).children().eq(4).text(lang['weishenhe'])
@@ -368,7 +381,7 @@ $(function(){
 		$('.It').removeClass('hide-element')
 		$('.zh').addClass('hide-element')
 		$('.main-text').css('width','60px')
-		$('.menu li').css('width','75px')
+		$('.menu li').css('width','95px')
 		$('.left-search-category .search-content p').css('text-align','right')
 		$('.trangle').css('margin-left','35px')
 		$('.top-line .detail').css('width','140px')
@@ -380,13 +393,16 @@ $(function(){
 		$('.location-lan').css('width','106px')
 		$('#locationid span').css({'display':'inline-block','width':'100px','height':'20px;'})
 		$('.company-info-bar .location-lan').css('margin-left','15px')
-		$('#contactid span').css({'display':'inline-block','width':'100px','height':'20px;'})
-		$('.member-block-lan p').css('width','80px')
+		$('#contacted span').css({'display':'inline-block','width':'100px','height':'20px;'})
+		$('.member-block-lan p').css('width','90px')
 		$('.login-checkbox').parent().css('margin-left','81px')
 		$('.login-checkbox').parent().parent().next().css('margin-left','120px')
 		$('.login-btn').css('margin-left','120px')
 		$('.complicated').css('margin-left','110px')
 		$('.left-search-category .search-content p').css('width','68px')
+		$('.memberLeft .member-nav').css('margin-right','36px')
+		$('.self-text').css({'height':'113px','margin-top':'151px'})
+		$('.slogan1, .slogan2').css('text-indent','2em')
 		$('.region-lan').each(function(){
 			tempval=$(this).text()
 			tempen=tempval.split('1')[0]
@@ -429,10 +445,10 @@ $(function(){
 			}else if(wordreply=='是'){
 				$(this).children().eq(3).children().eq(0).text(lang['shi'])
 			}
-			if($(this).children().eq(4).has('span').length){
-				wordauit=$(this).children().eq(4).chileren().eq(0).text()
+			if($(this).children().eq(4).length>0){
+				wordaudit=$(this).children().eq(4).text()
 			}else{
-				wordrauit=$(this).children().eq(4).text()
+				wordaudit=$(this).children().eq(4).text()
 			}
 			if(wordaudit=='未审核'){
 				$(this).children().eq(4).text(lang['weishenhe'])
@@ -1090,7 +1106,7 @@ $(function(){
 		})
 		$('.radio-value').val(content.join(' '));
 	})
-	$('.left-search-category .search-submit .left-search-button').click(function(){
+	$('.left-search-category .left-search-submit .left-search-button').click(function(){
 		var content=[]
 		$('.s-content').each(function(){
 			content.push($(this).val());

@@ -61,13 +61,8 @@ $(function() {
           &nbsp;>&nbsp;${country}
           [/#if]
           [#if country!='' && zipcode!='']/${zipcode}[#else]${zipcode}[/#if]
-          <font id='${category}'>[#if country!='' && zipcode!='' && temp!='' && category!='']/${category}[#else]${category}[/#if]</font>
-          <script type='text/javascript'>
-              $('.category font').each(function(){
-            	  id=$(this).attr('id')
-            	  $(this).text(lang[id])
-              })
-          </script>
+          [#if country!='' && zipcode!='' && temp!='']/${keyword}[#elseif temp!='']${keyword}[/#if]
+          [#if country!='' && zipcode!='' && temp!='' && category!='']/${category}[#else]${category}[/#if]
     </p>
   </div>
   <hr>

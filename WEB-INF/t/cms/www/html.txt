@@ -11,6 +11,7 @@
   修改信息:ROOT/WEB-INFO/t/cms/www/default/member/contribute_edit.html
   个人资料:ROOT/WEB-INFO/t/cms/www/default/member/member_center.html
   我的留言:ROOT/WEB-INFO/t/cms/www/default/guestbook/guestbook_list.html
+  站内信息:ROOT/WEB-INFO/t/cms/www/default/guestbook/guestbook_list.html
 
 
 内容: ROOT/WEB-INFO/jeecms_sys/content/list.html

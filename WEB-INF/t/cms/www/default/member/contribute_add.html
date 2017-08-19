@@ -177,15 +177,15 @@ function changePattern(){
       <div class="member-nav">
         <ul>
         <li><a href="${base}/member/index.jspx" id='selfinfo'><font class='zh hide-element'>个人资料</font><font class='en'>Self Info</font></a></li>
-        <li><a href="${base}/member/contribute_list.jspx" class="on" id='companyinfo'><font class='zh hide-element'>公司信息</font><font class='en'>Comp Info</font></a></li>
-        <li><a href="${base}/member/myguestbook.jspx"><font class='zh hide-element' id='mywords'>我的留言</font><font class='en'>My Words</font></a></li>
-        <li><a href="${base}/member/collection_list.jspx"><font class='zh hide-element' id='myfavorite'>我的收藏</font><font class='en'>My Favor</font></a></li>
-        <li><a href="${base}/member/message_mng.jspx"><font class='zh hide-element' id='messages'>站内信息</font><font class='en'>Messages</font></a></li>
+        <li><a href="${base}/member/contribute_list.jspx" id='companyinfo' class="on"><font class='zh hide-element'>公司信息</font><font class='en'>Comp Info</font></a></li>
+        <li><a href="${base}/member/myguestbook.jspx" id='mywords'><font class='zh hide-element'>我的留言</font><font class='en'>My Words</font></a></li>
+        <li><a href="${base}/member/collection_list.jspx" id='myfavorite'><font class='zh hide-element'>我的收藏</font><font class='en'>My Favor</font></a></li>
+        <li><a href="${base}/member/message_mng.jspx" id='messages'><font class='zh hide-element'>站内信息</font><font class='en'>Messages</font></a></li>
         <li class='hide-element'><a href="${base}/member/account.jspx"><font class='zh hide-element'>服务中心</font><font class='en'>Service Center</font></a></li>
         </ul>
       </div>
       <div class="member-main">
-        <div class="member-child"><a href="${base}/member/contribute_list.jspx"><font class='zh hide-element'>公司列表</font><font class='en'>Company List</font></a>|<a href="${base}/member/contribute_add.jspx" class="on"><font class='zh hide-element'>新建信息</font><font class='en'>New Company Info</font></a></div>
+        <div class="selfinfromation member-child"><a href="${base}/member/contribute_list.jspx"><font class='zh hide-element'>公司列表</font><font class='en'>Company List</font></a>|<a href="${base}/member/contribute_add.jspx" class="on"><font class='zh hide-element'>新建信息</font><font class='en'>New Company Info</font></a></div>
         <div class="member-text tggl fbgj">
           [#if channelList?size gt 0]
           [#include "media_upload.html"/]
@@ -195,10 +195,10 @@ function changePattern(){
           <table cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
-                <td class="tggl-top"><font class='zh hide-element'>公司名称</font><font class='en'>Comp Name</font></td><td><input type="text" name="title" maxlength="150" class="member-change required" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
+                <td class="tggl-top"><font class='cname-lang'>公司名称</font></td><td><input type="text" name="title" maxlength="150" class="member-change required" style="width:300px;" /><span style="color:#f00; margin-left:10px;">*</span></td>
               </tr>
               <tr>
-                <td class="tggl-top"><font class='zh hide-element'>公司类型</font><font class='en'>Comp Cate</font></td>
+                <td class="tggl-top"><font class='ccate-lang'>公司类型</font></td>
                 <td>
                 <select name="channelId" class="member-change" id="cate-change">
                 <option value="" class="sel-disabled" id='default-value'></option>

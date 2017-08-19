@@ -27,7 +27,8 @@ $(function() {
 <div class='main container'>
 <div class="register-box login-box"> 
     <div class='contact-title'>
-      <p>登入</p>
+      <p class='dengru-lang'>登入</p>
+      <a style='float:right;' id='forgetpass-lan' href="${base}/member/forgot_password.jspx">忘记密码</a>
     </div>
     <hr>  
    [#if loginSource??]
@@ -92,7 +93,7 @@ $(function() {
       <a href="${base}/member/forgot_password.jspx">忘记密码</a>
     </div>
     <input type="submit" class="login-btn" value="登录">
-  <div class="quick">
+  <div class="quick hide-element">
     <div class="quick-list clearfix">
       <a id='forgetpass-lan' href="${base}/member/forgot_password.jspx">忘记密码</a>
       |&emsp;

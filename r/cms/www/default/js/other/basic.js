@@ -28,6 +28,7 @@ $(function(){
 	$('#lingshou').parent().append(lang['lingshou'])
 	$('#mainservice').text(lang['mainservice'])
 	$('.tag-check #fuzhuang').parent().append(lang['fuzhuang'])
+	$('.lang-lang').text(lang['lang'])
 	$('.tag-check #xiangbao').parent().append(lang['xiangbao'])
 	$('.fuzhuang-lang').text(lang['fuzhuang'])
 	$('.content-lang').text(lang['neirong'])
@@ -546,7 +547,7 @@ $(function(){
 		}else if(lang='Italy'){
 			language='It'
 		}
-		$.cookie('language', language,{expires:7});
+		$.cookie('language', language,{expires:7,path:'/'});
 		location.reload();
 	})
 })

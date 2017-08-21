@@ -1,4 +1,5 @@
 var en={
+        lang:'English',
         maoyi:'Business',
         wuliu:'Logistics',
 		fuzhuang:'Cloth',
@@ -204,7 +205,8 @@ var en={
 }
 
 var It={
-        maoyi:'Commercio',
+        lang:'Italy',
+		maoyi:'Commercio',
         wuliu:'Logistica',
 		fuzhuang:'Abbigliamento',
 		xiangbao:'Borse e Acessori',
@@ -409,7 +411,8 @@ var It={
 }
 
 var zh={
-        maoyi:'贸易',
+        lang:'中文',
+		maoyi:'贸易',
         wuliu:'物流',
 		fuzhuang:'服装',
 		xiangbao:'箱包',

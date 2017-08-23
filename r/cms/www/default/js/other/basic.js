@@ -1,4 +1,16 @@
-
+var Days = 7;
+var exp = new Date();
+exp.setTime(exp.getTime() + Days*24*60*60*1000);
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)"); //正则匹配
+    if(arr=document.cookie.match(reg)){
+      return unescape(arr[2]);
+    }
+    else{
+     return null;
+    }
+}
 var regionurl="http://35.159.1.181:5000/getcountry"
 $(document).ready(function(){
 		$('.show-content p').css('text-indent','0em');
@@ -8,6 +20,7 @@ $(document).ready(function(){
 		$('.new-content').hide();
 	};
 })
+
 if($.cookie('language')==null){
 	var language='zh'
 }else{
@@ -547,6 +560,7 @@ $(function(){
 		}else if(lang='Italy'){
 			language='It'
 		}
+		
 		$.cookie('language', language,{expires:7,path:'/'});
 		location.reload();
 	})

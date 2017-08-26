@@ -65,7 +65,7 @@ $(function(){
 
 [#if templist?size>1]
 [#assign txttemp=templist[0]]
-[#assign txtshow=txttemp?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+[#assign txtshow=txttemp]
 [#assign description=content.description?split('~')]
 [#assign location=description[1]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
 [#assign region=description[0]?split(',')]

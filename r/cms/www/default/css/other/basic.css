@@ -864,6 +864,9 @@ hr{
 	line-height:24px;
 	padding-bottom:40px;
 }
+.content-txt p{
+	text-indent:2em
+}
 .adver-result{
 	height:560px;
 }

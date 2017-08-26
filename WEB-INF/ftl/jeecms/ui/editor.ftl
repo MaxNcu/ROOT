@@ -1,4 +1,4 @@
-<#--
+﻿<#--
 <textarea name="textarea"></textarea>
 -->
 <#macro editor
@@ -14,7 +14,7 @@
 -->
 <textarea id="${name}" name="${name}">${value}</textarea>  
 <#--
-<script id="${name}" name="${name}" type="text/plain">${value}</script>
+<script id="${name}" name="${name}" type="text/plain">123${value}</script>
 -->
 <script type="text/javascript">
   $(document).ready(function(){

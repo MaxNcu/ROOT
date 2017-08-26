@@ -11,6 +11,11 @@ function getCookie(name)
      return null;
     }
 }
+//content
+$(function(){
+	text = $('.content-txt').text()
+	alert(text)
+})
 var regionurl="http://35.159.1.181:5000/getcountry"
 $(document).ready(function(){
 		$('.show-content p').css('text-indent','0em');
@@ -898,7 +903,11 @@ $(function(){
 		 $('#txt').val("");
 		 $('#description').val('');
 		 $('#description').val("<p class='hide-element'>"+region.join(',')+"~</p>"+$('#description-show').val());
-		 $('#txt').val($('#txt-show').val()+"<br><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
+		 txtreg=reg=new RegExp("\n","g")
+		 space=new RegExp(" ","g")
+		 txtup=$('#txt-show').val().replace(reg,'\n</p><p>')
+		 txtup=txtup.replace(space,'&nbsp;')
+		 $('#txt').val(txtup+"<br><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
 	})
 	
 })

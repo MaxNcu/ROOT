@@ -14,7 +14,6 @@ function getCookie(name)
 //content
 $(function(){
 	text = $('.content-txt').text()
-	alert(text)
 })
 var regionurl="http://35.159.1.181:5000/getcountry"
 $(document).ready(function(){
@@ -773,7 +772,6 @@ $(function(){
 			var querydata={"tag":"distinct","country":country_s,"distinct":""}
 			$.getJSON(regionurl,jQuery.param(querydata),function(data){
 				result=data.result
-				alert(result.length)
 				$('#distinct-s option').remove()
 				$('#distinct-s').append(daquxuanxiang)
 				for(var i=0;i<result.length;i++){
@@ -801,7 +799,6 @@ $(function(){
 	$('#distinct-s').change(function(){
 		distinct_s=$(this).val()
 		country_s=$('#country-s').val()
-		alert(country_s)
 		if(distinct_s=='none'){
 			$('#city-s').find("option:selected").attr('selected',false)
 			$('#city-s option').remove()

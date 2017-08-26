@@ -418,8 +418,9 @@ hr{
 	border:1px solid rgb(238,238,238);
 }
 .show-content img{
-	width:219px;
+	width:217px;
 	height:109px;
+	border:1px solid rgb(240,240,240);
 }
 .show-content a{
 	width:219px;
@@ -448,8 +449,9 @@ hr{
 	border:1px solid rgb(226,226,226);
 }
 .right-content .right-logo{
-	width:100%;
+	width:99%;
 	height:110px;
+	border:1px solid rgb(226,226,226);
 }
 .right-content .right-text{
 	width:90%;
@@ -814,6 +816,7 @@ hr{
 .head-pic img{
 	width:100%;
 	height:100%;
+	border:1px solid rgb(240,240,240);
 }
 .content-self{
 	margin-top:15px;

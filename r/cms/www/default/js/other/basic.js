@@ -268,6 +268,7 @@ $(function(){
 	        	temp1=data.replace(reg,'</p><p>')
 	        	temp1=temp1.replace(regf,'<p>')
 	        	$('#termsModal p').html(temp1)
+	        	$('#myModal p').html(temp1)
 	        }
 	    });
 	});
@@ -880,12 +881,12 @@ $(function(){
    $('.contact-show input').change(function(){
     	$('.contact-hide').val("");
     	contact=[]
-    	tel='tel:'+$('.contact-show #tel').val()
-    	qq='qq:'+$('.contact-show #qq').val()
-    	email='email:'+$('.contact-show #email').val()
-    	wechat='wechat:'+$('.contact-show #wechat').val()
-    	website='website:'+$('.contact-show #website').val()
-    	mob='mob:'+$('.contact-show #mob').val()
+    	tel=':'+$('.contact-show #tel').val()
+    	qq=':'+$('.contact-show #qq').val()
+    	email=':'+$('.contact-show #email').val()
+    	wechat=':'+$('.contact-show #wechat').val()
+    	website=':'+$('.contact-show #website').val()
+    	mob=':'+$('.contact-show #mob').val()
     	contact.push(tel)
     	contact.push(qq)
     	contact.push(email)
@@ -900,10 +901,13 @@ $(function(){
 		 $('#txt').val("");
 		 $('#description').val('');
 		 $('#description').val("<p class='hide-element'>"+region.join(',')+"~</p>"+$('#description-show').val());
-		 txtreg=reg=new RegExp("\n","g")
+		 txtreg=new RegExp("\n","g")
+		 defreg=new RegExp('[+#~]','g')
 		 space=new RegExp(" ","g")
+		 
 		 txtup=$('#txt-show').val().replace(reg,'\n</p><p>')
 		 txtup=txtup.replace(space,'&nbsp;')
+		 txtup=txtup.replace(defreg,'-')
 		 $('#txt').val(txtup+"<br><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
 	})
 	

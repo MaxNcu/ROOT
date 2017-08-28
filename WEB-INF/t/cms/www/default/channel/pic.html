@@ -160,7 +160,7 @@ $(function() {
 	        [#if s.txt??]
 	        <div class="search-txt">
 	          [#assign temp=s.txt?split("<p class")[0] ]
-	          [#assign bb=temp?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [#assign bb=temp?split("~")[0]/]
 	          [@text_cut s=bb! len=150 append='...'/]
 	        </div>
 	        [/#if]

@@ -150,15 +150,36 @@ $(function() {
 		          <p><a href='${s.url}'>查看详情</a></p>
 		        </div>
 	        </div>
-	        <div class='search-category'>
-	          <a href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
+	        <div id='${s.id}' class='search-category'>
+	          <a id='main-tag' href="${s.ctgUrl}" ><p>${s.ctgName}商</p></a>
 	          <p>></p>
-	          <p>[#if s.ctgName=='贸易'][#assign tagstring=s.tagStr?split('+')[1]?replace(',','/')]${tagstring}[/#if]</p>
+	          <p class='tags'>
+	          [#assign t=s.tagStr?split('+')[1]]
+	          [#assign test=s.tagStr?split('+')[0]]
+	          [#list t?split(',') as ta]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  if ('${t}'.length>1){
+	        	  $('#${s.id} .tags').append(lang['${ta}']).append('/')
+	        	  }
+	       		})
+	          </script>
+	          [/#list]
+	          [#list test?split(',') as te]
+	          <script type='text/javascript'>
+	          $(function(){
+	        	  if ('${te}'.length>1){
+	        	  	$('#${s.id} .tags').append("<p>"+lang['${te}']+"/</p>")
+	        	  }
+	          })
+	          </script>
+	          [/#list]
+	          </p>
 	        </div>
 	        [#if s.txt??]
 	        <div class="search-txt">
 	          [#assign temp=s.txt?split("<p class")[0] ]
-	          [#assign bb=temp?replace("&nbsp;","","ri")?split("~")[0]/]
+	          [#assign bb=temp?split("~")[0]/]
 	          [@text_cut s=bb! len=150 append='...'/]
 	        </div>
 	        [/#if]

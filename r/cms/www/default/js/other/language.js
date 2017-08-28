@@ -601,6 +601,8 @@ var zh={
 		ninzhixuzhuanzhushengyi:'您只需专注生意，我们帮您拓展市场',
 		tigongzuiquanmaoyixiangguanxinxi:'提供最全贸易相关信息，全方位助力您的生意经',
 		xiangqing:'详情',
+		批发:'批发',
+		零售:'零售',
 		鞋袜:'鞋袜',
 		箱包:'箱包',
 		电子产品:'电子产品',

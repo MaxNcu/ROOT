@@ -222,6 +222,18 @@ $(function(){
 	$('.zipcode-lan').text(lang['youbian'])
 	$('.keyword-lan').text(lang['guanjianzi'])
 	$('#all').text(lang['quanbu'])
+	$('#message-title').text(lang['zaixianliuyan'])
+	$('#message-content').text(lang['nindeliuyan'])
+	$('#message-name').text(lang['nindexingming'])
+	$('#message-tel').text(lang['nindedianhua'])
+	$('#message-verify').text(lang['yanzhengma'])
+	$('#our-title').text(lang['womendelianxifangshi'])
+	$('#our-location').text(lang['dizhi'])
+	$('#our-tel').text(lang['dianhua'])
+	$('#our-fax').text(lang['chuanzhen'])
+	$('#our-email').text(lang['youxiang'])
+	$('#guest-title').text(lang['lianxiwomen'])
+	$('.detailcontent').text(lang['xiangxineirong'])
 	qitaxuanxiang="<option value=other>"+lang['qita']+"</option>"
 	guojiaxuanxiang="<option value='none'>"+lang['qingxuanzeguojia']+"</option>"
 	chengshixuanxiang="<option value='none'>"+lang['qingxuanzechengshi']+"</option>"
@@ -301,6 +313,8 @@ $(function(){
 		$('.memberLeft .member-nav').css('margin-right','66px')
 		$('.self-text').css({'height':'113px','margin-top':'151px'})
 		$('.slogan1, .slogan2').css('text-indent','2em')
+		$('.right-bar .right-contact p').css('width','105px')
+		$('.info-title p').css('font-size','13px')
 		$('.region-lan').each(function(){
 			tempval=$(this).text()
 			tempen=tempval.split('1')[0]
@@ -381,6 +395,7 @@ $(function(){
 		$('.left-search-category .search-content input').css('margin-left','10px')
 		$('.radio-content').css({'width':'152px','margin-left':'58px'})
 		$('.complicated').css('margin-left','98px')
+		$('.right-bar .right-contact p').css('width','56px')
 		$('.region-lan').each(function(){
 			tempval=$(this).text()
 			tempen=tempval.split('1')[1]
@@ -422,6 +437,7 @@ $(function(){
 		$('.memberLeft .member-nav').css('margin-right','36px')
 		$('.self-text').css({'height':'113px','margin-top':'151px'})
 		$('.slogan1, .slogan2').css('text-indent','2em')
+		$('.right-bar .right-contact p').css('width','135px')
 		$('.region-lan').each(function(){
 			tempval=$(this).text()
 			tempen=tempval.split('1')[0]

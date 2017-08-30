@@ -22,7 +22,7 @@
 <div class="main container clearfix">
   <section class="message_w860">
     <div class='contact-title'>
-      <p>联系我们</p>
+      <p id=''>联系我们</p>
     </div>
     <hr>
     <form id="guestbookForm" action="${base}/guestbook.jspx" method="post">
@@ -39,23 +39,23 @@
         </p>
       </div>
       <div class='message-wrapper'>
-        <p>在线留言</p>
+        <p id='message-title'></p>
         <p style='display:none;'><span>标题</span><input type="text" name="title" class="message_title" maxlength="255" /></p>
-        <p><span><span style='color:red; display:inline; width:auto;'>*</span>您的留言:</span><textarea name="content" cols="55" rows="7" class="message_txt"></textarea></p>
-        <p><span><span style='color:red; display:inline; width:auto;''>*</span>您的姓名:</span><input type="text" name="email" class="message_email" maxlength="100" /></p>
-        <p><span><span style='color:red; display:inline; width:auto;''>*</span>您的电话:</span><input type="text" name="phone" maxlength="50" class="message_phone" /></p>
+        <p><span style='color:red; display:inline; width:auto;'>*</span><span id='message-content'></span><textarea name="content" cols="55" rows="7" class="message_txt"></textarea></p>
+        <p><span style='color:red; display:inline; width:auto;''>*</span><span id='message-name'></span><input type="text" name="email" class="message_email" maxlength="100" /></p>
+        <p><span style='color:red; display:inline; width:auto;''>*</span><span id='message-tel'></span><input type="text" name="phone" maxlength="50" class="message_phone" /></p>
         <p style='display:none;'><span style="width:auto;">QQ</span><input type="text" name="qq" class="message_qq" /></p>
-        <p><span><span style='color:red; display:inline; width:auto;''>*</span>验证码</span><input type="text" name="captcha" maxlength="20" vld="{required:true}" class="message_code" /><img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"></p>
+        <p><span style='color:red; display:inline; width:auto;''>*</span><span id='message-verify'></span><input type="text" name="captcha" maxlength="20" vld="{required:true}" class="message_code" /><img id="guestbookCaptcha" src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()"></p>
         <p style="position:relative; top:-15px;"><input type="hidden" name="sessionId" id="sessionId" /><input type="submit" id="submit" class="message_btn" value="提交" /><!--<a class="tolist">查看留言列表</a>--></p>
       </div>
     </div>
     </form>
     <div class='info-bottom'>
-      <h4>我们的联系方式</h4>
-      <p>地址:</p>
-      <p>电话:</p>
-      <p>传真:</p>
-      <p>Email:</p>
+      <h4 id='our-title'></h4>
+      <p id='our-location'></p>
+      <p id='our-tel'></p>
+      <p id='our-fax'></p>
+      <p id='our-email'></p>
     </div>                                           
             <script type="text/javascript">
             $(function() {

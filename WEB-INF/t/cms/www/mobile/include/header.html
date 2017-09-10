@@ -13,11 +13,15 @@
   </div>
   <div class='header-icon-middle'>
    <div class="search">
-   <form action="${base}/search.jspx" target="_blank" id="searcForm">
-      <input type="text" name="q" class='search-input'></input>
-      <input class='search-buttonss' type='submit' value=''>
-      </form>
-      </input>
+   [#if channel.id == 76]
+   		<input type="text" name="q" class='search-input'></input>
+	    <input class='search-buttonss' type='submit' value=''>
+   [#else]
+   		<form action="${base}/search.jspx" target="_blank" id="searcForm">
+	      <input type="text" name="q" class='search-input'></input>
+	      <input class='search-buttonss' type='submit' value=''>
+	   </form>
+   [/#if]
   </div>
   </div>
   <div class="header-icon-right">

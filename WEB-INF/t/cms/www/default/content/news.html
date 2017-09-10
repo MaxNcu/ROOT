@@ -124,8 +124,13 @@ $(function(){
         </div>
       </div>
       <div class='company-buy'>
-        <p id='daogou'>远程导购</p>
+        <a href="#" class="big-link" data-reveal-id="daogouModal" data-animation="fade" id='daogou'>远程导购</a>
       </div>
+      <div class='reveal-modal-daogou' id ='daogouModal'>
+      <p id='wechat-lan'><span>微信:</span><span>  ${wechat}</span></p>
+      <p id='tianjiaweixin-lang'>请添加商家微信，待验证通过后可以进行视频导购。</p>
+      <a class="close-reveal-modal">×</a>
+    </div>
     </div>
     <p id='intro'>公司简介</p>
     <div class="content-txt">
@@ -141,7 +146,7 @@ $(function(){
     </div>
   </section>
   <div class='right-adver adver-result'>
-    <div class='adver-contents'></div>
+    <div class='adver-contents hide-element'></div>
   </div>
   <div class='company-info-bar'>
     <div class='info-nav'>
@@ -162,7 +167,7 @@ $(function(){
     <div class='info-detail hide-element' id='contactid'>
     	<p id='tel-lan'><span>电话: </span><span> ${tel}</span></p>
 	    <p id='email-lan'><span>邮箱: </span><span> ${email}</span></p>
-	    <p id='wechat-lan'><span>微信:</span><span>  ${wechat}</span></p>
+	    
 	    <p id='mob-lan'><span>手机:</span><span>  ${mob}</span></p>
     </div>
   </div>

@@ -27,7 +27,7 @@ $(function() {
 <@p.password width="50" colspan="1" label="cmsUser.password" id="password" name="password" help="cmsUser.password.help"/>
 <@p.password width="50" colspan="1" label="cmsUser.pwdAgain" equalTo="#password" help="cmsUser.password.help"/><@p.tr/>
 <@p.select colspan="1" width="50" label="cmsUser.group" name="groupId" value=cmsMember.group.id list=groupList listKey="id" listValue="name" required="true"/>
-<@p.text width="50" colspan="1" label="content.doc.grain" name="grain" value=cmsMember.grain required="true" class="required digits" maxlength="10"/>
+<@p.text width="50" colspan="1" label="content.doc.grain" name="grain" value=cmsMember.grain class="digits" maxlength="10"/>
 <@p.tr/>
 <@p.radio width="50" colspan="1" label="cmsUser.disabled" name="disabled" value=cmsMember.disabled list={"true":"global.true","false":"global.false"} required="true"/>
 <@p.td width="50" colspan="1" label="cmsUser.loginCount">${cmsMember.loginCount}</@p.td><@p.tr/>

@@ -417,10 +417,31 @@ hr{
 	overflow:hidden;
 	border:1px solid rgb(238,238,238);
 }
+.show-content .imgblock{
+	width:217px;
+	height:132px;
+	border:1px solid rgb(240,240,240);
+}
+
+.show-content .imgblock:hover img{
+	display:none;
+}
+.show-content .imgblock:hover .text-p{
+	display:block;
+}
 .show-content img{
 	width:217px;
+	height:132px;
+}
+.show-content .lang-intro{
+	height:15px;
+	width:100%;
+	font-weight:bold;
+}
+.show-content .text-p{
+	display:none;
+	width:217px;
 	height:109px;
-	border:1px solid rgb(240,240,240);
 }
 .show-content a{
 	width:219px;
@@ -436,9 +457,7 @@ hr{
 	margin-right:5px;
 	word-break:break-word;
 }
-.t-title{
-	font-weight:bold;
-}
+
 .home-top .right-bar{
 	margin:0;
 	width:220px;
@@ -856,12 +875,13 @@ hr{
 	height:57px;
 	background:url('../../images/x/indicate.jpg');
 }
-.company-buy p{
+.company-buy #daogou{
 	width:60px;
 	color:white;
 	font-size:13px;
 	line-height:57px;
 	margin:0 auto;
+	display:block;
 }
 #intro{
 	font-size:13px;
@@ -883,7 +903,7 @@ hr{
 	word-break:break-word;
 }
 .adver-result{
-	height:560px;
+	height:360px;
 }
 .right-adver .adver-contents{
 	width:218px;
@@ -1219,6 +1239,25 @@ border-radius: 5px;
 overflow:scroll;
 }
 
+ .reveal-modal-daogou {
+visibility: hidden;
+left: 50%;
+margin-left: -210px;
+width: 420px;
+height:120px;
+background: #eee url(../../images/x/modal-gloss.png) no-repeat -200px -80px;
+position: absolute;
+z-index: 101;
+padding: 30px 40px 34px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+-box-shadow: 0 0 10px rgba(0,0,0,.4);
+overflow:scroll;
+}
+
  .reveal-modal-register {
 visibility: hidden;
 left: 50%;
@@ -1290,7 +1329,7 @@ overflow:scroll;
 .reveal-modal.large, .reveal-modal.large{ width: 600px; margin-left: -340px;}
 .reveal-modal.xlarge, .reveal-modal.xlarge{ width: 800px; margin-left: -440px;}
  
-.reveal-modal .close-reveal-modal, .reveal-modal-wechat .close-reveal-modal, .reveal-modal-register .close-reveal-modal{
+.reveal-modal .close-reveal-modal, .reveal-modal-wechat .close-reveal-modal, .reveal-modal-register .close-reveal-modal, .reveal-modal-daogou .close-reveal-modal{
 font-size: 22px!important;
 line-height: .5;
 position: absolute;

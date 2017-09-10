@@ -177,6 +177,7 @@ $(function(){
 	$('#maoyisousuo').text(lang['maoyisousuokuang'])
 	$('#wuliusousuo').text(lang['wuliusousuokuang'])
 	$('#intro').text(lang['gongsijianjie'])
+	$('.lang-intro').text(lang['jianjie'])
 	$('#daogou').text(lang['yuanchengdaogou'])
 	$('#company-cate').text(lang['qiyeleixing'])
 	$('#company-website').text(lang['gongsiwangzhi'])
@@ -234,6 +235,7 @@ $(function(){
 	$('#our-email').text(lang['youxiang'])
 	$('#guest-title').text(lang['lianxiwomen'])
 	$('.detailcontent').text(lang['xiangxineirong'])
+	$('#tianjiaweixin-lang').text(lang['tianjiaweixin'])
 	qitaxuanxiang="<option value=other>"+lang['qita']+"</option>"
 	guojiaxuanxiang="<option value='none'>"+lang['qingxuanzeguojia']+"</option>"
 	chengshixuanxiang="<option value='none'>"+lang['qingxuanzechengshi']+"</option>"

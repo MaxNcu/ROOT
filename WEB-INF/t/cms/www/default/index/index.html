@@ -91,30 +91,87 @@ $(function() {
     </ul>
     <div class='list-content'>
     [#assign time= .now?time?string]
-    [#assign second=time?split(':')[0]?number/6]
-    [#assign minutes=time?split(':')[1]?number/6]
+    [#assign second=time?split(':')[2]?number/60]
+    [#assign minutes=time?split(':')[1]?number/60]
 	      [@cms_content_list orderBy='10' Recommand='2' typeId='2' channelId='75,76' titLen='30' channelOption='0' dateFormat='yyyy-MM-dd']
-		      [#list tag_list as a] 
-				  [#assign txtshow=a.txt ]
-		          [#assign txtshow=txtshow?split('</p>')[0]]
-		          [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
-		          <div class='show-content'>
-		          <a [#if (a_index)%6=0]class="bold"[/#if] href="${a.url}" target="_blank">
-		          <div class='imgblock'>
-		          <img src="${a.typeImg!}">
-		          <div class='text-p'>
-		          <p class='lang-intro'></p>
-		          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
-		          </div>
-		          </div>
-		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'><font class='details'>详情</font></p>
-		          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
-		               
-		          
-		          </a>
-		          </div>
+		      [#assign t=1]
+		      [#assign count=tag_list?size]
+		      [#assign ha=tag_list[count-1]]
+		      [#assign start=count*second]
+		      [#assign start=start?int]
+		      [#assign showcount=count-start+1]
+		      [#if showcount<20]
+			      [#assign displayagain=20-showcount]
+			      [#list 0..displayagain as i]
 
-		      [/#list]
+				      [#assign a=tag_list[i]]
+				      [#assign txtshow=a.txt ]
+			          [#assign txtshow=txtshow?split('</p>')[0]]
+			          [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+			          <div class='show-content'>
+			          <a class="bold" href="${a.url}" target="_blank">
+			          <div class='imgblock'>
+			          <img src="${a.typeImg!}">
+			          <div class='text-p'>
+			          <p class='lang-intro'></p>
+			          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
+			          </div>
+			          </div>
+			          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'><font class='details'>详情</font></p>
+			          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
+			               
+			          
+			          </a>
+			          </div>
+			      [/#list]
+			      [#list start..count-1 as i]
+			      [#assign a=tag_list[i]]
+
+				      [#assign txtshow=a.txt ]
+			          [#assign txtshow=txtshow?split('</p>')[0]]
+			          [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+			          <div class='show-content'>
+			          <a class="bold" href="${a.url}" target="_blank">
+			          <div class='imgblock'>
+			          <img src="${a.typeImg!}">
+			          <div class='text-p'>
+			          <p class='lang-intro'></p>
+			          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
+			          </div>
+			          </div>
+			          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'><font class='details'>详情</font></p>
+			          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
+			               
+			          
+			          </a>
+			          </div>
+			      [/#list]
+			  [#else]
+			  		[#list start..start+20-1 as i]
+				      [#assign a=tag_list[i]]
+
+					      [#assign txtshow=a.txt ]
+				          [#assign txtshow=txtshow?split('</p>')[0]]
+				          [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+				          <div class='show-content'>
+				          <a class="bold" href="${a.url}" target="_blank">
+				          <div class='imgblock'>
+				          <img src="${a.typeImg!}">
+				          <div class='text-p'>
+				          <p class='lang-intro'></p>
+				          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
+				          </div>
+				          </div>
+				          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'><font class='details'>详情</font></p>
+				          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
+				               
+				          
+				          </a>
+				          </div>
+				      [/#list]
+		      [/#if]
+		      
+		      
 	     [/@cms_content_list]
 	   
     </div>

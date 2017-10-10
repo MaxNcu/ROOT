@@ -60,11 +60,16 @@ $(function(){
 [#include "../include/header.html"/]
 
 [#assign temp=txt]
-
-[#assign templist=temp?split("br")]
-
+[#assign templist=temp?split("<p class")]
 [#if templist?size>1]
 [#assign txttemp=templist[0]]
+[#if templist[1]??]
+[#assign temppic=templist[1]?split(">")]
+[#if temppic?size>1]
+[#assign pic=temppic[1]?split("<")[0]]
+
+[/#if]
+[/#if]
 [#assign txtshow=txttemp]
 [#assign description=content.description?split('~')]
 [#assign location=description[1]?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
@@ -128,6 +133,7 @@ $(function(){
       </div>
       <div class='reveal-modal-daogou' id ='daogouModal'>
       <p id='wechat-lan'><span>微信:</span><span>  ${wechat}</span></p>
+      <img id='wechat-pic' src="${pic}">
       <p id='tianjiaweixin-lang'>请添加商家微信，待验证通过后可以进行视频导购。</p>
       <a class="close-reveal-modal">×</a>
     </div>
@@ -142,6 +148,7 @@ $(function(){
            [/#list]              
           [#else]
             ${txtshow}
+            
           [/#if]
     </div>
   </section>

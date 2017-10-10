@@ -13,11 +13,18 @@
   </div>
   <div class='header-icon-middle'>
    <div class="search">
+   [#if channel??]
    [#if channel.id == 76]
    		<input type="text" name="q" class='search-input'></input>
 	    <input class='search-buttonss' type='submit' value=''>
    [#else]
    		<form action="${base}/search.jspx" target="_blank" id="searcForm">
+	      <input type="text" name="q" class='search-input'></input>
+	      <input class='search-buttonss' type='submit' value=''>
+	   </form>
+   [/#if]
+   [#else]
+   <form action="${base}/search.jspx" target="_blank" id="searcForm">
 	      <input type="text" name="q" class='search-input'></input>
 	      <input class='search-buttonss' type='submit' value=''>
 	   </form>
@@ -38,8 +45,8 @@
  <!--  <div class="cd-bouncy-nav-modal">
 		<nav>
 			<ul class="cd-bouncy-nav">
-				<li><a href="${base}/business/index.jhtml">ó��</a></li>
-				<li><a href="${base}/logistics/index.jhtml">����</a></li>
+				<li><a href="${base}/business/index.jhtml"></a></li>
+				<li><a href="${base}/logistics/index.jhtml"></a></li>
 			</ul>
 		</nav>
 		<a href="#0" class="cd-close">Close modal</a>

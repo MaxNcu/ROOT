@@ -38,6 +38,8 @@ $(function() {
               [#assign keywords='鞋袜']
             [#elseif word='jiafang']
               [#assign keywords='家纺']
+             [#elseif word='qita']
+              [#assign keywords='其他']
             [/#if]
           [#else]
             [#assign word='none']
@@ -172,6 +174,12 @@ $(function() {
 	          })
 	          </script>
 	          [/#list]
+	          ${t?split(',')[0]==''}
+	          [#if t?split(',')?size < 1]
+	          <script type='text/javascript'>
+	          	$('#${s.id} .tags').append("<p>fuck"+lang['other']+"/</p>")
+	          </script>
+	          	[/#if]
 	          </p>
 	        </div>
 	        <script type="text/javascript">

@@ -39,7 +39,7 @@ $(function() {
         </ul>
       </div>
       <div class="member-main">
-        <div class="selfinfromation member-child"><a href="${base}/member/contribute_list.jspx" class="on">公司列表</a>|<a class='new-content' href="${base}/member/contribute_add.jspx">新建信息</a></div>
+        <div class="company-list member-child"><a href="${base}/member/contribute_list.jspx" class="on">公司列表</a>|<a class='new-content' href="${base}/member/contribute_add.jspx">新建公司资料</a></div>
         <div class="member-text tggl">
           <form class='companytable' id="tableForm" action="contribute_list.jspx" method="post">
           [#if pagination.list?size gt 0]
@@ -88,7 +88,7 @@ $(function() {
             }
             </script>
             [#else]
-                <div>暂无投稿</div>
+                <div class='zanwuxinxi'>暂无信息</div>
             [/#if]
           </form>
         </div>

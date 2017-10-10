@@ -112,9 +112,12 @@ $(function(){
 	$('#from').text(lang['laizi'])
 	$('#selfintro').text(lang['ziwojieshao'])
 	$('.selfinfromation a').eq(0).text(lang['yonghuxinxi'])
+	$('.company-list a').eq(0).text(lang['gongsiziliao'])
+	$('.company-list a').eq(1).text(lang['xinjiangongsiziliao'])
+	$('.zanwuxinxi').text(lang['zanwuxinxi'])
+	$('.zanwuliuyan').text(lang['zanwuliuyan'])
 	$('.selfinfromation a').eq(1).text(lang['xiugaigerenziliao'])
-	$('.selfinfromation a').eq(2).text(lang['genghuantouxiang'])
-	$('.selfinfromation a').eq(3).text(lang['xiugaimima'])
+	$('.selfinfromation a').eq(2).text(lang['xiugaimima'])
 	$('#originpassword').text(lang['yuanmima'])
 	$('#inputpass').text(lang['bitian'])
 	$('#newpassword').text(lang['xinmima'])
@@ -645,6 +648,7 @@ $(function(){
 		$('#tagsid').removeClass('hide-element')
 		$('#serviceid').removeClass('hide-element');
 		$.each(tag,function(i,data){
+			alert(data)
 			t.push(data)
 			$('#tagsid .tag-check input').filter($('[value='+data+']')).attr({"selected":true,"checked":'checked'});		
 		})
@@ -915,6 +919,10 @@ $(function(){
     })
 	$('.member-submit').click(function(){
 		 $('#ctags').val("");
+		 if(s.length==0){
+			 s.push('其他');
+		 };
+		 codepic=$('#attachmentPaths0').val()
 		 $('#ctags').val(t+'+'+s);
 		 $('#txt').val("");
 		 $('#description').val('');
@@ -922,11 +930,10 @@ $(function(){
 		 txtreg=new RegExp("\n","g")
 		 defreg=new RegExp('[+#~]','g')
 		 space=new RegExp(" ","g")
-		 
 		 txtup=$('#txt-show').val().replace(reg,'\n</p><p>')
 		 txtup=txtup.replace(space,'&nbsp;')
 		 txtup=txtup.replace(defreg,'-')
-		 $('#txt').val(txtup+"<br><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
+		 $('#txt').val(txtup+"<br><p class='hide-element ppic'>"+ codepic +"</p><p class='hide-element'>tags: "+$('#ctags').val()+"#"+$('#description').val()+"</p>");	
 	})
 	
 })

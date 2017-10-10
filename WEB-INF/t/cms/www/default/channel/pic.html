@@ -155,6 +155,11 @@ $(function() {
 	          })
 	          </script>
 	          [/#list]
+	          [#if t?split(',')[0]=='']
+	          <script type='text/javascript'>
+	          	$('#${s.id} .tags').append("<p>"+lang['other']+"</p>")
+	          </script>
+	          [/#if]
 			  </p>
 	        </div>
 	        [#if s.txt??]

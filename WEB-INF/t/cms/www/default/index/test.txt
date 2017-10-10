@@ -1,0 +1,26 @@
+[#list tag_list as a] 
+				[#if t<21]
+				  [#assign txtshow=a.txt ]
+		          [#assign txtshow=txtshow?split('</p>')[0]]
+		          [#assign txtshow=txtshow?replace("<(S*?)[^>]*>.*?|<.*? />|<","","ri")]
+		          <div class='show-content'>
+		          ${a_index}
+		          <a class="bold" href="${a.url}" target="_blank">
+		          <div class='imgblock'>
+		          <img src="${a.typeImg!}">
+		          <div class='text-p'>
+		          <p class='lang-intro'></p>
+		          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
+		          </div>
+		          </div>
+		          <p href='${a.url}' style='float:right; color:rgb(255,153,19);'><font class='details'>ฯ๊ว้</font></p>
+		          <p class='t-title'>[@text_cut s=a.title len=titLen /]</p>
+		               
+		          
+		          </a>
+		          </div>
+		          [#assign t=t+1]
+		         [/#if]
+		         
+
+		      [/#list]

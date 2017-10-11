@@ -169,7 +169,7 @@ $(function() {
 			          </div>
 			      [/#list]
 			  [#else]
-			  		[#list start..end as i]
+			  		[#list start..start+20-1 as i]
 				      [#assign a=tag_list[i]]
 
 					      [#assign txtshow=a.txt ]

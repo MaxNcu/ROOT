@@ -651,7 +651,6 @@ $(function(){
 	if (service!=null&&service!=undefined&&service!=''){
 		$('#serviceid').removeClass('hide-element');
 		$.each(service,function(i,data){
-			alert(data)
 			s.push(data);
 			$('#serviceid .tag-check input').filter($('[value='+zh[data]+']')).attr({"selected":true,"checked":'checked'});		
 		})
@@ -929,10 +928,8 @@ $(function(){
     })
 	$('.member-submit').click(function(){
 		 $('#ctags').val("");
-		 alert(s[0])
 		 if(s.length==0){
 			 s.push('其他');
-			 alert(s)
 		 };
 		 codepic=$('#attachmentPaths0').val()
 		 $('#ctags').val(t+'+'+s);

@@ -116,6 +116,7 @@ function uploadPicsSuccess(file,data) {
 		$.alert("[@s.m 'global.prompt'/]",jsonData.error);
 	}else{
 		addPicLine();
+		$('#SWFUpload_0').addClass('hide-element')
 		var index = picIndex - 1;
 		imgUrl=jsonData.imgUrl;
 		$("#preImg"+index).attr("src",""+imgUrl);
@@ -403,15 +404,15 @@ function changePattern(){
 						<table id="picTable{0}" border="0" cellpadding="0" cellspacing="0" class="fbgj-tab">
 						<tr>
 							<td style="line-height:1;">
-								<div><input type="text" id="uploadImgPath{0}" name="picPaths" class="member-change" /> <a href="javascript:void(0);" onclick="$('#picTable{0}').remove();" class="pn-opt">删除</a></div>
-								<div style="margin-top:4px;">
+								<div><input type="text" id="uploadImgPath{0}" name="picPaths" class="member-change" /> <a href="javascript:void(0);" onclick="$('#picTable{0}').remove();$('#SWFUpload_0').removeClass('hide-element');" class="pn-opt">删除</a></div>
+								<div style="margin-top:4px;" class="hide-element">
 								<span id="ufc{0}" style="position:relative;">
 								<input type='text' id='uploadFileText{0}' size="10" class="member-change" style="width:115px;height:22px;"/>  
 								<input onchange="$('#uploadFileText{0}').val(this.value)" size="10" type="file" id="uploadFile{0}" style="width:72px;height:22px;"/>
 								</span>
 								<input type="button" value="submit" onclick="upload({0});" style="width:50px;height:22px;cursor:pointer;background:#3694d7;color:#fff;font-size:12px;"/>
 								</div>
-								<div><textarea style="width:300px;height:60px;margin-bottom:0;" name="picDescs" maxlength="255"></textarea></div>
+								<div class='hide-element'><textarea style="width:300px;height:60px;margin-bottom:0;" name="picDescs" maxlength="255"></textarea></div>
 							</td>
 							<td><img id="preImg{0}" alt="预览" noResize="true" style="width:110px;height:110px;background-color:#ccc;border:1px solid #c7c7c7;"/></td>
 						</tr>

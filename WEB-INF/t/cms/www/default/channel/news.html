@@ -174,7 +174,6 @@ $(function() {
 	          })
 	          </script>
 	          [/#list]
-	          ${t?split(',')[0]==''}
 	          [#if t?split(',')?size < 1]
 	          <script type='text/javascript'>
 	          	$('#${s.id} .tags').append("<p>fuck"+lang['other']+"/</p>")

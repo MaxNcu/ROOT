@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${site.name} - Powered by JEECMS</title>
+<title>${site.name}</title>
 <link href="${resSys}/front.css" rel="stylesheet" type="text/css"/>
 <link href="${resSys}/jqueryUI/jquery.ui.css" rel="stylesheet" type="text/css"/>
 <script src="${resSys}/jquery.js" type="text/javascript"></script>
@@ -133,6 +133,7 @@ function uploadAttachSuccess(file,data) {
 		$.alert("[@s.m 'global.prompt'/]",jsonData.error);
 	}else{
 		addAttachLine();
+		$('#SWFUpload_1').addClass('hide-element')
 		var index = attachIndex - 1;
 		var attachUrl=jsonData.attachUrl;
 		var attachName=jsonData.attachName;
@@ -367,7 +368,7 @@ function changePattern(){
 					<tr id="attachTr{0}">
 						
 						<td align="center"><input type="text" id="attachmentNames{0}" name="attachmentNames" class="member-change" style="width:100px;height:24px;"/></td>
-						<td align="center"><input type="text" id="attachmentPaths0" name="attachmentPaths" class="member-change" style="width:130px;height:24px;"/></td>
+						<td align="center"><input type="text" id="attachmentPaths{0}" name="attachmentPaths" class="member-change" style="width:130px;height:24px;"/></td>
 						<td align="center" class='hide-element'>
 							<span id="afc{0}" style="position:relative;display:block;width:200px;">
 							<input type='text' id='attachmentText{0}' class="member-change" style="width:150px;height:24px;" />  
@@ -376,7 +377,7 @@ function changePattern(){
 							</span>
 							<input type="hidden" id="attachmentFilenames{0}" name="attachmentFilenames"/>
 						</td>
-                                                <td align="center" width="50"><a onclick="$('#attachTr{0}').remove();" href="javascript:void(0);" class="pn-opt">删除</a></td>
+                                                <td align="center" width="50"><a onclick="$('#attachTr{0}').remove();$('#SWFUpload_1').removeClass('hide-element')" href="javascript:void(0);" class="pn-opt">删除</a></td>
 					</tr>   
 					</textarea>
 					<script type="text/javascript">

@@ -1,5 +1,6 @@
 var Days = 7;
 var exp = new Date();
+var lang=zh
 exp.setTime(exp.getTime() + Days*24*60*60*1000);
 function getCookie(name)
 {
@@ -25,20 +26,23 @@ $(document).ready(function(){
 	};
 })
 
-if($.cookie('language')==null){
-	var language='zh'
-}else{
-	language=$.cookie('language')
-}
-if(language=='zh'){
-	lang=zh;
-}else if(language=='en'){
-	lang=en;
-}else if(language=='It'){
-	lang=It;
-}
+
 //language
 $(function(){
+	if($.cookie('language')==null){
+		var language='zh'
+	}else{
+		language=$.cookie('language')
+	}
+
+	if(language=='zh'){
+		lang=zh;
+	}else if(language=='en'){
+		lang=en;
+	}else if(language=='It'){
+		lang=It;
+	}
+	
 	$("select #default-value").text(lang['xuanze'])
 	$('.fbgj .tggl-top').css('width','110px')
 	$('#pifa').parent().append(lang['pifa'])
@@ -221,11 +225,13 @@ $(function(){
 	$('#company-web').text(lang['gongsiwangzhi'])
 	$('#company-mob').text(lang['shouji'])
 	$('.brandfont').text(lang['tuijianchangkuan'])
+	/*
 	var imgurl='url('+lang['iconpic']+')'
-	$('#language .icon-img').css('background',imgurl)
+	$('#language .icon-img').css('background',imgurl)*/
 	$('.zipcode-lan').text(lang['youbian'])
 	$('.keyword-lan').text(lang['guanjianzi'])
 	$('#all').text(lang['quanbu'])
+
 	$('#message-title').text(lang['zaixianliuyan'])
 	$('#message-content').text(lang['nindeliuyan'])
 	$('#message-name').text(lang['nindexingming'])
@@ -632,28 +638,32 @@ $(function(){
 	}
 
 	if(kind=='75'){
-		$('#logistics-check').removeClass('hide-element');
+		$('#logisticsbusiness-check, #tagsid').removeClass('hide-element');
+		$('#serviceid').removeClass('hide-element');
+		$('#logistics-check').addClass('hide-element')
+	}
+	if(kind=='76'){
 		$('#serviceid').removeClass('hide-element');
 		$('#business-check').addClass('hide-element')
+		$('#logistics-check').removeClass('hide-element')
 	}
 
 	if (service!=null&&service!=undefined&&service!=''){
 		$('#serviceid').removeClass('hide-element');
 		$.each(service,function(i,data){
+			alert(data)
 			s.push(data);
-			$('#serviceid .tag-check input').filter($('[value='+data+']')).attr({"selected":true,"checked":'checked'});		
+			$('#serviceid .tag-check input').filter($('[value='+zh[data]+']')).attr({"selected":true,"checked":'checked'});		
 		})
 	}
-	if (tag!=null&&tag!=undefined&&tag!=''||kind=='75'){
+	if (tag!=null&&tag!=undefined&&tag!=''&&kind=='75'){
 		$('#tagsid').removeClass('hide-element')
 		$('#serviceid').removeClass('hide-element');
 		$.each(tag,function(i,data){
-			alert(data)
 			t.push(data)
 			$('#tagsid .tag-check input').filter($('[value='+data+']')).attr({"selected":true,"checked":'checked'});		
 		})
 	}
-	
 	var des=$('#description').val();
 	
 	if (des!=null&&des!=undefined&&des!=''){
@@ -919,8 +929,10 @@ $(function(){
     })
 	$('.member-submit').click(function(){
 		 $('#ctags').val("");
+		 alert(s[0])
 		 if(s.length==0){
 			 s.push('其他');
+			 alert(s)
 		 };
 		 codepic=$('#attachmentPaths0').val()
 		 $('#ctags').val(t+'+'+s);
@@ -1185,4 +1197,15 @@ $(function(){
 			}
 		})
 	})
+})
+
+
+//if pic attach
+$(function(){
+	if($('.picexist').val()!=undefined){
+		$('#SWFUpload_0').addClass('hide-element')
+	}
+	if($('.attachexist').val()!=undefined){
+		$('#SWFUpload_1').addClass('hide-element')
+	}
 })

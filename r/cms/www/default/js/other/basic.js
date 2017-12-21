@@ -34,7 +34,6 @@ $(function(){
 	}else{
 		language=$.cookie('language')
 	}
-
 	if(language=='zh'){
 		lang=zh;
 	}else if(language=='en'){
@@ -47,6 +46,7 @@ $(function(){
 	$('.fbgj .tggl-top').css('width','110px')
 	$('#pifa').parent().append(lang['pifa'])
 	$('#lingshou').parent().append(lang['lingshou'])
+	$('#baihuo').parent().append(lang['baihuo'])
 	$('#mainservice').text(lang['mainservice'])
 	$('.tag-check #fuzhuang').parent().append(lang['fuzhuang'])
 	$('.lang-lang').text(lang['lang'])
@@ -68,6 +68,7 @@ $(function(){
 	$('.guoji-lang').text(lang['guojiyunshu'])
 	$('.cangchu-lang').text(lang['cangchu'])
 	$('.qingguan-lang').text(lang['qingguan'])
+	$('.baihuo-lang').text(lang['baihuo'])
 	$('.kuaidi-lang').text(lang['kuaidi'])
 	$('.sloganname').text(lang['sloganname'])
 	$('.slogan1').text(lang['slogan1'])

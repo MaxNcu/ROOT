@@ -69,6 +69,11 @@ $(function() {
 [/#if]
 <script type='text/javascript'>
 $(function(){
+	if($.cookie('language')==null){
+		var language='zh'
+	}else{
+		language=$.cookie('language')
+	}
 	if(language=='en'){
     	$('.user-child').css('margin-left','20px')
     	$('.quit').text('Quit')

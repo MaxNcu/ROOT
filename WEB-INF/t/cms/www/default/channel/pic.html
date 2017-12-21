@@ -157,7 +157,19 @@ $(function() {
 	          [/#list]
 	          [#if t?split(',')[0]=='']
 	          <script type='text/javascript'>
-	          	$('#${s.id} .tags').append("<p>"+lang['other']+"</p>")
+	          if($.cookie('language')==null){
+	      		var language='zh'
+	      	}else{
+	      		language=$.cookie('language')
+	      	}
+	      	if(language=='zh'){
+	      		lang=zh;
+	      	}else if(language=='en'){
+	      		lang=en;
+	      	}else if(language=='It'){
+	      		lang=It;
+	      	}
+	          	$('#${s.id} .tags').append("<p class='haha'>"+lang['other']+"</p>")
 	          </script>
 	          [/#if]
 			  </p>

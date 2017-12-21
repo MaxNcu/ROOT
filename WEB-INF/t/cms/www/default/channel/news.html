@@ -40,6 +40,8 @@ $(function() {
               [#assign keywords='家纺']
              [#elseif word='qita']
               [#assign keywords='其他']
+             [#elseif word='baihuo']
+               [#assign keywords='百货']
             [/#if]
           [#else]
             [#assign word='none']
@@ -161,22 +163,27 @@ $(function() {
 	          [#assign t=s.tagStr?split('+')[1]]
 	          [#assign test=s.tagStr?split('+')[0]]
 	          [#list t?split(',') as ta]
+	          [#if ta != '']
 	          <script type='text/javascript'>
 	          $(function(){
 	        	  $('#${s.id} .tags').append(lang['${ta}']).append('/')
 	          })
 	          </script>
+	          [/#if]
 	          [/#list]
 	          [#list test?split(',') as te]
+	          [#if te == '']
+	          [#else]
 	          <script type='text/javascript'>
 	          $(function(){
 	        	  $('#${s.id} .tags').append("<p>"+lang['${te}']+"/</p>")
 	          })
 	          </script>
+	          [/#if]
 	          [/#list]
 	          [#if t?split(',')?size < 1]
 	          <script type='text/javascript'>
-	          	$('#${s.id} .tags').append("<p>fuck"+lang['other']+"/</p>")
+	          	$('#${s.id} .tags').append("<p>"+lang['other']+"/</p>")
 	          </script>
 	          	[/#if]
 	          </p>

@@ -421,6 +421,11 @@ hr{
 	width:217px;
 	height:132px;
 	border:1px solid rgb(240,240,240);
+	overflow:hidden;
+}
+
+.show-content img{
+	margin: auto auto;
 }
 
 .show-content .imgblock:hover img{
@@ -429,10 +434,7 @@ hr{
 .show-content .imgblock:hover .text-p{
 	display:block;
 }
-.show-content img{
-	width:217px;
-	height:132px;
-}
+
 .show-content .lang-intro{
 	height:15px;
 	width:100%;

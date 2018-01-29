@@ -108,7 +108,7 @@ $(function() {
 			          <div class='show-content'>
 			          <a class="bold" href="${a.url}" target="_blank">
 			          <div class='imgblock'>
-			          <img src="${a.typeImg!}">
+			          <img src="${a.typeImg!}" align='center'>
 			          <div class='text-p'>
 			          <p class='lang-intro'></p>
 			          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
@@ -133,7 +133,7 @@ $(function() {
 			          <div class='show-content'>
 			          <a class="bold" href="${a.url}" target="_blank">
 			          <div class='imgblock'>
-			          <img src="${a.typeImg!}">
+			          <img src="${a.typeImg!}" align='center'>
 			          <div class='text-p'>
 			          <p class='lang-intro'></p>
 			          <p>[@text_cut s=txtshow len=30 append='...'/]</p>
@@ -238,6 +238,16 @@ $(function() {
             maxSlides: 5,
             slideMargin: 20
           });
+          $('.show-content img').each(function(){
+        	  width = this.width;
+        	  height = this.height;
+        	  if (width/height > 217/132){
+        		  $(this).css({'width':'217px','display':'block'})
+        	  }
+        	  else{
+        		  $(this).css({'height':'132px','display':'block'})
+        	  }
+          })
         });
     </script> 
   </section>

@@ -242,16 +242,24 @@ $(function() {
         	  width = this.width;
         	  height = this.height;
         	  if (width/height > 217/132){
-        		  $(this).css({'width':'217px','display':'block'})
+        		  $(this).css({'width':'217px'})
         	  }
         	  else{
-        		  $(this).css({'height':'132px','display':'block'})
+        		  $(this).css({'height':'132px'})
         	  }
           })
         });
     </script> 
   </section>
 </div>
+<style>
+.show-content .imgblock:hover img{
+	display:none;
+}
+.show-content .imgblock:hover .text-p{
+	display:block;
+}
+</style>
 [#include "../include/footer.html"/]
 [#include "../include/right-fixed.html"/]
 </body>

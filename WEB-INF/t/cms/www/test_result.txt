@@ -1,7 +1,7 @@
 1.无法检索到内容：                            done
     检索内容仅限于贸易内容，物流无法检索
 
-2. 无法找回密码：                             remian
+2. 无法找回密码：                             done
     邮箱无法登入
 
 3.物流->其他 乱码：                           done
@@ -26,3 +26,23 @@
 
 
 10.删除的信息，在检索是可被检索出              remian
+
+
+
+
+
+
+
+
+
+
+
+xstinfo@163.com
+xstinfo123
+pop3:xstinfo1234
+
+xstinfo@mail.com
+xstinfo@123
+
+xstinformation@gmail.com
+xstinfo@123

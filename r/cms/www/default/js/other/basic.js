@@ -58,6 +58,7 @@ $(function(){
 	$('.topic-lang').text(lang['biaoti'])
 	$('.tel-lang').text(lang['dianhuan'])
 	$('.xiewa-lang').text(lang['xiewa'])
+	$('#xieyi').text(lang['xinsitongzhucexieyi'])
 	$('.dianzi-lang').text(lang['dianzichanpin'])
 	$('.xiangbao-lang').text(lang['xiangbao'])
 	$('.jiafang-lang').text(lang['jiafang'])
